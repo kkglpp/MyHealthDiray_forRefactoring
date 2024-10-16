@@ -18,7 +18,7 @@ const constNeutralColor = Color.fromARGB(255, 102, 187, 106);
 const constFailColor = Color.fromARGB(255, 255, 205, 210);
 const constSuccessColor = Color.fromARGB(255, 144, 202, 249);
 // 무언가 비어있는 상태를 표시할 때 필요한 색상
-const constEmptyColor = Color.fromARGB(255, 117, 117, 117);
+const constEmptyColor = Color.fromARGB(255, 221, 220, 220);
 
 
 //그래프 색상

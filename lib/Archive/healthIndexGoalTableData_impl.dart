@@ -36,17 +36,17 @@ class HealthIndexGoalTableDataImpl {
 // 1. healthIndex goal 리스트를 가져오는 구문
   final String _getGoalList_str = '''
 SELECT 
-  hg_id AS id,
-  hg_height AS height,
-  hg_weight AS weight,
-  hg_fat AS fat,
-  hg_muscle AS muscle,
-  hg_img AS img,
-  hg_duedate AS duedate,
-  hg_success AS success,
-  hg_successdate AS successdate,
-  hg_priority AS priority
-FROM hi_goal
+  hg_id,
+  hg_height,
+  hg_weight,
+  hg_fat,
+  hg_muscle,
+  hg_img,
+  hg_duedate,
+  hg_success,
+  hg_successdate,
+  hg_priority 
+  FROM hi_goal
 ''';
 // 2. healthIndex goal 1개를 가져오는 구문
   final String _getGaol_str = '''
