@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+
 /*
 ****************************************** 
 요소들의 Size 들을 계산 하는 함수 모음   
 ******************************************
  */
-
-
-  ///해당 사이즈는 기종의 넓이와 높이값을 가지고 계산할건데 일단 넓이만 가지고 계산
-  double fontSize(BuildContext context, int sizeOpt) {
-    /* 
+///해당 사이즈는 기종의 넓이와 높이값을 가지고 계산할건데 일단 넓이만 가지고 계산
+double fontSize(BuildContext context, int sizeOpt) {
+  /* 
     일단 넓이를 60으로 나눈다.
     360 넓이 기준으로 일단 6을 기본 인수로 설정
     tablet pro 의 경우 1204 or 1366 이다.
@@ -25,19 +24,16 @@ import 'package:flutter/material.dart';
     가로비율이 세로비율의 50%가 안되는경우 -> 글자 크기는 상관 없는데, 문제는 글자가 담기는 그릇의 크기가 문제가 되겠다. 개꿀잼이다.
     */
 
-    double width = MediaQuery.of(context).size.width;
-    double height= MediaQuery.of(context).size.height;
+  double width = MediaQuery.of(context).size.width;
+  double height = MediaQuery.of(context).size.height;
+  double var01 = (5 + sizeOpt) / 4;
+  double var02 = width > height * 0.7 ? 0.7 : 1;
 
-    double var01 = (5+sizeOpt)/4;
-    double var02 = width>height*0.7 ? 0.7 :1;
+  return ((width / 60) * var01 * var02); //9 ~
+} //end calc
 
-    return ((width / 60) * var01*var02); //9 ~
-  } //end calc
-
-  double boxheightSize(double size){
-
-    //일단 안쓸건데, 나중에 분명히 다 적용하고 싶어질거야. 그러니까 미리 만들어서 적용해두자.
-    //미리좀 할걸
-    return size;
-
-  }
+double boxheightSize(double size) {
+  //일단 안쓸건데, 나중에 분명히 다 적용하고 싶어질거야. 그러니까 미리 만들어서 적용해두자.
+  //미리좀 할걸
+  return size;
+}

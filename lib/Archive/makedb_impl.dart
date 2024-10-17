@@ -129,7 +129,4 @@ class MakeDBImpl {
     }
     return true;
   } //class initializeAllTables
-
-
-
 } //Class end
