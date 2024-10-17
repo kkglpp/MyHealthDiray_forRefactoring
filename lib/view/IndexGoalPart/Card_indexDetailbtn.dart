@@ -112,7 +112,6 @@ class Card_indexDetailbtn extends ConsumerWidget {
 // 확인 받았을 경우에만 업데이트 실행            
             if(rs){
               bool success = await ref.read(IndexGoalModelProvider(goal.hg_id!).notifier).updateSuccess(false);
-              print(success);
 //해당 목표의 상태 및 돌아가 페이지(GoalList)의 상태를 새로고침한다.
               ref.read(IndexGoalModelProvider(goal.hg_id!).notifier).initForDetail(goal.hg_id!);
               ref.read(healthIndexGoalListProvider.notifier).initializeState();
@@ -154,7 +153,6 @@ class Card_indexDetailbtn extends ConsumerWidget {
 // 확인 받았을 경우에만 업데이트 실행            
             if(rs){
               bool success = await ref.read(IndexGoalModelProvider(goal.hg_id!).notifier).updateSuccess(true);
-              print(success);
 //해당 목표의 상태 및 돌아가 페이지(GoalList)의 상태를 새로고침한다.
               ref.read(IndexGoalModelProvider(goal.hg_id!).notifier).initForDetail(goal.hg_id!);
               ref.read(healthIndexGoalListProvider.notifier).initializeState();

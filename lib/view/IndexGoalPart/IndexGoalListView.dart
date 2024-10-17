@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
+import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/BaseLayout.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetCustomTxtBtn.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetEmptyCard.dart';
@@ -81,7 +82,7 @@ Provider : healthGoalListProvider
 //List가 비어있으면  EmptyCard 를 보여준다.
                       ? Center(
                           child: WidgetEmptyCard(
-                              width: width, height: maxHeight * 0.5))
+                              width: width, height: maxHeight * 0.5, fontSize: fontSize(context, 4),))
                       : ListView.builder(
                           itemCount: goalListState.length,
                           itemBuilder: (context, index) {

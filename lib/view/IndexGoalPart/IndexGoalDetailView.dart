@@ -47,7 +47,7 @@ class IndexGoalDetailView extends ConsumerWidget {
           double doubleBtnBox = boxheightSize(maxHeight * 0.1); //95
 
           return modelState == null
-              ? WidgetEmptyCard(width: maxWidth, height: maxHeight)
+              ? WidgetEmptyCard(width: maxWidth, height: maxHeight, fontSize: fontSize(context, 12),)
               : Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -5,7 +5,7 @@ import 'package:myhealthdiary_app/common/widget/WidgetCustomTextBox.dart';
 class WidgetEmptyCard extends StatelessWidget {
   final double width;
   final double height;
-  const WidgetEmptyCard({super.key, required this.width, required this.height});
+  const WidgetEmptyCard({super.key, required this.width, required this.height, required double fontSize});
 
   @override
   Widget build(BuildContext context) {

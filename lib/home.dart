@@ -6,6 +6,7 @@ import 'package:myhealthdiary_app/common/widget/BaseLayout.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetCustomTextBox.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetDoubleBtn.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/IndexGoalListView.dart';
+import 'package:myhealthdiary_app/view/IndexRecPart/IndexRecListView.dart';
 
 // import 'package:myhealthdiary_app/common/widget/baseLayout.dart';
 
@@ -67,7 +68,7 @@ class Home extends StatelessWidget {
                         "images/backPicture.jpg",
                         fit: BoxFit.fitHeight,
                       ),
-                      navi: "_",
+                      navi: IndexRecListView.routeNameForIndexRecList,
                       width: healthIndexGridWidth,
                       height: healthIndexGridHeight,
                     ),

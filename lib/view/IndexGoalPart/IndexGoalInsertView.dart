@@ -6,6 +6,7 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/widget/BaseLayout.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetCustomTextBox.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetDoubleBtn.dart';
+import 'package:myhealthdiary_app/managerClass/baseAlert.dart';
 import 'package:myhealthdiary_app/provider/IndexGoalListNotifier.dart';
 import 'package:myhealthdiary_app/provider/IndexGoalNotifier.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/Card_IndexGoalValuec.dart';
@@ -194,38 +195,54 @@ class IndexGoalInsertView extends ConsumerWidget {
                   height: descriptHeight,
                   child: WidgetCustomTextBox(
                     msg: "클릭하여 각 각 지표를 입력하세요.",
-                    fontSize:(maxWidth/35).clamp(7, 11),
-                    ),
+                    fontSize: (maxWidth / 35).clamp(7, 11),
+                  ),
                 ),
                 WidgetDoubleBtn(
-                  //CancelBtn 이 들어가는 자리이다. 
-                  leftFunc: (){
+                  //CancelBtn 이 들어가는 자리이다.
+                  leftFunc: () {
                     //상태를 초기화 한다.
-                    if(forInsert){
-                    //insertView로 왔을 경우
-                    ref.read(InsertIndexGoalModelProvider.notifier).initForInsertModel();}
+                    if (forInsert) {
+                      //insertView로 왔을 경우
+                      ref
+                          .read(InsertIndexGoalModelProvider.notifier)
+                          .initForInsertModel();
+                    }
                     //pop 시킨다.
                     context.pop();
                   },
-                  //CancelBtn 이 들어가는 자리이다. 
+                  //CancelBtn 이 들어가는 자리이다.
 
-                  rightFunc:  ()async{
+                  rightFunc: () async {
+                    bool confirm =
+                        await conFirmSuccessAlert(context, "정말로 저장 하시겠습니까?");
+                    if (!confirm) {
+                      return;
+                    }
+
                     //저장하고
-                    await ref.read(InsertIndexGoalModelProvider.notifier).insertHealthGoal();
+                    await ref
+                        .read(InsertIndexGoalModelProvider.notifier)
+                        .insertHealthGoal();
                     //초기화 하고
 
-                    ref.read(InsertIndexGoalModelProvider.notifier).initForInsertModel();
+                    ref
+                        .read(InsertIndexGoalModelProvider.notifier)
+                        .initForInsertModel();
 
                     //List상태 새로고침하기.
 
-                    await ref.read(healthIndexGoalListProvider.notifier).initializeState();
+                    await ref
+                        .read(healthIndexGoalListProvider.notifier)
+                        .initializeState();
 
                     //화면 나가기.
                     context.pop();
-
                   },
                   width: maxWidth,
                   height: btnHeight,
+                  left: "☒ 취 소",
+                  right: "🏆 저 장",
                 ),
               ],
             ),
