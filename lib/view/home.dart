@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/widget/base_layout.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
 

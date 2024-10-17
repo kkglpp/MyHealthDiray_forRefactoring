@@ -1,16 +1,29 @@
-# myhealthdiary_app
 
-A new Flutter project.
+# 프로젝트 개요
+-----
 
-## Getting Started
+다음의 기능등을 통해서  운동할때마다 켜서 함꼐 운동하는 appService .
 
-This project is a starting point for a Flutter application.
+- 건강 지표 관리 (키 / 체중 / BMI / 체지방량 / 골격근량)
 
-A few resources to get you started if this is your first Flutter project:
+- 운동 수행 능력 목표 설정.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 운동 일정/계획 관리
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 운동 기록 관리.
+
+
+
+
+---
+
+
+
+## 해야할일
+
+- 기존 프로젝트 리팩토링 진행 진행중. 40% 완료.
+- 파일 네이밍 규칠 준수 할 것. - 완료
+- 변수명 네이밍 규칠 준수 할것......
+    - model 부분은 고민을 좀 해보자. slqite 의 column 명과 일치 시켰는데...으음..;;;;;
+    - 다른 부분은 완료
+- Riverpods 2 를 사용할 것인가 말것인가 고민중.....
