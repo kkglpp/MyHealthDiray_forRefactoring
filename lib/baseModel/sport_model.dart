@@ -1,62 +1,64 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class SportModel {
-  final int? sport_id;
-  final String sport_name;
-  final String sport_metric1;
-  final String sport_metric2;
-  final String sport_description;
-  final int sport_del;
+  final int? sportId;
+  final String sportName;
+  final String sportMetric1;
+  final String sportMetric2;
+  final String sportDescription;
+  final int sportDel;
 
-  SportModel({required this.sport_id, required this.sport_name, required this.sport_metric1, required this.sport_metric2, required this.sport_description, required this.sport_del});
+  SportModel({
+    required this.sportId,
+    required this.sportName,
+    required this.sportMetric1,
+    required this.sportMetric2,
+    required this.sportDescription,
+    required this.sportDel,
+  });
 
   SportModel copyWith({
-    int? sport_id,
-    String? sport_name,
-    String? sport_metric1,
-    String? sport_metric2,
-    String? sport_description,
-    int? sport_del,
+    int? sportId,
+    String? sportName,
+    String? sportMetric1,
+    String? sportMetric2,
+    String? sportDescription,
+    int? sportDel,
   }) {
     return SportModel(
-      sport_id: sport_id ?? this.sport_id,
-      sport_name: sport_name ?? this.sport_name,
-      sport_metric1: sport_metric1 ?? this.sport_metric1,
-      sport_metric2: sport_metric2 ?? this.sport_metric2,
-      sport_description: sport_description ?? this.sport_description,
-      sport_del: sport_del ?? this.sport_del,
+      sportId: sportId ?? this.sportId,
+      sportName: sportName ?? this.sportName,
+      sportMetric1: sportMetric1 ?? this.sportMetric1,
+      sportMetric2: sportMetric2 ?? this.sportMetric2,
+      sportDescription: sportDescription ?? this.sportDescription,
+      sportDel: sportDel ?? this.sportDel,
     );
   }
 
-
-
-
-
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'sport_id': sport_id,
-      'sport_name': sport_name,
-      'sport_metric1': sport_metric1,
-      'sport_metric2': sport_metric2,
-      'sport_description': sport_description,
-      'sport_del': sport_del,
+      'sport_id': sportId,
+      'sport_name': sportName,
+      'sport_metric1': sportMetric1,
+      'sport_metric2': sportMetric2,
+      'sport_description': sportDescription,
+      'sport_del': sportDel,
     };
   }
 
   factory SportModel.fromMap(Map<String, dynamic> map) {
     return SportModel(
-      sport_id: map['sport_id'] != null ? map['sport_id'] as int : null,
-      sport_name: map['sport_name'] as String,
-      sport_metric1: map['sport_metric1'] as String,
-      sport_metric2: map['sport_metric2'] as String,
-      sport_description: map['sport_description'] as String,
-      sport_del: map['sport_del'] as int,
+      sportId: map['sport_id'] != null ? map['sport_id'] as int : null,
+      sportName: map['sport_name'] as String,
+      sportMetric1: map['sport_metric1'] as String,
+      sportMetric2: map['sport_metric2'] as String,
+      sportDescription: map['sport_description'] as String,
+      sportDel: map['sport_del'] as int,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory SportModel.fromJson(String source) => SportModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory SportModel.fromJson(String source) =>
+      SportModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

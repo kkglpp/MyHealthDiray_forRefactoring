@@ -41,7 +41,8 @@ dependencies:
   sqflite: ^2.3.0
   path: ^1.8.3
   go_router: ^14.2.3
-  responsive_framework: ^1.4.0  
+  #DateFormat 을 쉽게쓰기위해서
+  intl: ^0.18.0
   intl_utils: ^2.8.7
   ## Dailog 형태의 달력을 위함
   calendar_date_picker2: ^1.1.7

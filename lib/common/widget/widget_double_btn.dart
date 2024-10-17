@@ -32,7 +32,7 @@ class WidgetDoubleBtn extends StatelessWidget {
                     fontColor: constCancleColor,
                     width: width/5,
                     height: height,
-                      msg: "$leftMsg", fontSize: width < 60 ? 6 : 10)),
+                      msg: leftMsg, fontSize: width < 60 ? 6 : 10)),
               const SizedBox(width: 20,),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -45,7 +45,7 @@ class WidgetDoubleBtn extends StatelessWidget {
                     fontColor: constConfirmColor,
                     width: width/5,
                     height: height,
-                      msg: "$rightMsg", fontSize: width < 60 ? 6 : 10)),
+                      msg: rightMsg, fontSize: width < 60 ? 6 : 10)),
             ],
           ),
     );

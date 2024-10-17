@@ -115,7 +115,7 @@ class MakeDBImpl {
     ];
     String path = await getDatabasesPath();
     try {
-      Database db = await openDatabase(
+      await openDatabase(
         join(path, 'HealthLife.db'),
         onCreate: (db, version) async {
           for (String str in createStrList) {

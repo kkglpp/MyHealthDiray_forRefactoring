@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Archive/health_index_goal_table_data_impl.dart';
-import '../baseModel/health_Index_goal_model.dart';
+import '../baseModel/health_index_goal_model.dart';
 
 
 final healthIndexGoalListProvider = StateNotifierProvider< IndexGoalListNotifier,List<HealthIndexGoalModel>>((ref){
@@ -32,12 +32,12 @@ class IndexGoalListNotifier extends StateNotifier<List<HealthIndexGoalModel>> {
   sortByDuedateASC() {
     List<HealthIndexGoalModel> tempList = state.toList();
     tempList.sort((a, b) {
-      int priorityCompare = b.hg_priority.compareTo(a.hg_priority);
+      int priorityCompare = b.hgPriority.compareTo(a.hgPriority);
       if (priorityCompare != 0) {
         return priorityCompare; // priority가 다르면 여기서 리턴
       }
-      DateTime dateA = DateTime.parse(a.hg_duedate);
-      DateTime dateB = DateTime.parse(b.hg_duedate);
+      DateTime dateA = DateTime.parse(a.hgDuedate);
+      DateTime dateB = DateTime.parse(b.hgDuedate);
       return dateA.compareTo(dateB); // duedate 오름차순 정렬
     });
 
@@ -47,12 +47,12 @@ class IndexGoalListNotifier extends StateNotifier<List<HealthIndexGoalModel>> {
   sortByDuedateDESC() {
     List<HealthIndexGoalModel> tempList = state.toList();
     tempList.sort((a, b) {
-      int priorityCompare = b.hg_priority.compareTo(a.hg_priority);
+      int priorityCompare = b.hgPriority.compareTo(a.hgPriority);
       if (priorityCompare != 0) {
         return priorityCompare; // priority가 다르면 여기서 리턴
       }
-      DateTime dateA = DateTime.parse(a.hg_duedate);
-      DateTime dateB = DateTime.parse(b.hg_duedate);
+      DateTime dateA = DateTime.parse(a.hgDuedate);
+      DateTime dateB = DateTime.parse(b.hgDuedate);
       return dateB.compareTo(dateA); // duedate 오름차순 정렬
     });
 

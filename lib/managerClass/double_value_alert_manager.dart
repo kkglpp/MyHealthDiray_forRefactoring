@@ -39,7 +39,7 @@ Future<double> doubleValueAlertManager (WidgetRef ref, String title, String metr
           onChange: (newValue) {
             ref.read(insertDoubleValueProvider(initialValue).notifier).state = newValue;
             result = newValue;
-            print(result);
+            // print(result);
           },
         ),
         actions: [

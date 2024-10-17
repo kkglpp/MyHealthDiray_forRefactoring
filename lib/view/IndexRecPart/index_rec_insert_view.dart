@@ -1,6 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
+import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
+import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import '../../common/basic_method.dart';
 import '../../common/widget/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
@@ -81,7 +85,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                     height: smallboxHeight,
                                     child: CardIndexRecInsertView(
                                       indexName: "신 장",
-                                      value: record.hr_height,
+                                      value: record.hrHeight,
                                       metric: "cm",
                                       min: 70,
                                       max: 250,
@@ -99,7 +103,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                     height: smallboxHeight,
                                     child: CardIndexRecInsertView(
                                       indexName: "체 중",
-                                      value: record.hr_weight,
+                                      value: record.hrWeight,
                                       metric: "kg",
                                       min: 20,
                                       max: 150,
@@ -119,7 +123,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                     child: CardIndexRecInsertView(
                                       indexName: "BMI",
                                       value: calcBMI(
-                                          record.hr_height, record.hr_weight),
+                                          record.hrHeight, record.hrWeight),
                                       metric: "",
                                       min: 0,
                                       max: 0,
@@ -143,7 +147,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   height: smallboxHeight,
                                   child: CardIndexRecInsertView(
                                     indexName: "체지방율",
-                                    value: record.hr_fat,
+                                    value: record.hrFat,
                                     metric: "%",
                                     min: 0,
                                     max: 70,
@@ -160,7 +164,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   height: smallboxHeight,
                                   child: CardIndexRecInsertView(
                                     indexName: "골격근량",
-                                    value: record.hr_muscle,
+                                    value: record.hrMuscle,
                                     metric: "kg",
                                     min: 10,
                                     max: 90,
@@ -176,13 +180,31 @@ class IndexRecInsertView extends ConsumerWidget {
                                   width: maxWidth / 2,
                                   height: smallboxHeight,
                                   child: CardIndexRecInsertViewForDate(
-                                    value: record.hr_insertdate,
+                                    value: record.hrInsertDate,
                                   ),
                                 ),
-                              ]),
+                              ],
+                              ),
                             ),
                           ],
                         ),
+                      ),
+                      SizedBox(
+                        height: bannerHeight,
+                        width: maxWidth,
+                        child: BannerForAd(),
+                      ),
+                      //그래프 들어가는 파트
+                      SizedBox(
+                        width: maxWidth,
+                        height: descriptHeight,
+                      ),
+                      
+                      WidgetDoubleBtn(
+                        leftFunc: (){},
+                        rightFunc: (){},
+                        width: maxWidth,
+                        height: btnHeight,
                       )
                     ],
                   ),

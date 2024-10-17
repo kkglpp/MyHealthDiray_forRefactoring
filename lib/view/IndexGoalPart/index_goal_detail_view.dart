@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/card_forI_index_detail_btn.dart';
+import 'package:myhealthdiary_app/view/IndexGoalPart/card_for_index_detail_btn.dart';
 
 import '../../common/basic_method.dart';
 import '../../common/widget/base_layout.dart';
@@ -58,7 +57,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                         child: WidgetCustomTextBox(
                           verAlign: 1,
                           fontAlign: 0,
-                          msg: " 목표 일자 : ${modelState!.hg_duedate}",
+                          msg: " 목표 일자 : ${modelState.hgDuedate}",
                           fontSize: fontSize(context, 5),
                         ),
                       ),
@@ -97,7 +96,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                                         width: maxWidth * 0.2,
                                         height: mainBoxHeight * 0.15,
                                         fontAlign: 1,
-                                        msg: modelState.hg_height.toString(),
+                                        msg: modelState.hgHeight.toString(),
                                         fontSize: fontSize(context, 4)),
                                     WidgetCustomTextBox(
                                         width: maxWidth * 0.1,
@@ -121,7 +120,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                                         width: maxWidth * 0.2,
                                         height: mainBoxHeight * 0.15,
                                         fontAlign: 1,
-                                        msg: modelState.hg_weight.toString(),
+                                        msg: modelState.hgWeight.toString(),
                                         fontSize: fontSize(context, 4)),
                                     WidgetCustomTextBox(
                                         width: maxWidth * 0.1,
@@ -145,8 +144,8 @@ class IndexGoalDetailView extends ConsumerWidget {
                                         width: maxWidth * 0.2,
                                         height: mainBoxHeight * 0.15,
                                         fontAlign: 1,
-                                        msg: calcBMI(modelState.hg_height,
-                                                modelState.hg_weight)
+                                        msg: calcBMI(modelState.hgHeight,
+                                                modelState.hgWeight)
                                             .toString(),
                                         fontSize: fontSize(context, 4)),
                                     WidgetCustomTextBox(
@@ -171,7 +170,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                                         width: maxWidth * 0.2,
                                         height: mainBoxHeight * 0.15,
                                         fontAlign: 1,
-                                        msg: modelState.hg_fat.toString(),
+                                        msg: modelState.hgFat.toString(),
                                         fontSize: fontSize(context, 4)),
                                     WidgetCustomTextBox(
                                         width: maxWidth * 0.1,
@@ -195,7 +194,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                                         width: maxWidth * 0.2,
                                         height: mainBoxHeight * 0.15,
                                         fontAlign: 1,
-                                        msg: modelState.hg_muscle.toString(),
+                                        msg: modelState.hgMuscle.toString(),
                                         fontSize: fontSize(context, 4)),
                                     WidgetCustomTextBox(
                                         width: maxWidth * 0.1,
@@ -220,7 +219,9 @@ class IndexGoalDetailView extends ConsumerWidget {
                           fsize: fontSize(context, 2),
                         ),
                       ),
-                      const BannerForAd(),
+                      SizedBox(
+                        height: bannerBoxHeight,
+                      ),
                       WidgetDoubleBtn(
                         leftFunc: (){
                           context.go("/");

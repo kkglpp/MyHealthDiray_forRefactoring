@@ -37,12 +37,12 @@ sport_del
 ''';
   final String _getSportListStr =
       "SELECT * FROM sport WHERE sport_del IS NOT 1";
-  final String _getSportmapStr =
-      "SELECT sport_id, sport_name FROM sport WHERE sport_del IS NOT 1";
-  final String _getMetric1mapStr =
-      "SELECT sport_id, sport_Metric1 FROM sport WHERE sport_del IS NOT 1";
-  final String _getMetric2mapStr =
-      "SELECT sport_id, sport_Metric2 FROM sport WHERE sport_del IS NOT 1";
+  // final String _getSportmapStr =
+  //     "SELECT sport_id, sport_name FROM sport WHERE sport_del IS NOT 1";
+  // final String _getMetric1mapStr =
+  //     "SELECT sport_id, sport_Metric1 FROM sport WHERE sport_del IS NOT 1";
+  // final String _getMetric2mapStr =
+  //     "SELECT sport_id, sport_Metric2 FROM sport WHERE sport_del IS NOT 1";
 
   final String _getSportStr = "SELECT * FROM sport WHERE sport_id = ? ";
   final String _deleteSportStr =

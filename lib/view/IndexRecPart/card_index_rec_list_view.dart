@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 
-import '../../baseModel/health_Index_record_model.dart';
+import '../../baseModel/health_index_record_model.dart';
 import '../../common/basic_method.dart';
 import '../../common/const/colors.dart';
 
@@ -22,8 +22,8 @@ class CardIndexRecListView extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
         //화면에 보여줄 id로  provider를 셋팅 한다.
-        ref.read(showingHealthIndexRecordIDProvider.notifier).state =model.hr_id!;
-        context.go('/IndexRecords/ShowDetail/${model.hr_id}');
+        ref.read(showingHealthIndexRecordIDProvider.notifier).state =model.hrId!;
+        context.go('/IndexRecords/ShowDetail/${model.hrId}');
       },
       child: Container(
         width: widthValue,
@@ -37,7 +37,7 @@ class CardIndexRecListView extends ConsumerWidget {
                 width: imgSize,
                 height: imgSize,
                 color: Colors.black,
-                child: model.hr_img == null
+                child: model.hrImg == null
                     ? Center(
                         child: WidgetCustomTextBox(
                           verAlign: 1,
@@ -49,7 +49,7 @@ class CardIndexRecListView extends ConsumerWidget {
                           bold: true,
                         ),
                       )
-                    : Image.memory(base64ToU8List(model.hr_img!)),
+                    : Image.memory(base64ToU8List(model.hrImg!)),
               ),
               Positioned(
                 bottom: 0,
@@ -64,7 +64,7 @@ class CardIndexRecListView extends ConsumerWidget {
                     children: [
                       WidgetCustomTextBox(
                         verAlign: 1,
-                        msg: model.hr_insertdate, fontSize: fontSize(context, 3),fontAlign: 2,),
+                        msg: model.hrInsertDate, fontSize: fontSize(context, 3),fontAlign: 2,),
                         SizedBox(
                           width: widthValue*(0.3),
                         )
@@ -87,38 +87,38 @@ class CardIndexRecListView extends ConsumerWidget {
                     children: [
                       BarCardIndexRecListView(
                         maxValue: 50,
-                        value: calcBMI(model.hr_height, model.hr_weight),
+                        value: calcBMI(model.hrHeight, model.hrWeight),
                         maxHeight: heightValue*0.95,
                         width: widthValue*(1/12),
                         color: bmiColor.withOpacity(
-                            (calcBMI(model.hr_height, model.hr_weight) / 50)
+                            (calcBMI(model.hrHeight, model.hrWeight) / 50)
                                 .clamp(0, 1)),
                         sort: "BMI",
                       ),
                       BarCardIndexRecListView(
                         maxValue: 80,
-                        value: model.hr_weight,
+                        value: model.hrWeight,
                         maxHeight: heightValue*0.95,
                         width: widthValue*(1/12),
-                        color: weightColor.withOpacity((model.hr_weight / 80).clamp(0, 1)),
+                        color: weightColor.withOpacity((model.hrWeight / 80).clamp(0, 1)),
                         sort: "몸무게",
                       ),
                       BarCardIndexRecListView(
                         maxValue: 40,
-                        value: model.hr_fat,
+                        value: model.hrFat,
                         maxHeight: heightValue*0.95,
                         width: widthValue*(1/12),
                         color: fatColor
-                            .withOpacity((model.hr_fat ?? 40 / 40).clamp(0, 1)),
+                            .withOpacity((model.hrFat ?? 40 / 40).clamp(0, 1)),
                         sort: "체지방",
                       ),
                       BarCardIndexRecListView(
                         maxValue: 50,
-                        value: model.hr_muscle,
+                        value: model.hrMuscle,
                         maxHeight: heightValue*0.95,
                         width: widthValue*(1/12),
                         color: muscleColor
-                            .withOpacity((model.hr_muscle ?? 50 / 50).clamp(0, 1)),
+                            .withOpacity((model.hrMuscle ?? 50 / 50).clamp(0, 1)),
                         sort: "골격근",
                       ),
                     ],

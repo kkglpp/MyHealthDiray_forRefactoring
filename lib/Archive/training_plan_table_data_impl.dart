@@ -64,11 +64,11 @@ class TrainingPlanTableDataImpl {
 
 // update
 // 2. 한 row를 수정 update 하는 문구 (rec1, rec2)
-  final String _updateTrainingPlanRowStr = '''
-UPDATE training_plan 
-SET tp_rec1 = ?, tp_rec2 = ? 
-WHERE tp_id=?;
-''';
+//   final String _updateTrainingPlanRowStr = '''
+// UPDATE training_plan 
+// SET tp_rec1 = ?, tp_rec2 = ? 
+// WHERE tp_id=?;
+// ''';
 
 // 3. 수행 했는지 Update하는 기능 (% 단위로)
   final String _updateTrainingDoneStr = '''
@@ -82,18 +82,18 @@ WHERE tp_id = ?;
 // { title, traindate, 실행 안한 row , 실행한 row, 실패한 row를} 형태로 조회한다.
 // 수행정도를 %로 표현하기 위해서 각 row의 수 (set수)를 따로 조회한 것이다.
 // 입력할 값은 최소날짜, 최대날짜, 가져올 개수 이다.
-  final String _getDaysPlanSummaryStr = '''
-SELECT 
-  tp_title, 
-  tp_traindate,
-  COUNT(*) AS total_count,
-  SUM(CASE WHEN tp_done = 1 THEN 1 ELSE 0 END) AS done_count,
-FROM training_plan
-WHERE tp_traindate BETWEEN ? AND ?
-GROUP BY tp_title, tp_traindate
-ORDER BY tp_traindate ASC
-LIMIT = ?
-''';
+//   final String _getDaysPlanSummaryStr = '''
+// SELECT 
+//   tp_title, 
+//   tp_traindate,
+//   COUNT(*) AS total_count,
+//   SUM(CASE WHEN tp_done = 1 THEN 1 ELSE 0 END) AS done_count,
+// FROM training_plan
+// WHERE tp_traindate BETWEEN ? AND ?
+// GROUP BY tp_title, tp_traindate
+// ORDER BY tp_traindate ASC
+// LIMIT = ?
+// ''';
 
 //5. 타이틀과 날짜 가지고 그날 운동 계획 종목들을 가져와야한다.
 // {title, s_id, traindate, 총 세트수, 수행 완료한 세트수} 형태로 데이터를 반환한다.
@@ -326,8 +326,8 @@ final String _getTitlesPerdayForPeriod = '''
 
   Future<List<Map<String,dynamic>>> getTitlesPerdayForPeriod() async {
       Database db = await initializeTable();
-      String yesterday = onlyDay(DateTime.now().subtract(Duration(days: 1)));
-      String tomorrow = onlyDay(DateTime.now().add(Duration(days: 1)));
+      String yesterday = onlyDay(DateTime.now().subtract(const Duration(days: 1)));
+      String tomorrow = onlyDay(DateTime.now().add(const Duration(days: 1)));
     try{
       List<Map<String, dynamic>> result = await db.rawQuery(_getTitlesPerdayForPeriod, [yesterday,tomorrow]);
       return result;

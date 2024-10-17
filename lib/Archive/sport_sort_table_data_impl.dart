@@ -60,10 +60,9 @@ WHERE ss_sf_id=?
 //1. 다수의 row를 추가하는 기능 : 다수의 sf_id 와 s_id, s_name을 받아서 넣는다.
   Future<bool> insertRow(SortSportModel row) async {
     final Database db = await initializeTable();
-    int result = 0;
 
     try {
-      result = await db.rawInsert(_insertRowStr, [modelToList(row.toMap())]);
+      await db.rawInsert(_insertRowStr, [modelToList(row.toMap())]);
     } catch (e) {
       return false;
     }

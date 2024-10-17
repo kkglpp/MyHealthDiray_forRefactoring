@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
-import '../../baseModel/health_Index_goal_model.dart';
+import '../../baseModel/health_index_goal_model.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../managerClass/base_alert.dart';
 import '../../provider/undex_goal_list_notifier.dart';
@@ -26,14 +26,14 @@ class CardForIndexDetailBtn extends ConsumerWidget {
     double height_01 = height * 0.7;
     double height_02 = height * 0.2;
     double iconSize = width * 0.2;
-    return goal.hg_success != 0
+    return goal.hgSuccess != 0
         ? Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
                 width: halfWidth,
                 height: height,
-                child: goal.hg_success == 1
+                child: goal.hgSuccess == 1
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -83,9 +83,9 @@ class CardForIndexDetailBtn extends ConsumerWidget {
                       width: halfWidth,
                       height: height,
                       verAlign: 1,
-                      msg: goal.hg_success == 1
-                          ? '목표 달성일 \n ${goal.hg_successdate!}'
-                          : '미달성 기록일 \n ${goal.hg_successdate!}',
+                      msg: goal.hgSuccess == 1
+                          ? '목표 달성일 \n ${goal.hgSuccessdate!}'
+                          : '미달성 기록일 \n ${goal.hgSuccessdate!}',
                       fontSize: fsize),
                 ),
               )
@@ -110,11 +110,12 @@ class CardForIndexDetailBtn extends ConsumerWidget {
             bool rs = await conFirmSuccessAlert(context, "목표를 달성에 실패하셨나요??");
 // 확인 받았을 경우에만 업데이트 실행            
             if(rs){
-              bool success = await ref.read(indexGoalModelProvider(goal.hg_id!).notifier).updateSuccess(false);
+              await ref.read(indexGoalModelProvider(goal.hgId!).notifier).updateSuccess(false);
 //해당 목표의 상태 및 돌아가 페이지(GoalList)의 상태를 새로고침한다.
-              ref.read(indexGoalModelProvider(goal.hg_id!).notifier).initForDetail(goal.hg_id!);
+              ref.read(indexGoalModelProvider(goal.hgId!).notifier).initForDetail(goal.hgId!);
               ref.read(healthIndexGoalListProvider.notifier).initializeState();
 //리스트 화면으로 돌아간다.              
+              // ignore: use_build_context_synchronously
               context.pop();
 
             }
@@ -151,11 +152,12 @@ class CardForIndexDetailBtn extends ConsumerWidget {
             bool rs = await conFirmSuccessAlert(context, "목표를 달성 하셨나요?");
 // 확인 받았을 경우에만 업데이트 실행            
             if(rs){
-              bool success = await ref.read(indexGoalModelProvider(goal.hg_id!).notifier).updateSuccess(true);
+              await ref.read(indexGoalModelProvider(goal.hgId!).notifier).updateSuccess(true);
 //해당 목표의 상태 및 돌아가 페이지(GoalList)의 상태를 새로고침한다.
-              ref.read(indexGoalModelProvider(goal.hg_id!).notifier).initForDetail(goal.hg_id!);
+              ref.read(indexGoalModelProvider(goal.hgId!).notifier).initForDetail(goal.hgId!);
               ref.read(healthIndexGoalListProvider.notifier).initializeState();
 //리스트 화면으로 돌아간다.              
+              // ignore: use_build_context_synchronously
               context.pop();
 
             }

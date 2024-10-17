@@ -3,47 +3,57 @@
 import 'dart:convert';
 
 class HealthIndexGoalModel {
-  final int? hg_id;
-  final double hg_height;
-  final double hg_weight;
-  final double? hg_fat;
-  final double? hg_muscle;
-  final String? hg_img;
-  final String hg_duedate;
-  final int hg_success;
-  final String? hg_successdate;
-  final int hg_priority;
+  final int? hgId;
+  final double hgHeight;
+  final double hgWeight;
+  final double? hgFat;
+  final double? hgMuscle;
+  final String? hgImg;
+  final String hgDuedate;
+  final int hgSuccess;
+  final String? hgSuccessdate;
+  final int hgPriority;
 
-  HealthIndexGoalModel({required this.hg_id, required this.hg_height, required this.hg_weight, required this.hg_fat, required this.hg_muscle, required this.hg_img, required this.hg_duedate, required this.hg_success, required this.hg_successdate, required this.hg_priority});
-
+  HealthIndexGoalModel({
+    required this.hgId,
+    required this.hgHeight,
+    required this.hgWeight,
+    required this.hgFat,
+    required this.hgMuscle,
+    required this.hgImg,
+    required this.hgDuedate,
+    required this.hgSuccess,
+    required this.hgSuccessdate,
+    required this.hgPriority,
+  });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'hg_id': hg_id,
-      'hg_height': hg_height,
-      'hg_weight': hg_weight,
-      'hg_fat': hg_fat,
-      'hg_muscle': hg_muscle,
-      'hg_img': hg_img,
-      'hg_duedate': hg_duedate,
-      'hg_success': hg_success,
-      'hg_successdate': hg_successdate,
-      'hg_priority': hg_priority,
+      'hg_id': hgId,
+      'hg_height': hgHeight,
+      'hg_weight': hgWeight,
+      'hg_fat': hgFat,
+      'hg_muscle': hgMuscle,
+      'hg_img': hgImg,
+      'hg_duedate': hgDuedate,
+      'hg_success': hgSuccess,
+      'hg_successdate': hgSuccessdate,
+      'hg_priority': hgPriority,
     };
   }
 
   factory HealthIndexGoalModel.fromMap(Map<String, dynamic> map) {
     return HealthIndexGoalModel(
-      hg_id: map['hg_id'] != null ? map['hg_id'] as int : null,
-      hg_height: map['hg_height'] as double,
-      hg_weight: map['hg_weight'] as double,
-      hg_fat: map['hg_fat'] != null ? map['hg_fat'] as double : null,
-      hg_muscle: map['hg_muscle'] != null ? map['hg_muscle'] as double : null,
-      hg_img: map['hg_img'] != null ? map['hg_img'] as String : null,
-      hg_duedate: map['hg_duedate'] as String,
-      hg_success: map['hg_success'] as int,
-      hg_successdate: map['hg_successdate'] != null ? map['hg_successdate'] as String : null,
-      hg_priority: map['hg_priority'] as int,
+      hgId: map['hg_id'] != null ? map['hg_id'] as int : null,
+      hgHeight: map['hg_height'] as double,
+      hgWeight: map['hg_weight'] as double,
+      hgFat: map['hg_fat'] != null ? map['hg_fat'] as double : null,
+      hgMuscle: map['hg_muscle'] != null ? map['hg_muscle'] as double : null,
+      hgImg: map['hg_img'] != null ? map['hg_img'] as String : null,
+      hgDuedate: map['hg_duedate'] as String,
+      hgSuccess: map['hg_success'] as int,
+      hgSuccessdate: map['hg_successdate'] != null ? map['hg_successdate'] as String : null,
+      hgPriority: map['hg_priority'] as int,
     );
   }
 
@@ -52,28 +62,28 @@ class HealthIndexGoalModel {
   factory HealthIndexGoalModel.fromJson(String source) => HealthIndexGoalModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   HealthIndexGoalModel copyWith({
-    int? hg_id,
-    double? hg_height,
-    double? hg_weight,
-    double? hg_fat,
-    double? hg_muscle,
-    String? hg_img,
-    String? hg_duedate,
-    int? hg_success,
-    String? hg_successdate,
-    int? hg_priority,
+    int? hgId,
+    double? hgHeight,
+    double? hgWeight,
+    double? hgFat,
+    double? hgMuscle,
+    String? hgImg,
+    String? hgDuedate,
+    int? hgSuccess,
+    String? hgSuccessdate,
+    int? hgPriority,
   }) {
     return HealthIndexGoalModel(
-      hg_id: hg_id ?? this.hg_id,
-      hg_height: hg_height ?? this.hg_height,
-      hg_weight: hg_weight ?? this.hg_weight,
-      hg_fat: hg_fat ?? this.hg_fat,
-      hg_muscle: hg_muscle ?? this.hg_muscle,
-      hg_img: hg_img ?? this.hg_img,
-      hg_duedate: hg_duedate ?? this.hg_duedate,
-      hg_success: hg_success ?? this.hg_success,
-      hg_successdate: hg_successdate ?? this.hg_successdate,
-      hg_priority: hg_priority ?? this.hg_priority,
+      hgId: hgId ?? this.hgId,
+      hgHeight: hgHeight ?? this.hgHeight,
+      hgWeight: hgWeight ?? this.hgWeight,
+      hgFat: hgFat ?? this.hgFat,
+      hgMuscle: hgMuscle ?? this.hgMuscle,
+      hgImg: hgImg ?? this.hgImg,
+      hgDuedate: hgDuedate ?? this.hgDuedate,
+      hgSuccess: hgSuccess ?? this.hgSuccess,
+      hgSuccessdate: hgSuccessdate ?? this.hgSuccessdate,
+      hgPriority: hgPriority ?? this.hgPriority,
     );
   }
 }

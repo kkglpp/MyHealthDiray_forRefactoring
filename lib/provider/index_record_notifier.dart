@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../Archive/health_index_rec_table_data_impl.dart';
-import '../baseModel/health_Index_record_model.dart';
+import '../baseModel/health_index_record_model.dart';
 import '../common/basic_method.dart';
 
 
@@ -15,14 +15,14 @@ class IndexRecordNotifier extends StateNotifier<HealthIndexRecordModel?> {
   IndexRecordNotifier(super.state);
 
   HealthIndexRecordModel sampleModel = HealthIndexRecordModel(
-    hr_id: 0,
-    hr_height: 170,
-    hr_weight: 70,
-    hr_fat: null,
-    hr_muscle: null,
-    hr_img: null,
-    hr_insertdate: onlyDay(DateTime.now()),
-  );
+  hrId: 0,
+  hrHeight: 170,
+  hrWeight: 70,
+  hrFat: null,
+  hrMuscle: null,
+  hrImg: null,
+  hrInsertDate: onlyDay(DateTime.now()),
+);
 
   initState(int id)async{
     HealthIndexRecTableDataImpl db = HealthIndexRecTableDataImpl();
@@ -69,7 +69,7 @@ class IndexRecordNotifier extends StateNotifier<HealthIndexRecordModel?> {
 
   deleteRec()async{
     HealthIndexRecTableDataImpl db = HealthIndexRecTableDataImpl();
-    bool result = await db.deleteHIRec(state!.hr_id!);
+    bool result = await db.deleteHIRec(state!.hrId!);
     return result;
   }
 

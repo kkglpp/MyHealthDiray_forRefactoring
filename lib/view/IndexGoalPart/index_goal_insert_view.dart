@@ -76,7 +76,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CardIndexGoalValue(
-                            value: modelState!.hg_height,
+                            value: modelState!.hgHeight,
                             index: "신 장 : ",
                             metric: "cm",
                             min: 0,
@@ -93,7 +93,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                             opt: forInsert,
                           ),
                           CardIndexGoalValue(
-                            value: modelState.hg_weight,
+                            value: modelState.hgHeight,
                             index: "체 중 : ",
                             metric: "kg",
                             min: 0,
@@ -111,7 +111,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                           ),
                           CardIndexGoalValue(
                             value: calcBMI(
-                                modelState!.hg_height, modelState.hg_weight),
+                                modelState.hgHeight, modelState.hgHeight),
                             index: "BMI :",
                             metric: "",
                             min: 0,
@@ -135,7 +135,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CardIndexGoalValue(
-                            value: modelState.hg_fat,
+                            value: modelState.hgFat,
                             index: "체지방율 : ",
                             metric: "%",
                             min: 0,
@@ -152,7 +152,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                             opt: forInsert,
                           ),
                           CardIndexGoalValue(
-                            value: modelState.hg_muscle,
+                            value: modelState.hgMuscle,
                             index: "골격근량 : ",
                             metric: "kg",
                             min: 0,
@@ -168,7 +168,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                             },
                           ),
                           CardIndexGoalValue(
-                            value: modelState.hg_duedate,
+                            value: modelState.hgDuedate,
                             index: "duedate :",
                             metric: "",
                             min: 0,

@@ -3,11 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/provider/undex_goal_list_notifier.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/IndexGoalDetailView.dart';
-
-import '../../baseModel/health_Index_goal_model.dart';
+import '../../baseModel/health_index_goal_model.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../provider/collection_of_basic_state_provider.dart';
+import 'index_goal_detail_view.dart';
 
 class CardIndexGoalList extends ConsumerWidget {
   final HealthIndexGoalModel model;
@@ -29,8 +28,8 @@ class CardIndexGoalList extends ConsumerWidget {
       onTap: () async{
 // 페이지를 이동하기 전에 모델 아이디를 provider에 보낸다.
 // showingHealthIndexGoalIDProvider : 화면에 보여주고 싶은 HealthIndexGoalID 관리하는 프로바이더.
-        ref.read(showingHealthIndexGoalIDProvider.notifier).state = model.hg_id!;
-        context.goNamed(IndexGoalDetailView.RouteNameForIndexGoalDetail);
+        ref.read(showingHealthIndexGoalIDProvider.notifier).state = model.hgId!;
+        context.goNamed(IndexGoalDetailView.routeNameForIndexGoalDetail);
       },
       child: Dismissible(
         direction: DismissDirection.startToEnd,
@@ -39,12 +38,12 @@ class CardIndexGoalList extends ConsumerWidget {
           alignment: Alignment.centerLeft,
           child: const Icon(Icons.delete_forever, size: 50),
         ),
-        key: ValueKey(model.hg_id),
+        key: ValueKey(model.hgId),
         onDismissed: (direction) {
           //밀어서 삭제하는 함수. 프로바이더에 있는 deleteGoal을 실행한다.
           ref
               .read(healthIndexGoalListProvider.notifier)
-              .deleteGoal(model.hg_id!);
+              .deleteGoal(model.hgId!);
           ref.read(healthIndexGoalListProvider.notifier).initializeState();
         },
         child: LayoutBuilder(builder: (context, constraints) {
@@ -56,9 +55,9 @@ class CardIndexGoalList extends ConsumerWidget {
           return Container(
             width: maxWidth,
             height: maxHeight,
-            color: model.hg_success == 1
+            color: model.hgSuccess == 1
                 ? constSuccessColor
-                : model.hg_success == 0
+                : model.hgSuccess == 0
                     ? constNeutralColor
                     : constFailColor,
             child: Row(
@@ -68,9 +67,9 @@ class CardIndexGoalList extends ConsumerWidget {
                   width: imgSize,
                   height: maxHeight,
                   color: Colors.black,
-                  child: model.hg_img != null
+                  child: model.hgImg != null
 // 추후에 갤러리에서 해당 이름을 가진 사진을 가져 오는 것으로 바꿔야함.
-                      ? Image.asset(model.hg_img!)
+                      ? Image.asset(model.hgImg!)
                       : const Center(
                           child: WidgetCustomTextBox(
                             verAlign: 1,
@@ -90,22 +89,22 @@ class CardIndexGoalList extends ConsumerWidget {
                     children: [
                       WidgetCustomTextBox(
                           height: lineHeight,
-                          msg: "몸무게 : ${model.hg_weight.toString()} kg",
+                          msg: "몸무게 : ${model.hgWeight.toString()} kg",
                           fontSize: fontSize,
                           fontAlign: 2),
                       WidgetCustomTextBox(
                           height: lineHeight,
-                          msg: "골격근량 : ${model.hg_muscle ?? '-'} kg",
+                          msg: "골격근량 : ${model.hgMuscle ?? '-'} kg",
                           fontSize: fontSize,
                           fontAlign: 2),
                       WidgetCustomTextBox(
                           height: lineHeight,
-                          msg: "체지방율 : ${model.hg_fat ?? '-'} %",
+                          msg: "체지방율 : ${model.hgFat ?? '-'} %",
                           fontSize: fontSize,
                           fontAlign: 2),
                       WidgetCustomTextBox(
                           height: lineHeight,
-                          msg: "기한 : ${model.hg_duedate}",
+                          msg: "기한 : ${model.hgDuedate}",
                           fontSize: fontSize,
                           fontAlign: 2),
                     ],

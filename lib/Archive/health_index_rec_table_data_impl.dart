@@ -15,7 +15,7 @@ HealthIndexRec 테이블에서 데이터를 CURD 하는 기능들이 있어야�
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/health_Index_record_model.dart';
+import '../baseModel/health_index_record_model.dart';
 import '../common/basic_method.dart';
 
 

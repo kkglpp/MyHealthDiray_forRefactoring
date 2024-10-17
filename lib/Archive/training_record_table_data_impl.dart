@@ -72,6 +72,7 @@ LIMIT = ?
 //5. 타이틀과 날짜 가지고 그날 운동 계획 종목들을 가져와야한다.
 // {title, s_id, traindate, 총 세트수, 수행 완료한 세트수} 형태로 데이터를 반환한다.
 // 넣어줄 값은 title, traindate 두가지 이다.
+/*
   final String _getDaysRecSportListStr = '''
 SELECT 
     tr_title,
@@ -83,6 +84,7 @@ WHERE tr_title = ?
 AND tr_traindate = ?
 GROUP BY tr_title, tr_s_id, tr_traindate;
 ''';
+*/
 
 // 6. 5에서 가져온 정보에서 각 s_id 들을 통해서 가져올 수 있어야한다.
 // 즉 해당 날짜, 해당 타이틀의 해당 종목 운동 계획의 모든 세트 수를 가져오는 구문

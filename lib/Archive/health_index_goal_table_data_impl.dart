@@ -14,7 +14,7 @@ HI Goal Table에 데이터를 CRUD하는 기능들이 있어야함.
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/health_Index_goal_model.dart';
+import '../baseModel/health_index_goal_model.dart';
 import '../common/basic_method.dart';
 
 class HealthIndexGoalTableDataImpl {
@@ -49,7 +49,7 @@ SELECT
   FROM hi_goal
 ''';
 // 2. healthIndex goal 1개를 가져오는 구문
-  final String _getGaolStr = '''
+  final String _getGoalStr = '''
 SELECT 
   hg_id ,
   hg_height ,
@@ -126,7 +126,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
     final Database db = await initializeTable();
     try {
       final List<Map<String, dynamic>> result =
-          await db.rawQuery(_getGaolStr, [id]);
+          await db.rawQuery(_getGoalStr, [id]);
       // print(result.toString());    
       return result.map((e) => HealthIndexGoalModel.fromMap(e)).toList()[0];
     } catch (e) {

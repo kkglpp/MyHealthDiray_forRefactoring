@@ -2,15 +2,15 @@
 import 'dart:convert';
 
 class MappedSportModel {
-  final String sport_name;
+  final String sportName; 
   final String metric1;
   final String metric2;
 
-  MappedSportModel({required this.sport_name, required this.metric1, required this.metric2});
+  MappedSportModel({required this.sportName, required this.metric1, required this.metric2});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'sport_id': sport_name,
+      'sport_id': sportName, 
       'metric1': metric1,
       'metric2': metric2,
     };
@@ -18,7 +18,7 @@ class MappedSportModel {
 
   factory MappedSportModel.fromMap(Map<String, dynamic> map) {
     return MappedSportModel(
-      sport_name: map['sport_id'] as String,
+      sportName: map['sport_id'] as String, 
       metric1: map['metric1'] as String,
       metric2: map['metric2'] as String,
     );
@@ -29,12 +29,12 @@ class MappedSportModel {
   factory MappedSportModel.fromJson(String source) => MappedSportModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   MappedSportModel copyWith({
-    String? sport_name,
+    String? sportName, 
     String? metric1,
     String? metric2,
   }) {
     return MappedSportModel(
-      sport_name: sport_name ?? this.sport_name,
+      sportName: sportName ?? this.sportName, 
       metric1: metric1 ?? this.metric1,
       metric2: metric2 ?? this.metric2,
     );

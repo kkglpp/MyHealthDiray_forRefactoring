@@ -89,10 +89,10 @@ sf_name
 
 // 4.폴더명 바꾸는 기능
   Future<bool> updateSportFolder(int id, String name) async {
-    int result = 0;
+
     final Database db = await initializeTable();
     try {
-      result = await db.rawUpdate(_updateFolderName, [name, id]);
+      await db.rawUpdate(_updateFolderName, [name, id]);
     } catch (e) {
       return false;
     }

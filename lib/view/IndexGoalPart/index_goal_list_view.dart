@@ -3,9 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/indexGoalInsertView.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/cardIndexGoalList.dart';
-import 'package:path/path.dart';
+import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_insert_view.dart';
+import 'package:myhealthdiary_app/view/IndexGoalPart/card_index_goal_list.dart';
 
 import '../../common/widget/base_layout.dart';
 import '../../common/widget/widget_custom_flt_btn.dart';

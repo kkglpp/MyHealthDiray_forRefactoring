@@ -22,7 +22,7 @@ class IndexRecListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(IndexRecordsStateProvider);
+    final state = ref.watch(indexRecordsStateProvider);
     return LayoutBuilder(
       builder: (context, constraints) {
         double maxWidth = constraints.maxWidth - 20;
@@ -44,7 +44,7 @@ class IndexRecListView extends ConsumerWidget {
                         TextButton(
                           onPressed: () {
                             ref
-                                .read(IndexRecordsStateProvider.notifier)
+                                .read(indexRecordsStateProvider.notifier)
                                 .sortByInsertdateDESC();
                           },
                           child: WidgetCustomTextBox(
@@ -58,7 +58,7 @@ class IndexRecListView extends ConsumerWidget {
                         TextButton(
                           onPressed: () {
                             ref
-                                .read(IndexRecordsStateProvider.notifier)
+                                .read(indexRecordsStateProvider.notifier)
                                 .sortByInsertdateASC();
                           },
                           child: WidgetCustomTextBox(
