@@ -12,6 +12,7 @@ import 'package:myhealthdiary_app/view/IndexGoalPart/IndexGoalDetailView.dart';
 class CardIndexGoalList extends ConsumerWidget {
   final HealthIndexGoalModel model;
 
+
   const CardIndexGoalList({required this.model});
 
   /*

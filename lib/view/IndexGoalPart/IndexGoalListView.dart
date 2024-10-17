@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/BaseLayout.dart';
+import 'package:myhealthdiary_app/common/widget/WidgetCustomFltBtn.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetCustomTxtBtn.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetEmptyCard.dart';
 import 'package:myhealthdiary_app/provider/IndexGoalListNotifier.dart';
@@ -103,20 +104,8 @@ Provider : healthGoalListProvider
           );
         },
       ),
-      floatbtn: IconButton(
-          onPressed: () {
-            context.goNamed(IndexGoalInsertView.routeNameForIndexGoalInsertView);
-          },
-          icon: Container(
-            color: Colors.white.withAlpha(1),
-            child: const Icon(
-              Icons.add_box_outlined,
-              size: 60,
-              color: constMainColor,
-            ),
-          ),
-
-          ),
-    );
+      floatbtn: WidgetCustomFltBtn(onTap: (){
+        context.goNamed(IndexGoalInsertView.routeNameForIndexGoalInsertView);
+      }));
   }
 }

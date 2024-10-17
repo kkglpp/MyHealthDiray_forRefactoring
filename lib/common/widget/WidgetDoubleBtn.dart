@@ -14,7 +14,6 @@ class WidgetDoubleBtn extends StatelessWidget {
   ///SizedBox 부터 리턴한다.
   ///함수 두개 넣자.
   WidgetDoubleBtn({required this.leftFunc, required this.rightFunc, required this.width, required this.height,this.left = "☒ Cancel", this.right ="☑︎ Confirm"});
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(

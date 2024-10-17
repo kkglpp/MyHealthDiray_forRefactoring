@@ -42,8 +42,8 @@ class IndexRecordsListNotifier
     sortByInsertdateDESC() {
     List<HealthIndexRecordModel> tempList = state.toList();
     tempList.sort((a, b) {
-      int aID = a.id!;
-      int bID = b.id!;
+      int aID = a.hr_id!;
+      int bID = b.hr_id!;
       return bID.compareTo(aID); // 
     });
     state=tempList;
@@ -52,8 +52,8 @@ class IndexRecordsListNotifier
   sortByInsertdateASC() {
     List<HealthIndexRecordModel> tempList = state.toList();
     tempList.sort((a, b) {
-      int aID = a.id!;
-      int bID = b.id!;
+      int aID = a.hr_id!;
+      int bID = b.hr_id!;
       return aID.compareTo(bID); // 
     });
     state=tempList;

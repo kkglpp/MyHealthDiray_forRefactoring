@@ -27,7 +27,7 @@ class WidgetCustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     const baseBorder = OutlineInputBorder(
       borderSide: BorderSide(
-        color: constBorder_Color,
+        color: constBorderColor,
         width: 0.5,
       ),
     );
@@ -47,7 +47,7 @@ class WidgetCustomTextField extends StatelessWidget {
             hintText: hintText,
             errorText: errorText,
             hintStyle: TextStyle(color: constMainColor, fontSize: 20),
-            fillColor: constInput_Color,
+            fillColor: constInputColor,
             filled: true,
             border: baseBorder,
             counterText: '',
