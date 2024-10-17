@@ -30,7 +30,7 @@ Future<double> doubleValueAlertManager (WidgetRef ref, String title, String metr
               fontSize: (maxWidth * 0.1).clamp(15, 30)),
         ),
         //미리 디자인해둔 alert Content를 넣는다.
-        content: DesignedAlertContent(
+        content: AlertContentForSliderWiget(
           initialValue: initialValue,
           min: min,
           max: max,

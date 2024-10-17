@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
  */
 
 
-  ///fontSize를 0~5까지 5단계로 나누어서 계산.
   ///해당 사이즈는 기종의 넓이와 높이값을 가지고 계산할건데 일단 넓이만 가지고 계산
   double fontSize(BuildContext context, int sizeOpt) {
     /* 
@@ -38,6 +37,7 @@ import 'package:flutter/material.dart';
   double boxheightSize(double size){
 
     //일단 안쓸건데, 나중에 분명히 다 적용하고 싶어질거야. 그러니까 미리 만들어서 적용해두자.
+    //미리좀 할걸
     return size;
 
   }

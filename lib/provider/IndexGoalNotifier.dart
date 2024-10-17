@@ -10,6 +10,14 @@ final InsertIndexGoalModelProvider =
   return notifier;
 });
 
+final IndexGoalModelProvider = StateNotifierProviderFamily<IndexGoalNotifier, HealthIndexGoalModel?,int>((ref,id){
+  IndexGoalNotifier notifier = IndexGoalNotifier(null);
+  print("model id : $id");
+  notifier.initForDetail(id);
+  return notifier;
+
+});
+
 // HealthIndex insertView 와 detailView에서 모두 사용하는 notifier 이다.
 
 class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
@@ -27,6 +35,18 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
     hg_successdate: onlyDay(DateTime.now()),
     hg_priority: 0,
   );
+
+    initForDetail(int id)async{
+    HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
+    
+    HealthIndexGoalModel? temp = await db.getGoal(id);
+    print("temp 갖고옴?  ");
+    if(temp==null){
+      state= sampleModel.copyWith();
+    }
+    state = temp;
+  }
+
 
 //InsertView 를 위해서 사용하는 Method 파트.
 //초기값을 sampleModel로 설정하는 메소드이다.
@@ -60,13 +80,21 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
     HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
     try{
     bool result = await db.insertGoal(state!);
-
     return result;
     }catch(e){
       print(e);
       return false;
     }
-
+  }
+ Future<bool> updateSuccess(bool success) async {
+    HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
+    bool result = false;
+    if (success) {
+      result = await db.goalSuccess(state!.hg_id!, onlyDay(DateTime.now()));
+    } else {
+      result = await db.failSuccess(state!.hg_id!, onlyDay(DateTime.now()));
+    }
+    return result;
   }
 
 }//end class

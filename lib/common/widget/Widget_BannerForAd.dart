@@ -9,7 +9,7 @@ class BannerForAd extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context,BoxConstraints constraints ) {
         final double width = constraints.maxWidth;
-        final double height = constraints.maxWidth * 1/6;
+        final double height = (constraints.maxHeight * 1/10).clamp(width*1/6, width*1/6);
         return Container(
           color: constEmptyColor,
           width: width,

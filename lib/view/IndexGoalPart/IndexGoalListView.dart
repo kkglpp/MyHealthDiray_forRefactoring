@@ -8,6 +8,7 @@ import 'package:myhealthdiary_app/common/widget/WidgetEmptyCard.dart';
 import 'package:myhealthdiary_app/provider/IndexGoalListNotifier.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/IndexGoalInsertView.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/Card_IndexGoalList.dart';
+import 'package:path/path.dart';
 
 class IndexGoalListView extends ConsumerWidget {
   static String routeName = "HealthIndexGoalList";
@@ -105,11 +106,16 @@ Provider : healthGoalListProvider
           onPressed: () {
             context.goNamed(IndexGoalInsertView.routeNameForIndexGoalInsertView);
           },
-          icon: const Icon(
-            Icons.add_box_outlined,
-            size: 60,
-            color: constMainColor,
-          )),
+          icon: Container(
+            color: Colors.white.withAlpha(1),
+            child: const Icon(
+              Icons.add_box_outlined,
+              size: 60,
+              color: constMainColor,
+            ),
+          ),
+
+          ),
     );
   }
 }

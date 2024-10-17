@@ -6,13 +6,13 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetCustomTextBox.dart';
 import 'package:myhealthdiary_app/provider/CollectionOfBasicStateProvider.dart';
 
-class DesignedAlertContent extends ConsumerWidget {
+class AlertContentForSliderWiget extends ConsumerWidget {
   final double initialValue;
   final double min;
   final double max;
   final String metric;
   final Function(double) onChange;
-  const DesignedAlertContent({
+  const AlertContentForSliderWiget({
     super.key,
     required this.initialValue,
     required this.min,

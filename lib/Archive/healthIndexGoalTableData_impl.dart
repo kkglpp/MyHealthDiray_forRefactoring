@@ -55,7 +55,7 @@ SELECT
   hg_height ,
   hg_weight ,
   hg_fat ,
-  hg_musclee,
+  hg_muscle,
   hg_img ,
   hg_duedate,
   hg_success ,
@@ -130,6 +130,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
       // print(result.toString());    
       return result.map((e) => HealthIndexGoalModel.fromMap(e)).toList()[0];
     } catch (e) {
+      print(e);
       return null;
     }
   }

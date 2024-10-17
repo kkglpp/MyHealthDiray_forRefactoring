@@ -6,6 +6,7 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/widget/WidgetCustomTextBox.dart';
 import 'package:myhealthdiary_app/provider/CollectionOfBasicStateProvider.dart';
 import 'package:myhealthdiary_app/provider/IndexGoalListNotifier.dart';
+import 'package:myhealthdiary_app/provider/IndexGoalNotifier.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/IndexGoalDetailView.dart';
 
 class CardIndexGoalList extends ConsumerWidget {
@@ -24,10 +25,10 @@ class CardIndexGoalList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async{
 // 페이지를 이동하기 전에 모델 아이디를 provider에 보낸다.
 // showingHealthIndexGoalIDProvider : 화면에 보여주고 싶은 HealthIndexGoalID 관리하는 프로바이더.
-        ref.read(showingHealthIndexGoalIDProvider.notifier).state = model.hg_id!;
+        ref.read(showingHealthIndexGoalIDProvider.notifier).state = await model.hg_id!;
         context.goNamed(IndexGoalDetailView.RouteNameForIndexGoalDetail);
       },
       child: Dismissible(
@@ -43,6 +44,7 @@ class CardIndexGoalList extends ConsumerWidget {
           ref
               .read(healthIndexGoalListProvider.notifier)
               .deleteGoal(model.hg_id!);
+          ref.read(healthIndexGoalListProvider.notifier).initializeState();
         },
         child: LayoutBuilder(builder: (context, constraints) {
           double maxHeight = constraints.maxHeight;
