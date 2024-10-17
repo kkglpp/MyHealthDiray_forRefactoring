@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/Archive/healthIndexGoalTableData_impl.dart';
 import 'package:myhealthdiary_app/baseModel/healthIndexGoal_model.dart';
 import 'package:myhealthdiary_app/common/basicMethod.dart';
 
@@ -53,6 +54,19 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
     state = state!.copyWith(hg_duedate: newValue);
   }
 
+  Future<bool> insertHealthGoal() async {
+    print(state!.toMap().toString());
+    // return false;
+    HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
+    try{
+    bool result = await db.insertGoal(state!);
 
+    return result;
+    }catch(e){
+      print(e);
+      return false;
+    }
+
+  }
 
 }//end class

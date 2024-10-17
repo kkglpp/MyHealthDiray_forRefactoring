@@ -38,7 +38,7 @@ class NavigationNotifier extends ChangeNotifier {
             GoRoute(
               path: "insert",
               name: IndexGoalInsertView.routeNameForIndexGoalInsertView,
-              builder: (context, state) => IndexGoalInsertView(),
+              builder: (context, state) => IndexGoalInsertView(forInsert: true),
               ),
               
           ]

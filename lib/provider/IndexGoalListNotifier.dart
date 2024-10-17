@@ -6,7 +6,7 @@ import '../baseModel/healthIndexGoal_model.dart';
 
 final healthIndexGoalListProvider = StateNotifierProvider< IndexGoalListNotifier,List<HealthIndexGoalModel>>((ref){
 IndexGoalListNotifier notifier = IndexGoalListNotifier([]);
-
+notifier.initializeState();
 return notifier;
 });
 

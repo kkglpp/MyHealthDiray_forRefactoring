@@ -26,8 +26,8 @@ class CardIndexGoalList extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
 // 페이지를 이동하기 전에 모델 아이디를 provider에 보낸다.
-
-        ref.read(showingHealthIndexGoalID.notifier).state = model.hg_id!;
+// showingHealthIndexGoalIDProvider : 화면에 보여주고 싶은 HealthIndexGoalID 관리하는 프로바이더.
+        ref.read(showingHealthIndexGoalIDProvider.notifier).state = model.hg_id!;
         context.goNamed(IndexGoalDetailView.RouteNameForIndexGoalDetail);
       },
       child: Dismissible(
@@ -47,8 +47,9 @@ class CardIndexGoalList extends ConsumerWidget {
         child: LayoutBuilder(builder: (context, constraints) {
           double maxHeight = constraints.maxHeight;
           double maxWidth = constraints.maxWidth;
-          double lineHeight = maxHeight*0.23;
-          double fontSize = ((maxWidth/150) * 2.5).clamp(10, 18);
+          double lineHeight = maxHeight*0.14;
+          double fontSize = ((maxWidth/80) * 2.5).clamp(10, 30);
+          double imgSize = (maxWidth *0.4).clamp(maxHeight,maxHeight);
           return Container(
             width: maxWidth,
             height: maxHeight,
@@ -61,7 +62,7 @@ class CardIndexGoalList extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: maxWidth * 0.3,
+                  width: imgSize,
                   height: maxHeight,
                   color: Colors.black,
                   child: model.hg_img != null
@@ -79,14 +80,14 @@ class CardIndexGoalList extends ConsumerWidget {
                 ),
 //기타 목표 수치들을 보여주는 부분. 여백 생각해서 0.05는 비운다.
                 SizedBox(
-                  width: maxWidth*0.65,
+                  width: maxWidth*0.5,
                   height: maxHeight,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       WidgetCustomTextBox(
                           height: lineHeight,
-                          msg: "몸무게 ${model.hg_weight.toString()} kg",
+                          msg: "몸무게 : ${model.hg_weight.toString()} kg",
                           fontSize: fontSize,
                           fontAlign: 2),
                       WidgetCustomTextBox(

@@ -29,7 +29,6 @@ Provider : healthGoalListProvider
         builder: (context, constraints) {
           // 높이 기준으로 크기들 설정하기
           double maxHeight = constraints.maxHeight;
-          print(maxHeight);
           double optHeight = 60;
           double listViewHeight = (maxHeight - 60) * 0.9;
           double cardHeight = maxHeight / 4;
@@ -85,8 +84,15 @@ Provider : healthGoalListProvider
                       : ListView.builder(
                           itemCount: goalListState.length,
                           itemBuilder: (context, index) {
-                            return CardIndexGoalList(
-                                model: goalListState[index]);
+                            return Padding(
+                              padding: const EdgeInsets.fromLTRB(0,10,0,0),
+                              child: SizedBox(
+                                width: maxWidth-20,
+                                height: cardHeight,
+                                child: CardIndexGoalList(
+                                    model: goalListState[index]),
+                              ),
+                            );
                           },
                         ),
                 )
