@@ -40,9 +40,9 @@ class IndexRecordsListNotifier
     await db.deleteHIRec(id);
     initializeState();
   }
-
+//날짜로 했다가, 여러번 입력할 수도 있어서 바꿈..
   ///정렬1 Desc
-  sortByInsertdateDESC() {
+  sortByDESC() {
     List<HealthIndexRecordModel> tempList = state.toList();
     tempList.sort((a, b) {
       int aId = a.hrId!;
@@ -51,9 +51,9 @@ class IndexRecordsListNotifier
     });
     state = tempList;
   }
-
+  //날짜로 했다가, 여러번 입력할 수도 있어서 바꿈..
   ///정렬1 ASC
-  sortByInsertdateASC() {
+  sortByASC() {
     List<HealthIndexRecordModel> tempList = state.toList();
     tempList.sort((a, b) {
       int aId = a.hrId!;

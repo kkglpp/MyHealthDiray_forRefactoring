@@ -28,7 +28,7 @@ class IndexRecListView extends ConsumerWidget {
       builder: (context, constraints) {
         double maxWidth = constraints.maxWidth - 20;
         double maxHeight = constraints.maxHeight;
-        double cardHeight = maxHeight*0.25;
+        double cardHeight = maxHeight*0.2;
         double halfWidth = maxWidth * 0.38;
         double btnHelght = maxHeight * 0.08;
         return BaseLayout(
@@ -47,7 +47,7 @@ class IndexRecListView extends ConsumerWidget {
                           onPressed: () {
                             ref
                                 .read(indexRecordsStateProvider.notifier)
-                                .sortByInsertdateDESC();
+                                .sortByDESC();
                           },
                           child: WidgetCustomTextBox(
                             width: halfWidth,
@@ -61,7 +61,7 @@ class IndexRecListView extends ConsumerWidget {
                           onPressed: () {
                             ref
                                 .read(indexRecordsStateProvider.notifier)
-                                .sortByInsertdateASC();
+                                .sortByASC();
                           },
                           child: WidgetCustomTextBox(
                             width: halfWidth,

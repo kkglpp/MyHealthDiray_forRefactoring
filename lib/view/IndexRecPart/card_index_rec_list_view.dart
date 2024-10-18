@@ -24,7 +24,7 @@ class CardIndexRecListView extends ConsumerWidget {
   });
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    double imgSize = (width * 0.3).clamp(height * 0.2, height);
+    double imgSize = (width * 0.4).clamp(height * 0.2, height);
     final List<String> titleList = ["BMI", "체 중", "체지방율", "골격근량"];
     final List<Color> colorList = [
       bmiColor,
