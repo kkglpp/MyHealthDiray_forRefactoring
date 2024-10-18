@@ -9,7 +9,7 @@ class WidgetDoubleBtn extends StatelessWidget {
   final double height;
   final String leftMsg;
   final String rightMsg;
-  final Function leftFunc;
+  final Function() leftFunc;
   final Function() rightFunc;
   ///각 화면 아래에 버튼 놓을 크기의 높이 지정한 sizedbox 의 child 에 이 클래스 부르면 된다.\n
   ///SizedBox 부터 리턴한다.
@@ -26,7 +26,7 @@ class WidgetDoubleBtn extends StatelessWidget {
               ElevatedButton(
                   style:
                       ElevatedButton.styleFrom(foregroundColor: constCancleColor),
-                  onPressed: leftFunc(),
+                  onPressed: leftFunc,
                   child: WidgetCustomTextBox(
                     bold: true,
                     fontColor: constCancleColor,

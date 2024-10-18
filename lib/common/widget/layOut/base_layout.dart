@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
+import 'package:myhealthdiary_app/view/home.dart';
 
 class BaseLayout extends StatelessWidget {
   final bool? appbarOption;
@@ -44,5 +45,8 @@ class BaseLayout extends StatelessWidget {
       body: SafeArea(child: body),
       floatingActionButton: floatbtn,
     );
+  }
+  void handleAsyncError(BuildContext context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const Home(),));
   }
 }

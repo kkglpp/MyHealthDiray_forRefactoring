@@ -7,7 +7,7 @@ import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/card_index_goal_value.dart';
 
 import '../../common/const/basic_method.dart';
-import '../../common/widget/base_layout.dart';
+import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/const/base_alert.dart';
 import '../../provider/undex_goal_list_notifier.dart';
@@ -27,26 +27,34 @@ class IndexGoalInsertView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final modelState = ref.watch(insertIndexGoalModelProvider);
-    return BaseLayout(
-        barTitle: "새로운 목표 설정하기",
-        // leadbtn: SizedBox(),
-        body: LayoutBuilder(builder: (context, constraints) {
-          double maxHeight = constraints.maxHeight;
-          double maxWidth = constraints.maxWidth - 20;
+    return LayoutBuilder(builder: (context, constraints) {
+      double maxHeight = constraints.maxHeight;
+      double maxWidth = constraints.maxWidth - 20;
 // 큰 이미지 하나 들어간다.
-          double imgHeight = maxHeight * 0.35;
-          //수치들을 입력받는 파트
-          double boxHeight = maxHeight * 0.4;
+      double imgHeight = maxHeight * 0.35;
+      //수치들을 입력받는 파트
+      double boxHeight = maxHeight * 0.4;
 //수치를 각각 입력 받는 sizedbox 높이
-          double smallboxHeight = boxHeight * 0.3;
-          double leftWidth = (maxWidth * 0.5) * 0.35 - 1;
-          double midWidth = (maxWidth * 0.5) * 0.4 - 1;
-          double rightWidth = (maxWidth * 0.5) * 0.25 - 4;
-          //간단한 설명이 들어가는 파트
-          double descriptHeight = maxHeight * 0.04;
-          //버튼 두개 들어가는 곳
-          double btnHeight = maxHeight * 0.07;
-          return Center(
+      double smallboxHeight = boxHeight * 0.3;
+      double leftWidth = (maxWidth * 0.5) * 0.35 - 1;
+      double midWidth = (maxWidth * 0.5) * 0.4 - 1;
+      double rightWidth = (maxWidth * 0.5) * 0.25 - 4;
+      //간단한 설명이 들어가는 파트
+      double descriptHeight = maxHeight * 0.04;
+      //버튼 두개 들어가는 곳
+      double btnHeight = maxHeight * 0.07;
+      return BaseLayout(
+          barTitle: "새로운 목표 설정하기",
+          // leadbtn: SizedBox(),
+          body: modelState == null
+          ?Center(
+            child: SizedBox(
+              width: maxWidth,
+              height: maxHeight.clamp(maxWidth, maxHeight),
+              child: const CircularProgressIndicator(),
+            ),
+          )
+          : Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -76,7 +84,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CardIndexGoalValue(
-                            value: modelState!.hgHeight,
+                            value: modelState.hgHeight,
                             index: "신 장 : ",
                             metric: "cm",
                             min: 0,
@@ -203,40 +211,37 @@ class IndexGoalInsertView extends ConsumerWidget {
                   //CancelBtn 이 들어가는 자리이다.
                   leftFunc: () {
                     //상태를 초기화 한다.
-                    if (forInsert) {
+                    if (forInsert){
                       //insertView로 왔을 경우
                       ref
                           .read(insertIndexGoalModelProvider.notifier)
                           .initForInsertModel();
                     }
                     //pop 시킨다.
+
+                   // ignore: use_build_context_synchronously
                     context.pop();
+ 
                   },
                   //CancelBtn 이 들어가는 자리이다.
-
                   rightFunc: () async {
                     bool confirm =
                         await conFirmSuccessAlert(context, "정말로 저장 하시겠습니까?");
                     if (!confirm) {
                       return;
                     }
-
                     //저장하고
                     await ref
                         .read(insertIndexGoalModelProvider.notifier)
                         .insertHealthGoal();
                     //초기화 하고
-
                     ref
                         .read(insertIndexGoalModelProvider.notifier)
                         .initForInsertModel();
-
                     //List상태 새로고침하기.
-
                     await ref
                         .read(healthIndexGoalListProvider.notifier)
                         .initializeState();
-
                     //화면 나가기.
                     // ignore: use_build_context_synchronously
                     context.pop();
@@ -248,7 +253,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                 ),
               ],
             ),
-          );
-        }));
+          ));
+    });
   }
 }

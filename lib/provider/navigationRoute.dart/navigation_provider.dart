@@ -22,52 +22,48 @@ class NavigationNotifier extends ChangeNotifier {
   NavigationNotifier();
 
   List<GoRoute> get _routes => [
-    GoRoute(
-      path: "/",
-      name: "_",
-      builder: (context, state) => const Home(),
-      routes: [
         GoRoute(
-          path: "Goal",
-          name: IndexGoalListView.routeName,
-          builder: (context, state) => const IndexGoalListView(),
+          path: "/",
+          name: "_",
+          builder: (context, state) => const Home(),
           routes: [
+// HealthIndex 목표 관리 페이지 루팅
             GoRoute(
-              path: "Detail",
-              name: IndexGoalDetailView.routeNameForIndexGoalDetail,
-              builder: (context, state) => const IndexGoalDetailView(),
-              ),
-              
+                path: "Goal",
+                name: IndexGoalListView.routeName,
+                builder: (context, state) => const IndexGoalListView(),
+                routes: [
+                  GoRoute(
+                    path: "Detail",
+                    name: IndexGoalDetailView.routeNameForIndexGoalDetail,
+                    builder: (context, state) => const IndexGoalDetailView(),
+                  ),
+                  GoRoute(
+                    path: "Insert",
+                    name: IndexGoalInsertView.routeNameForIndexGoalInsertView,
+                    builder: (context, state) =>
+                        const IndexGoalInsertView(forInsert: true),
+                  ),
+                ]),
+// HealthIndex 기록 관리 페이지 루팅
             GoRoute(
-              path: "Insert",
-              name: IndexGoalInsertView.routeNameForIndexGoalInsertView,
-              builder: (context, state) => const IndexGoalInsertView(forInsert: true),
-              ),
-          ]
-          ),
-          GoRoute(
-            path: "Records",
-            name: IndexRecListView.routeNameForIndexRecList,
-            builder: (context, state) {
-              return const IndexRecListView();
-            },
-            routes: [
-              GoRoute(path: "Insert",
-              name: IndexRecInsertView.routeForIndexRecInsertView,
+              path: "Records",
+              name: IndexRecListView.routeNameForIndexRecList,
               builder: (context, state) {
-                return const IndexRecInsertView();
+                return const IndexRecListView();
               },
-              
-              ),
-
-            ]
-
-
-            )
-        
-      ]
-
-    )
-
-  ];
+              routes: [
+                GoRoute(
+                  path: "Insert",
+                  name: IndexRecInsertView.routeForIndexRecInsertView,
+                  builder: (context, state) {
+                    return const IndexRecInsertView();
+                  },
+                ),
+              ],
+            ),
+            
+          ],
+        )
+      ];
 }

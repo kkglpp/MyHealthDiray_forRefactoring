@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/provider/index_record_list_notifier.dart';
-import '../../common/widget/base_layout.dart';
+import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_flt_btn.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/widget/widget_empty_card.dart';

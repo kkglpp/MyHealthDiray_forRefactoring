@@ -6,7 +6,7 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_insert_view.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/card_index_goal_list.dart';
 
-import '../../common/widget/base_layout.dart';
+import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_flt_btn.dart';
 import '../../common/widget/widget_custom_txt_btn.dart';
 import '../../common/widget/widget_empty_card.dart';

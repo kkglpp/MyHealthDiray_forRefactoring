@@ -50,8 +50,8 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
 
 //InsertView 를 위해서 사용하는 Method 파트.
 //초기값을 sampleModel로 설정하는 메소드이다.
-  initForInsertModel(){
-    state = sampleModel.copyWith();
+  initForInsertModel() {
+    state = sampleModel;
   }
 //각 값들을 변경하는 메소드 들이다.
   changedHeight(double newValue) {
