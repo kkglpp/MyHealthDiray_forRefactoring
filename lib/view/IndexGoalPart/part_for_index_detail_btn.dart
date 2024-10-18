@@ -7,12 +7,12 @@ import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/const/base_alert.dart';
 import '../../provider/undex_goal_list_notifier.dart';
 
-class CardForIndexDetailBtn extends ConsumerWidget {
+class PartForIndexDetailBtn extends ConsumerWidget {
   final HealthIndexGoalModel goal;
   final double width;
   final double height;
   final double fsize;
-  const CardForIndexDetailBtn({
+  const PartForIndexDetailBtn({
     super.key,
     required this.goal,
     required this.width,
@@ -107,7 +107,7 @@ class CardForIndexDetailBtn extends ConsumerWidget {
         ElevatedButton(
           onPressed: () async{
 // 정말인지 성공 여부를 확인하고
-            bool rs = await conFirmSuccessAlert(context, "목표를 달성에 실패하셨나요??");
+            bool rs = await baseAlertForConfirm(context, "목표를 달성에 실패하셨나요??");
 // 확인 받았을 경우에만 업데이트 실행            
             if(rs){
               await ref.read(indexGoalModelProvider(goal.hgId!).notifier).updateSuccess(false);
@@ -149,7 +149,7 @@ class CardForIndexDetailBtn extends ConsumerWidget {
         ElevatedButton(
           onPressed: () async {
 //달성 여부 확인 받고            
-            bool rs = await conFirmSuccessAlert(context, "목표를 달성 하셨나요?");
+            bool rs = await baseAlertForConfirm(context, "목표를 달성 하셨나요?");
 // 확인 받았을 경우에만 업데이트 실행            
             if(rs){
               await ref.read(indexGoalModelProvider(goal.hgId!).notifier).updateSuccess(true);

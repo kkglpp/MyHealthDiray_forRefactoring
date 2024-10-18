@@ -1,9 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
+import 'package:myhealthdiary_app/common/const/size.dart';
 
 import 'widget_custom_text_box.dart';
 
 //Function 으로 받는 경우 // Function() 으로 받는 경우 비교
+///SizedBox 부터 return 한다.
 class WidgetDoubleBtn extends StatelessWidget {
   final double width;
   final double height;
@@ -17,6 +21,7 @@ class WidgetDoubleBtn extends StatelessWidget {
   const WidgetDoubleBtn({super.key, required this.leftFunc, required this.rightFunc, required this.width, required this.height,this.leftMsg = "☒ Cancel", this.rightMsg ="☑︎ Confirm"});
   @override
   Widget build(BuildContext context) {
+    double fsize =max(leftMsg.length,rightMsg.length)<8? fontSize(context, 3) : fontSize(context, 1.5);
     return SizedBox(
       width: width,
       height: height,
@@ -34,7 +39,7 @@ class WidgetDoubleBtn extends StatelessWidget {
                     fontColor: constCancleColor,
                     width: width/5,
                     height: height,
-                      msg: leftMsg, fontSize: width < 60 ? 6 : 10)),
+                      msg: leftMsg, fontSize: fsize)),
               const SizedBox(width: 20,),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -46,7 +51,7 @@ class WidgetDoubleBtn extends StatelessWidget {
                     fontColor: constConfirmColor,
                     width: width/5,
                     height: height,
-                      msg: rightMsg, fontSize: width < 60 ? 6 : 10)),
+                      msg: rightMsg, fontSize: fsize)),
             ],
           ),
     );

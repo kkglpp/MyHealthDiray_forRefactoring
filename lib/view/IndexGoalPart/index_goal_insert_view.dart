@@ -224,7 +224,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                   //CancelBtn 이 들어가는 자리이다.
                   rightFunc: () async {
                     bool confirm =
-                        await conFirmSuccessAlert(context, "정말로 저장 하시겠습니까?");
+                        await baseAlertForConfirm(context, "정말로 저장 하시겠습니까?");
                     if (!confirm) {
                       return;
                     }

@@ -9,7 +9,7 @@ import '../widget/widget_double_btn.dart';
 버튼 2개 띄우는 간단한 Alert 창.
 아무떄나 쓰기위함
 */
-Future<bool> conFirmSuccessAlert(BuildContext context, String title) async {
+Future<bool> baseAlertForConfirm(BuildContext context, String title) async {
   double width = MediaQuery.of(context).size.width;
   double height = MediaQuery.of(context).size.height;
   bool rs = false;

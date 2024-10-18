@@ -2,12 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/provider/index_record_list_notifier.dart';
+import 'package:myhealthdiary_app/view/IndexRecPart/box_index_rec_graph.dart';
 import '../../common/const/basic_method.dart';
 import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
+import '../../provider/acuu_record_index_notifier.dart';
 import '../../provider/collection_of_basic_state_provider.dart';
 import '../../provider/index_record_notifier.dart';
 import 'card_index_rec_insert_view.dart';
@@ -15,7 +20,9 @@ import 'card_index_rec_insert_view.dart';
 class IndexRecInsertView extends ConsumerWidget {
   static String routeForIndexRecInsertView = "routeForIndexRecInsertView";
   static String routeForIndexRecDetailView = "routeForIndexRecDetailView";
-  const IndexRecInsertView({super.key});
+  ///true 이면 insert,  false 이면 detail
+  final bool opt;
+  const IndexRecInsertView({super.key,required this.opt});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,20 +39,21 @@ class IndexRecInsertView extends ConsumerWidget {
         double maxWidth = constraints.maxWidth - 20;
         double maxHeight = constraints.maxHeight;
 //이미지 넣는 자리
-        double imgHeight = maxHeight * 0.3;
+        double imgHeight = maxHeight * 0.28;
 //수치들을 입력받는 파트
-        double boxHeight = maxHeight * 0.22;
+        double boxHeight = maxHeight * 0.17; //45%
 //수치를 각각 입력 받는 sizedbox 높이
-        double smallboxHeight = boxHeight * 0.3;
+        double smallboxHeight = boxHeight * 0.32;
         // double leftWidth = (maxWidth * 0.5) * 0.35 - 1;
         // double midWidth = (maxWidth * 0.5) * 0.4 - 1;
         // double rightWidth = (maxWidth * 0.5) * 0.25 - 4;
 //광고 배너
-        double bannerHeight = maxHeight * 0.1; // 62
+        // double bannerHeight = maxHeight * 0.1; // @
 //그래프 들어가는 곳
-        double descriptHeight = maxHeight * 0.28; // 90
-        //버튼 두개 들어가는 곳
-        double btnHeight = maxHeight * 0.07;
+        double descriptHeight = maxHeight * 0.28; // 65+@%
+//버튼 두개 들어가는 곳
+        double btnHeight = maxHeight * 0.07; //
+
         return record == null
             ? Center(
                 child: SizedBox(
@@ -54,9 +62,10 @@ class IndexRecInsertView extends ConsumerWidget {
                     child: const CircularProgressIndicator()),
               )
             : BaseLayout(
+                appbarOption: false,
                 body: Center(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
                         width: maxWidth,
@@ -77,7 +86,6 @@ class IndexRecInsertView extends ConsumerWidget {
                           children: [
                             SizedBox(
                               width: maxWidth * 0.47,
-                              height: boxHeight,
                               child: Column(
                                 children: [
                                   SizedBox(
@@ -140,72 +148,103 @@ class IndexRecInsertView extends ConsumerWidget {
                             ),
                             SizedBox(
                               width: maxWidth * 0.47,
-                              height: boxHeight,
-                              child: Column(children: [
-                                SizedBox(
-                                  width: maxWidth / 2,
-                                  height: smallboxHeight,
-                                  child: CardIndexRecInsertView(
-                                    indexName: "체지방율",
-                                    value: record.hrFat,
-                                    metric: "%",
-                                    min: 0,
-                                    max: 70,
-                                    changeVal: (value) {
-                                      ref
-                                          .read(indexRecModelProvider(recordId)
-                                              .notifier)
-                                          .changedFat(value!);
-                                    },
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    width: maxWidth / 2,
+                                    height: smallboxHeight,
+                                    child: CardIndexRecInsertView(
+                                      indexName: "체지방율",
+                                      value: record.hrFat,
+                                      metric: "%",
+                                      min: 0,
+                                      max: 70,
+                                      changeVal: (value) {
+                                        ref
+                                            .read(
+                                                indexRecModelProvider(recordId)
+                                                    .notifier)
+                                            .changedFat(value!);
+                                      },
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: maxWidth / 2,
-                                  height: smallboxHeight,
-                                  child: CardIndexRecInsertView(
-                                    indexName: "골격근량",
-                                    value: record.hrMuscle,
-                                    metric: "kg",
-                                    min: 10,
-                                    max: 90,
-                                    changeVal: (value) {
-                                      ref
-                                          .read(indexRecModelProvider(recordId)
-                                              .notifier)
-                                          .changedMuscle(value!);
-                                    },
+                                  SizedBox(
+                                    width: maxWidth / 2,
+                                    height: smallboxHeight,
+                                    child: CardIndexRecInsertView(
+                                      indexName: "골격근량",
+                                      value: record.hrMuscle,
+                                      metric: "kg",
+                                      min: 10,
+                                      max: 90,
+                                      changeVal: (value) {
+                                        ref
+                                            .read(
+                                                indexRecModelProvider(recordId)
+                                                    .notifier)
+                                            .changedMuscle(value!);
+                                      },
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: maxWidth / 2,
-                                  height: smallboxHeight,
-                                  child: CardIndexRecInsertViewForDate(
-                                    value: record.hrInsertDate,
+                                  SizedBox(
+                                    width: maxWidth / 2,
+                                    height: smallboxHeight,
+                                    child: CardIndexRecInsertViewForDate(
+                                      value: record.hrInsertDate,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: bannerHeight,
+                      BannerForAd(),
+//그래프 들어가는 파트
+                      BoxIndexRecGraph(
                         width: maxWidth,
-                        child: BannerForAd(),
+                        height: descriptHeight, opt: false,
                       ),
-                      //그래프 들어가는 파트
-                      SizedBox(
-                        width: maxWidth,
-                        height: descriptHeight,
-                      ),
-                      
+
                       WidgetDoubleBtn(
-                        leftFunc: (){},
-                        rightFunc: (){},
+                        leftFunc: () {
+                          //사용한 상태들을 초기화 하고
+                          ref.read(indexRecModelProvider(recordId).notifier).initState(recordId);
+                          ref.read(showingHealthIndexRecordIDProvider.notifier).state=0;
+                          ref.read(indexRecordsStateProvider.notifier).initializeState();
+
+                          //화면에서 나간다.
+                          context.pop();
+                            
+                        },
+                        rightFunc: ()  async {
+                          // 저장 확인 alert 확인 띄운다.
+                          bool confirm = await baseAlertForConfirm(context, "저장 하시겠습니까?");
+                          if(!confirm){
+                            return;
+                          }
+                          //저장하고
+                          if(opt){
+                          ref.read(indexRecModelProvider(recordId).notifier).insertNewRec();
+                          // insert 일때는 그래프에 들어간 내용들도 변경되기 떄문에 초기화 해야함.
+                          ref.read(accuHeightNotifierProvider.notifier).initializeState();
+                          ref.read(accuWeightNotifierProvider.notifier).initializeState();
+                          ref.read(accuFatNotifierProvider.notifier).initializeState();
+                          ref.read(accuMuscleNotifierProvider.notifier).initializeState();
+                          ref.read(accuInsertDateNotifierProvider.notifier).initializeState();
+                          }
+                          //상태들을 초기화하고
+                          ref.read(indexRecModelProvider(recordId).notifier).initState(recordId);
+                          ref.read(showingHealthIndexRecordIDProvider.notifier).state=0;       
+                          ref.read(indexRecordsStateProvider.notifier).initializeState();
+                          //화면에서 나간다.
+                          // ignore: use_build_context_synchronously
+                          context.pop();
+                        },
+                        rightMsg: "✏️ Save",
                         width: maxWidth,
                         height: btnHeight,
-                      )
+                      ),
                     ],
                   ),
                 ),

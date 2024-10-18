@@ -28,10 +28,8 @@ class IndexRecordNotifier extends StateNotifier<HealthIndexRecordModel?> {
     HealthIndexRecTableDataImpl db = HealthIndexRecTableDataImpl();
     HealthIndexRecordModel? model;
     model = await db.getOneRecord(id);
-
     if (model == null) {
       setNullState();
-
       return ;
     }
     state = model.copyWith();

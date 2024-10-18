@@ -23,10 +23,12 @@ class IndexRecListView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(indexRecordsStateProvider);
+
     return LayoutBuilder(
       builder: (context, constraints) {
         double maxWidth = constraints.maxWidth - 20;
         double maxHeight = constraints.maxHeight;
+        double cardHeight = maxHeight*0.25;
         double halfWidth = maxWidth * 0.38;
         double btnHelght = maxHeight * 0.08;
         return BaseLayout(
@@ -91,8 +93,8 @@ class IndexRecListView extends ConsumerWidget {
                                     padding:
                                         const EdgeInsets.fromLTRB(0, 15, 0, 15),
                                     child: CardIndexRecListView(
-                                        heightValue: maxHeight * 0.25,
-                                        widthValue: maxWidth,
+                                        height: cardHeight,
+                                        width: maxWidth,
                                         model: state[index]));
                               },
                             )

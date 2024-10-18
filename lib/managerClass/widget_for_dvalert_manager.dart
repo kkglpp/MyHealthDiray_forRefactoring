@@ -4,17 +4,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
+
+import '../../provider/collection_of_basic_state_provider.dart';
 import '../common/const/basic_method.dart';
 import '../common/widget/widget_custom_text_box.dart';
-import '../provider/collection_of_basic_state_provider.dart';
 
-class AlertContentForSliderWiget extends ConsumerWidget {
+class WidgetForDValertManager extends ConsumerWidget {
   final double initialValue;
   final double min;
   final double max;
   final String metric;
   final Function(double) onChange;
-  const AlertContentForSliderWiget({
+  const WidgetForDValertManager({
     super.key,
     required this.initialValue,
     required this.min,

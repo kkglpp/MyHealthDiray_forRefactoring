@@ -48,7 +48,7 @@ class HealthIndexRecTableDataImpl {
   //3.1 기록리스트를 최근 순서로 n개 가져오기
   final String _getRecordsStr = '''
 SELECT * FROM (
-  SELECT hr_id,
+  SELECT hr_id ,
           hr_height ,
           hr_weight ,
           hr_fat ,
@@ -56,17 +56,17 @@ SELECT * FROM (
           hr_img ,
           hr_insertdate 
     FROM hi_rec
-    ORDER BY hr_insertdate DESC
+    ORDER BY hr_id DESC
     LIMIT ?
 )
-ORDER BY insertdate ASC;
+ORDER BY hr_id ASC;
 ''';
   // "SELECT * FROM (SELECT * FROM hi_rec ORDER BY hr_insertdate DESC LIMIT ?) ORDER BY hr_insertdate ASC";
 
   //4.1개 기록 가져오기
   final String _getOneRecordStr = '''  SELECT hr_id AS id,
           hr_height ,
-          hr_weight t,
+          hr_weight ,
           hr_fat ,
           hr_muscle ,
           hr_img ,
@@ -132,9 +132,11 @@ ORDER BY insertdate ASC;
     try {
       final List<Map<String, dynamic>> result =
           await db.rawQuery(_getRecordsStr, [limit]);
+          print("db???");
+          print(result.toString());
       return result.map((e) => HealthIndexRecordModel.fromMap(e)).toList();
     } catch (e) {
-      // print('db : $e');
+      print('db : $e');
       return [];
     }
   }

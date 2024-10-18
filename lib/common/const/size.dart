@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myhealthdiary_app/common/const/basic_method.dart';
 
 /*
 ****************************************** 
@@ -7,7 +8,7 @@ import 'package:flutter/material.dart';
  */
 ///해당 사이즈는 기종의 넓이와 높이값을 가지고 계산할건데 일단 넓이만 가지고 계산
 
-double fontSize(BuildContext context, int sizeOpt) {
+double fontSize(BuildContext context, double sizeOpt) {
   /* 
     일단 넓이를 60으로 나눈다.
     360 넓이 기준으로 일단 6을 기본 인수로 설정 (width / 6)
@@ -29,7 +30,7 @@ double fontSize(BuildContext context, int sizeOpt) {
   double var01 = (5 + sizeOpt) / 4;
   double var02 = width > height * 0.7 ? 0.7 : 1;
 
-  return ((width / 60) * var01 * var02); //9 ~
+  return roundMethod((width / 60) * var01 * var02); //9 ~
 } //end calc
 
 double boxheightSize(double size) {

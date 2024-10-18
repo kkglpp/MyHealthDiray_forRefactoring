@@ -6,6 +6,7 @@ import '../baseModel/health_index_record_model.dart';
 final indexRecordsStateProvider = StateNotifierProvider<
     IndexRecordsListNotifier, List<HealthIndexRecordModel>>((ref) {
   IndexRecordsListNotifier notifier = IndexRecordsListNotifier([]);
+  notifier.initializeState();
   return notifier;
 });
 

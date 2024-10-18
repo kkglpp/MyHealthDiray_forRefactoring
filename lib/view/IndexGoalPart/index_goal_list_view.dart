@@ -33,8 +33,8 @@ Provider : healthGoalListProvider
           builder: (context, constraints) {
             // 높이 기준으로 크기들 설정하기
             double maxHeight = constraints.maxHeight;
-            double optHeight = 60;
-            double listViewHeight = (maxHeight - 60) * 0.9;
+            double optHeight = maxHeight * 0.07;
+            double listViewHeight = (maxHeight) *0.9;
             double cardHeight = maxHeight / 4;
             //최대 넓이 기준으로 넓이 값설정하기
             double maxWidth = constraints.maxWidth;
@@ -52,8 +52,10 @@ Provider : healthGoalListProvider
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         WidgetCustomTxtBtn(
+                          width: width/3,
+                          height: optHeight,
                           txt: "목표일 ⬇️ ",
-                          fsize: 15,
+                          fsize: fontSize(context, 4),
                           clr: constConfirmColor,
                           onTap: () {
                             ref
@@ -62,8 +64,10 @@ Provider : healthGoalListProvider
                           },
                         ),
                         WidgetCustomTxtBtn(
+                          width: width/3,
+                          height: optHeight,
                           txt: "목표일 ⬆️ ",
-                          fsize: 15,
+                          fsize: fontSize(context, 4),
                           clr: constCancleColor,
                           onTap: () {
                             ref

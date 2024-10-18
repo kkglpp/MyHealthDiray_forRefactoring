@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
+import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/card_for_index_detail_btn.dart';
+import 'package:myhealthdiary_app/view/IndexGoalPart/part_for_index_detail_btn.dart';
 
 import '../../common/const/basic_method.dart';
 import '../../common/widget/layOut/base_layout.dart';
@@ -212,7 +213,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                       SizedBox(
                         width: maxWidth,
                         height: btnBoxHeight,
-                        child: CardForIndexDetailBtn(
+                        child: PartForIndexDetailBtn(
                           goal: modelState,
                           width: maxWidth * 0.85,
                           height: btnBoxHeight,
@@ -221,6 +222,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                       ),
                       SizedBox(
                         height: bannerBoxHeight,
+                        child: const BannerForAd(),
                       ),
                       WidgetDoubleBtn(
                         leftFunc: (){
@@ -230,7 +232,7 @@ class IndexGoalDetailView extends ConsumerWidget {
                         rightFunc: (){
                           context.pop();
                         },
-                        leftMsg: "🏠 홈으로",
+                        leftMsg: "🏠 Home",
                         width: maxWidth,
                         height: doubleBtnBox*0.7,
                       )

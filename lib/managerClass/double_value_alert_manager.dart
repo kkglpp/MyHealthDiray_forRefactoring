@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
-import 'package:myhealthdiary_app/managerClass/designed_alert.dart';
 
+
+import '../../provider/collection_of_basic_state_provider.dart';
 import '../common/widget/widget_custom_text_box.dart';
-import '../provider/collection_of_basic_state_provider.dart';
+import 'widget_for_dvalert_manager.dart';
 
 Future<double?> doubleValueAlertManager (WidgetRef ref, String title, String metric,
   double? initialValue, double min, double max)  async {
@@ -31,7 +32,7 @@ Future<double?> doubleValueAlertManager (WidgetRef ref, String title, String met
               fontSize: (maxWidth * 0.1).clamp(15, 30)),
         ),
         //미리 디자인해둔 alert Content를 넣는다.
-        content: AlertContentForSliderWiget(
+        content: WidgetForDValertManager(
           initialValue: insertedValue,
           min: min,
           max: max,

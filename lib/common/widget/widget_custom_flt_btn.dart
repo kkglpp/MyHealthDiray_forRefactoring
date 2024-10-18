@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 
 class WidgetCustomFltBtn extends StatelessWidget {
-  final Function() onTap;
+  final Function onTap;
   const WidgetCustomFltBtn({super.key, required this.onTap});
 
   @override

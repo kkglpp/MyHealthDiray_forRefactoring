@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/managerClass/double_value_alert_manager.dart';
 
 import '../../common/widget/widget_custom_text_box.dart';
+import '../../managerClass/double_value_alert_manager.dart';
 
 class CardIndexRecInsertView extends ConsumerWidget {
   /// 지표 이름. 왼쪽 상자 텍스트
@@ -26,7 +26,7 @@ class CardIndexRecInsertView extends ConsumerWidget {
   final bool isInsert;
 
   ///값을 바꾸는 함수를 넣어라.
-  final Function(double?) changeVal;
+  final Function changeVal;
 
   const CardIndexRecInsertView({
     super.key,

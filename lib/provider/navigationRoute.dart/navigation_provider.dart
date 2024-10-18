@@ -57,7 +57,7 @@ class NavigationNotifier extends ChangeNotifier {
                   path: "Insert",
                   name: IndexRecInsertView.routeForIndexRecInsertView,
                   builder: (context, state) {
-                    return const IndexRecInsertView();
+                    return const IndexRecInsertView(opt: true,);
                   },
                 ),
               ],

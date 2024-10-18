@@ -22,25 +22,25 @@ class HealthIndexRecordModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id': hrId,
-      'height': hrHeight,
-      'weight': hrWeight,
-      'fat': hrFat,
-      'muscle': hrMuscle,
-      'imgBase64': hrImg,
-      'insertdate': hrInsertDate,
+      'hr_id': hrId,
+      'hr_height': hrHeight,
+      'hr_weight': hrWeight,
+      'hr_fat': hrFat,
+      'hr_muscle': hrMuscle,
+      'hr_img': hrImg,
+      'hr_insertdate': hrInsertDate,
     };
   }
 
   factory HealthIndexRecordModel.fromMap(Map<String, dynamic> map) {
     return HealthIndexRecordModel(
-      hrId: map['id'] != null ? map['id'] as int : null,
-      hrHeight: map['height'] as double,
-      hrWeight: map['weight'] as double,
-      hrFat: map['fat'] != null ? map['fat'] as double : null,
-      hrMuscle: map['muscle'] != null ? map['muscle'] as double : null,
-      hrImg: map['imgBase64'] != null ? map['imgBase64'] as String : null,
-      hrInsertDate: map['insertdate'] as String,
+      hrId: map['hr_id'] != null ? map['hr_id'] as int : null,
+      hrHeight: map['hr_height'] as double,
+      hrWeight: map['hr_weight'] as double,
+      hrFat: map['hr_fat'] != null ? map['hr_fat'] as double : null,
+      hrMuscle: map['hr_muscle'] != null ? map['hr_muscle'] as double : null,
+      hrImg: map['hr_img'] != null ? map['hr_img'] as String : null,
+      hrInsertDate: map['hr_insertdate'] as String,
     );
   }
 

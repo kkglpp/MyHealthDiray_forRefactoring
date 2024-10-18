@@ -9,7 +9,7 @@ import '../../common/widget/widget_custom_text_box.dart';
 class BarCardIndexRecListView extends StatelessWidget {
   final double maxValue;
   final double? value;
-  final double maxHeight;
+  final double height;
   final double width;
   final Color color;
   final String sort;
@@ -17,7 +17,7 @@ class BarCardIndexRecListView extends StatelessWidget {
     super.key,
     required this.maxValue,
     required this.value,
-    required this.maxHeight,
+    required this.height,
     required this.width,
     required this.color,
     required this.sort,
@@ -27,10 +27,11 @@ class BarCardIndexRecListView extends StatelessWidget {
   Widget build(BuildContext context) {
     //true 면 값이 있고, false면 값이 없다.
     final bool opt = !(value == null);
-    final double height;
+    final double maxHeight = height *0.8;
+    final double heightValue;
     !opt
-        ? height = maxHeight
-        : height =
+        ? heightValue = maxHeight
+        : heightValue =
             roundMethod(((maxHeight * value!) / maxValue).clamp(0, maxHeight));
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -38,25 +39,23 @@ class BarCardIndexRecListView extends StatelessWidget {
         Container(
           color: opt ? color : Colors.black.withOpacity(0.08),
           width: width,
-          height: height,
+          height: heightValue,
           child: opt
               ? null
               : Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                WidgetCustomTextBox(width: width, height: height, msg: "X", fontSize: fontSize(context, 3))
+                WidgetCustomTextBox(width: width, height: heightValue, msg: "X", fontSize: fontSize(context, 3))
                 ]
                 ),
         ),
-        SizedBox(
+        WidgetCustomTextBox(
+          verAlign: 1,
           width: width,
-          height: maxHeight*0.05,
-          child: WidgetCustomTextBox(
-            width: width, height: maxHeight*0.05,
-            msg: sort,
-            fontSize: fontSize(context, 3),
-            bold: true,
-          ),
+          height: height*0.15,
+          msg: sort,
+          fontSize: fontSize(context, 0.01),
+          bold: true,
         )
       ],
     );
