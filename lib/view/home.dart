@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/base_layout.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
@@ -45,7 +46,7 @@ class Home extends StatelessWidget {
                   width: width,
                   height: labelHeight,
                   msg: "   ➤  건강 지표 관리",
-                  fontSize: calcFontSize(6, width, height * 0.06),
+                  fontSize: fontSize(context, 10),
                 ),
               ),
               SizedBox(
@@ -100,7 +101,7 @@ class Home extends StatelessWidget {
                   width: width,
                   height: labelHeight,
                   msg: "   ➤  운동 일정 관리",
-                  fontSize: calcFontSize(6, width, height * 0.06),
+                  fontSize: fontSize(context,6 ),
                 ),
               ),
               SizedBox(
