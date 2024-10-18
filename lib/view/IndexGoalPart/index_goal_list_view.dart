@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
+import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_insert_view.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/card_index_goal_list.dart';
 
@@ -109,6 +110,9 @@ Provider : healthGoalListProvider
           },
         ),
         floatbtn: WidgetCustomFltBtn(onTap: () {
+          //insert 하기위한 provider가  초기화 안되었을 수 있으니 초기화 한다.
+          ref.read(insertIndexGoalModelProvider.notifier).initForInsertModel();
+          //페이지 이동
           context.goNamed(IndexGoalInsertView.routeNameForIndexGoalInsertView);
         }));
   }

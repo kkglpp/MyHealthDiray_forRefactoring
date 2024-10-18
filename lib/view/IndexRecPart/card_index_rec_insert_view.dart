@@ -26,7 +26,7 @@ class CardIndexRecInsertView extends ConsumerWidget {
   final bool isInsert;
 
   ///값을 바꾸는 함수를 넣어라.
-  final Function(double) changeVal;
+  final Function(double?) changeVal;
 
   const CardIndexRecInsertView({
     super.key,
@@ -76,7 +76,7 @@ class CardIndexRecInsertView extends ConsumerWidget {
           GestureDetector(
             onTap: () async {
               if(!isInsert){return;}
-              double newValue = await doubleValueAlertManager(ref, indexName, metric, value ?? 30, min, max);
+              double? newValue = await doubleValueAlertManager(ref, indexName, metric, value ?? 30, min, max);
               changeVal(newValue);
             },
             child: Container(

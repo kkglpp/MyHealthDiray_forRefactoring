@@ -50,8 +50,7 @@ class CardIndexGoalValue extends ConsumerWidget {
 
   ///날짜 선택이냐?
   final bool date;
-
-  final Function(dynamic) changeValue;
+  final Function changeValue;
   const CardIndexGoalValue({
     super.key,
     required this.value,
@@ -104,7 +103,7 @@ class CardIndexGoalValue extends ConsumerWidget {
                 changeValue(onlyDay(newdate));
                 return;
               }
-              double newValue = await doubleValueAlertManager(
+              double? newValue = await doubleValueAlertManager(
                   ref, index, metric, value, min, max);
                   changeValue(newValue);
             },
@@ -117,7 +116,7 @@ class CardIndexGoalValue extends ConsumerWidget {
               child: WidgetCustomTextBox(
                 fontAlign: 2,
                 verAlign: 1,
-                msg: value.toString(),
+                msg:value==null?"-": value.toString(),
                 fontSize: value.toString().length >6?fontSize/1.5: fontSize,
               ),
             ),

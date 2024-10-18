@@ -3,14 +3,14 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 
 import 'widget_custom_text_box.dart';
 
-
+//Function 으로 받는 경우 // Function() 으로 받는 경우 비교
 class WidgetDoubleBtn extends StatelessWidget {
   final double width;
   final double height;
   final String leftMsg;
   final String rightMsg;
-  final Function() leftFunc;
-  final Function() rightFunc;
+  final Function leftFunc;
+  final Function rightFunc;
   ///각 화면 아래에 버튼 놓을 크기의 높이 지정한 sizedbox 의 child 에 이 클래스 부르면 된다.\n
   ///SizedBox 부터 리턴한다.
   ///함수 두개 넣자.
@@ -26,7 +26,9 @@ class WidgetDoubleBtn extends StatelessWidget {
               ElevatedButton(
                   style:
                       ElevatedButton.styleFrom(foregroundColor: constCancleColor),
-                  onPressed: leftFunc,
+//함수 부르는 방식 테스트중
+                  // onPressed:()=> leftFunc,
+                  onPressed:()=> leftFunc(),
                   child: WidgetCustomTextBox(
                     bold: true,
                     fontColor: constCancleColor,
@@ -37,9 +39,8 @@ class WidgetDoubleBtn extends StatelessWidget {
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       foregroundColor: constConfirmColor),
-                  onPressed: () {
-                    rightFunc();
-                  },
+//함수 부르는 방식 테스트중
+                  onPressed: () => rightFunc(),
                   child: WidgetCustomTextBox(
                     bold: true,
                     fontColor: constConfirmColor,

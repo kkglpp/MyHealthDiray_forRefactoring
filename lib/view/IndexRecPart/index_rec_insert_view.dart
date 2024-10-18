@@ -94,7 +94,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                             .read(
                                                 indexRecModelProvider(recordId)
                                                     .notifier)
-                                            .changedHeight(value);
+                                            .changedHeight(value!);
                                       },
                                     ),
                                   ),
@@ -112,7 +112,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                             .read(
                                                 indexRecModelProvider(recordId)
                                                     .notifier)
-                                            .changedWeight(value);
+                                            .changedWeight(value!);
                                       },
                                     ),
                                   ),
@@ -155,7 +155,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                       ref
                                           .read(indexRecModelProvider(recordId)
                                               .notifier)
-                                          .changedFat(value);
+                                          .changedFat(value!);
                                     },
                                   ),
                                 ),
@@ -172,7 +172,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                       ref
                                           .read(indexRecModelProvider(recordId)
                                               .notifier)
-                                          .changedMuscle(value);
+                                          .changedMuscle(value!);
                                     },
                                   ),
                                 ),

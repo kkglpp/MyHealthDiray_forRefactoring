@@ -218,10 +218,8 @@ class IndexGoalInsertView extends ConsumerWidget {
                           .initForInsertModel();
                     }
                     //pop 시킨다.
-
                    // ignore: use_build_context_synchronously
                     context.pop();
- 
                   },
                   //CancelBtn 이 들어가는 자리이다.
                   rightFunc: () async {
