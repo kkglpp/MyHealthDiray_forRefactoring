@@ -12,11 +12,11 @@ import '../../common/widget/widget_custom_text_box.dart';
 import '../../provider/collection_of_basic_state_provider.dart';
 import 'bar_card_index_rec_list_view.dart';
 
-class CardIndexRecListView extends ConsumerWidget {
+class CardIndexRecList extends ConsumerWidget {
   final HealthIndexRecordModel model;
   final double width;
   final double height;
-  const CardIndexRecListView({
+  const CardIndexRecList({
     super.key,
     required this.model,
     required this.width,

@@ -5,7 +5,7 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../managerClass/double_value_alert_manager.dart';
 
-class CardIndexRecInsertView extends ConsumerWidget {
+class CardIndexRecord extends ConsumerWidget {
   /// 지표 이름. 왼쪽 상자 텍스트
   final String indexName;
 
@@ -28,7 +28,7 @@ class CardIndexRecInsertView extends ConsumerWidget {
   ///값을 바꾸는 함수를 넣어라.
   final Function changeVal;
 
-  const CardIndexRecInsertView({
+  const CardIndexRecord({
     super.key,
     required this.indexName,
     required this.value,
@@ -126,13 +126,13 @@ class CardIndexRecInsertView extends ConsumerWidget {
 날짜 파트만.  거의 양식이 같은데 별도 파일ㄹ로 만들 필요가 있을까?
 날짜는 그날그날 기록하도록만 제한한다.
  */
-class CardIndexRecInsertViewForDate extends StatelessWidget {
+class CardIndexRecForDate extends StatelessWidget {
 
   /// 지표 값. 가운데 상자.
   final String value;
   /// 값을 입력하기 위한 상태이냐. 여부
   /// True가 기본값. false면 입력불가.
-  const CardIndexRecInsertViewForDate({
+  const CardIndexRecForDate({
     super.key,
     required this.value,
   });

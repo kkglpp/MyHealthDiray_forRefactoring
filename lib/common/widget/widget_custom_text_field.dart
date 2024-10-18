@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
+import 'package:myhealthdiary_app/common/const/size.dart';
 
 class WidgetCustomTextField extends StatelessWidget {
   final double width;
@@ -41,12 +42,12 @@ class WidgetCustomTextField extends StatelessWidget {
         autofocus: autofocus,
         onChanged: onchanged,
         maxLength: maxLength,
-        style: const TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: fontSize(context, 2.5)),
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(5),
             hintText: hintText,
             errorText: errorText,
-            hintStyle: const TextStyle(color: constMainColor, fontSize: 20),
+            hintStyle:  TextStyle(color: constMainColor, fontSize: fontSize(context, 2)),
             fillColor: constInputColor,
             filled: true,
             border: baseBorder,

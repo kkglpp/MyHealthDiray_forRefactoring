@@ -9,7 +9,7 @@ import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/widget/widget_empty_card.dart';
 
 import '../../provider/collection_of_basic_state_provider.dart';
-import 'card_index_rec_list_view.dart';
+import 'card_index_rec_list.dart';
 import 'index_rec_insert_view.dart';
 
 class IndexRecListView extends ConsumerWidget {
@@ -32,6 +32,7 @@ class IndexRecListView extends ConsumerWidget {
         double halfWidth = maxWidth * 0.38;
         double btnHelght = maxHeight * 0.08;
         return BaseLayout(
+          barTitle:"body diary",
             body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -92,7 +93,7 @@ class IndexRecListView extends ConsumerWidget {
                                 return Padding(
                                     padding:
                                         const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                                    child: CardIndexRecListView(
+                                    child: CardIndexRecList(
                                         height: cardHeight,
                                         width: maxWidth,
                                         model: state[index]));

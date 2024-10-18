@@ -1,53 +1,53 @@
 import 'dart:convert';
 
 class TrainingGoalModel {
-  final int? id;
-  final int sId;
-  final double goal1;
-  final double goal2;
-  final String dueDate;
-  final String insertDate;
-  final int success;
-  final String successDate;
-  final int priority;
+  final int? tgId;
+  final int tgSId;
+  final double tgGoal1;
+  final double tgGoal2;
+  final String tgDueDate;
+  final String tgInsertDate;
+  final int tgSuccess;
+  final String tgSuccessDate;
+  final int tgPriority;
 
   TrainingGoalModel({
-    required this.id,
-    required this.sId,
-    required this.goal1,
-    required this.goal2,
-    required this.dueDate,
-    required this.insertDate,
-    required this.success,
-    required this.successDate,
-    required this.priority,
+    required this.tgId,
+    required this.tgSId,
+    required this.tgGoal1,
+    required this.tgGoal2,
+    required this.tgDueDate,
+    required this.tgInsertDate,
+    required this.tgSuccess,
+    required this.tgSuccessDate,
+    required this.tgPriority,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'tg_id': id,
-      'tg_s_id': sId,
-      'tg_goal1': goal1,
-      'tg_goal2': goal2,
-      'tg_duedate': dueDate,
-      'tg_insertdate': insertDate,
-      'tg_success': success,
-      'tg_successdate': successDate,
-      'tg_priority': priority,
+      'tg_id': tgId,
+      'tg_s_id': tgSId,
+      'tg_goal1': tgGoal1,
+      'tg_goal2': tgGoal2,
+      'tg_duedate': tgDueDate,
+      'tg_insertdate': tgInsertDate,
+      'tg_success': tgSuccess,
+      'tg_successdate': tgSuccessDate,
+      'tg_priority': tgPriority,
     };
   }
 
   factory TrainingGoalModel.fromMap(Map<String, dynamic> map) {
     return TrainingGoalModel(
-      id: map['tg_id'] != null ? map['tg_id'] as int : null,
-      sId: map['tg_s_id'] as int,
-      goal1: map['tg_goal1'] as double,
-      goal2: map['tg_goal2'] as double,
-      dueDate: map['tg_duedate'] as String,
-      insertDate: map['tg_insertdate'] as String,
-      success: map['tg_success'] as int,
-      successDate: map['tg_successdate'] as String,
-      priority: map['tg_priority'] as int,
+      tgId: map['tg_id'] != null ? map['tg_id'] as int : null,
+      tgSId: map['tg_s_id'] as int,
+      tgGoal1: map['tg_goal1'] as double,
+      tgGoal2: map['tg_goal2'] as double,
+      tgDueDate: map['tg_duedate'] as String,
+      tgInsertDate: map['tg_insertdate'] as String,
+      tgSuccess: map['tg_success'] as int,
+      tgSuccessDate: map['tg_successdate'] as String,
+      tgPriority: map['tg_priority'] as int,
     );
   }
 
@@ -57,26 +57,26 @@ class TrainingGoalModel {
       TrainingGoalModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   TrainingGoalModel copyWith({
-    int? id,
-    int? sId,
-    double? goal1,
-    double? goal2,
-    String? dueDate,
-    String? insertDate,
-    int? success,
-    String? successDate,
-    int? priority,
+    int? tgId,
+    int? tgSId,
+    double? tgGoal1,
+    double? tgGoal2,
+    String? tgDueDate,
+    String? tgInsertDate,
+    int? tgSuccess,
+    String? tgSuccessDate,
+    int? tgPriority,
   }) {
     return TrainingGoalModel(
-      id: id ?? this.id,
-      sId: sId ?? this.sId,
-      goal1: goal1 ?? this.goal1,
-      goal2: goal2 ?? this.goal2,
-      dueDate: dueDate ?? this.dueDate,
-      insertDate: insertDate ?? this.insertDate,
-      success: success ?? this.success,
-      successDate: successDate ?? this.successDate,
-      priority: priority ?? this.priority,
+      tgId: tgId ?? this.tgId,
+      tgSId: tgSId ?? this.tgSId,
+      tgGoal1: tgGoal1 ?? this.tgGoal1,
+      tgGoal2: tgGoal2 ?? this.tgGoal2,
+      tgDueDate: tgDueDate ?? this.tgDueDate,
+      tgInsertDate: tgInsertDate ?? this.tgInsertDate,
+      tgSuccess: tgSuccess ?? this.tgSuccess,
+      tgSuccessDate: tgSuccessDate ?? this.tgSuccessDate,
+      tgPriority: tgPriority ?? this.tgPriority,
     );
   }
 }

@@ -15,7 +15,7 @@ import '../../common/widget/widget_custom_text_box.dart';
 import '../../provider/acuu_record_index_notifier.dart';
 import '../../provider/collection_of_basic_state_provider.dart';
 import '../../provider/index_record_notifier.dart';
-import 'card_index_rec_insert_view.dart';
+import 'card_index_record.dart';
 
 class IndexRecInsertView extends ConsumerWidget {
   static String routeForIndexRecInsertView = "routeForIndexRecInsertView";
@@ -92,7 +92,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   SizedBox(
                                     width: maxWidth / 2,
                                     height: smallboxHeight,
-                                    child: CardIndexRecInsertView(
+                                    child: CardIndexRecord(
                                       indexName: "신 장",
                                       value: record.hrHeight,
                                       metric: "cm",
@@ -111,7 +111,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   SizedBox(
                                     width: maxWidth / 2,
                                     height: smallboxHeight,
-                                    child: CardIndexRecInsertView(
+                                    child: CardIndexRecord(
                                       indexName: "체 중",
                                       value: record.hrWeight,
                                       metric: "kg",
@@ -131,7 +131,7 @@ class IndexRecInsertView extends ConsumerWidget {
 //BMI 는 자동으로 계산하기 때문에 별도로 입력하지 않는다.
                                     width: maxWidth / 2,
                                     height: smallboxHeight,
-                                    child: CardIndexRecInsertView(
+                                    child: CardIndexRecord(
                                       indexName: "BMI",
                                       value: calcBMI(
                                           record.hrHeight, record.hrWeight),
@@ -156,7 +156,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   SizedBox(
                                     width: maxWidth / 2,
                                     height: smallboxHeight,
-                                    child: CardIndexRecInsertView(
+                                    child: CardIndexRecord(
                                       indexName: "체지방율",
                                       value: record.hrFat,
                                       metric: "%",
@@ -175,7 +175,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   SizedBox(
                                     width: maxWidth / 2,
                                     height: smallboxHeight,
-                                    child: CardIndexRecInsertView(
+                                    child: CardIndexRecord(
                                       indexName: "골격근량",
                                       value: record.hrMuscle,
                                       metric: "kg",
@@ -194,7 +194,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                   SizedBox(
                                     width: maxWidth / 2,
                                     height: smallboxHeight,
-                                    child: CardIndexRecInsertViewForDate(
+                                    child: CardIndexRecForDate(
                                       value: record.hrInsertDate,
                                     ),
                                   ),

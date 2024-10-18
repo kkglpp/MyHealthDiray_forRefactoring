@@ -1,10 +1,5 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-
 
 import '../../provider/collection_of_basic_state_provider.dart';
 import '../common/const/basic_method.dart';
@@ -50,11 +45,10 @@ class WidgetForDValertManager extends ConsumerWidget {
               value: state,
               onChanged: (newValue) {
                 onChange(changeValue(state, newValue));
-                
               },
             ),
           ),
-    // 버튼을 통해서 5단위로 입력을 조절할 수 있게함
+          // 버튼을 통해서 5단위로 입력을 조절할 수 있게함
           SizedBox(
             width: maxWidth * 0.8,
             height: maxHeight * 0.2,
@@ -64,7 +58,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                   width: (maxWidth * 0.8) / 3,
                   child: IconButton(
                       onPressed: () {
-                        onChange(changeValue(state, state-5));    
+                        onChange(changeValue(state, state - 5));
                       },
                       icon: Icon(
                         Icons.remove,
@@ -79,7 +73,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                   width: (maxWidth * 0.8) / 3,
                   child: IconButton(
                       onPressed: () {
-                        onChange(changeValue(state, state+5));        
+                        onChange(changeValue(state, state + 5));
                       },
                       icon: Icon(
                         Icons.add,
@@ -89,7 +83,7 @@ class WidgetForDValertManager extends ConsumerWidget {
               ],
             ),
           ),
-    // 버튼을 통해서 1단위로 입력을 조절할 수 있게함
+          // 버튼을 통해서 1단위로 입력을 조절할 수 있게함
           SizedBox(
             width: maxWidth * 0.8,
             height: maxHeight * 0.2,
@@ -99,8 +93,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                   width: (maxWidth * 0.8) / 3,
                   child: IconButton(
                       onPressed: () {
-                        onChange(changeValue(state, state-1));        
-    
+                        onChange(changeValue(state, state - 1));
                       },
                       icon: Icon(
                         Icons.remove,
@@ -115,8 +108,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                   width: (maxWidth * 0.8) / 3,
                   child: IconButton(
                       onPressed: () {
-                        onChange(changeValue(state, state+1));        
-    
+                        onChange(changeValue(state, state + 1));
                       },
                       icon: Icon(
                         Icons.add,
@@ -126,7 +118,7 @@ class WidgetForDValertManager extends ConsumerWidget {
               ],
             ),
           ),
-    // 버튼을 통해서 0.1단위로 입력을 조절할 수 있게함
+          // 버튼을 통해서 0.1단위로 입력을 조절할 수 있게함
           SizedBox(
             width: maxWidth * 0.8,
             height: maxHeight * 0.2,
@@ -136,8 +128,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                   width: (maxWidth * 0.8) / 3,
                   child: IconButton(
                       onPressed: () {
-                        onChange(changeValue(state, state-0.1));        
-    
+                        onChange(changeValue(state, state - 0.1));
                       },
                       icon: Icon(
                         Icons.remove,
@@ -151,14 +142,14 @@ class WidgetForDValertManager extends ConsumerWidget {
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
                   child: IconButton(
-                      onPressed: () {
-                        onChange(changeValue(state, state+0.1));        
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        size: fontSize,
-                      ),
-                      ),
+                    onPressed: () {
+                      onChange(changeValue(state, state + 0.1));
+                    },
+                    icon: Icon(
+                      Icons.add,
+                      size: fontSize,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -167,21 +158,19 @@ class WidgetForDValertManager extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               WidgetCustomTextBox(
-                verAlign: 2,
-                fontAlign: 2,
-                width: (maxWidth * 0.8) /2,
-                height: maxHeight*0.2,                  
-                msg: state.toString(),
-                fontSize: fontSize*1.4
-                ),
+                  verAlign: 2,
+                  fontAlign: 2,
+                  width: (maxWidth * 0.8) / 2,
+                  height: maxHeight * 0.2,
+                  msg: state.toString(),
+                  fontSize: fontSize * 1.4),
               WidgetCustomTextBox(
-                verAlign: 2,
-                fontAlign: 0,
-                width: (maxWidth * 0.8) / 4,
-                height: maxHeight*0.2,                  
-                msg: "  $metric",
-                fontSize: fontSize
-                ),
+                  verAlign: 2,
+                  fontAlign: 0,
+                  width: (maxWidth * 0.8) / 4,
+                  height: maxHeight * 0.2,
+                  msg: "  $metric",
+                  fontSize: fontSize),
             ],
           )
         ],
