@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../Archive/health_index_rec_table_data_impl.dart';
 import '../baseModel/health_index_record_model.dart';
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 
 
 final indexRecModelProvider= StateNotifierProviderFamily<IndexRecordNotifier, HealthIndexRecordModel?,int>((ref, id){

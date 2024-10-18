@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 import '../common/widget/widget_custom_text_box.dart';
 import '../provider/collection_of_basic_state_provider.dart';
 

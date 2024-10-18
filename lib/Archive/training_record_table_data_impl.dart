@@ -25,7 +25,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../baseModel/training_rec_model.dart';
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 
 class TrainingRecordsTableDataImpl {
 // 0. db여는 기능

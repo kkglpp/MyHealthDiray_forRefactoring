@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../common/basic_method.dart';
+import '../../common/const/basic_method.dart';
 import '../../common/const/colors.dart';
 
 // HealthIndexRec 카드에 그림을 그리기 위한 Class.

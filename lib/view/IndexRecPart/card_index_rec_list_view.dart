@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 
 import '../../baseModel/health_index_record_model.dart';
-import '../../common/basic_method.dart';
+import '../../common/const/basic_method.dart';
 import '../../common/const/colors.dart';
 
 import '../../common/widget/widget_custom_text_box.dart';
@@ -37,19 +37,32 @@ class CardIndexRecListView extends ConsumerWidget {
                 width: imgSize,
                 height: imgSize,
                 color: Colors.black,
-                child: model.hrImg == null
-                    ? Center(
-                        child: WidgetCustomTextBox(
+                child:Center(
+                          child: WidgetCustomTextBox(
                           verAlign: 1,
                           width: imgSize,
                           height: imgSize,
                           msg: "No\nImage",
                           fontSize: fontSize(context, 12),
-                          fontColor: Colors.white,
+                          fontColor: const Color.fromARGB(255, 30, 21, 21),
                           bold: true,
                         ),
                       )
-                    : Image.memory(base64ToU8List(model.hrImg!)),
+                  // model.hrImg == null
+                    // ? 
+                    // Center(
+                    // : Center(
+                    //     child: WidgetCustomTextBox(
+                    //       verAlign: 1,
+                    //       width: imgSize,
+                    //       height: imgSize,
+                    //       msg: "이미지 불러오기 \n 작업해야 함",
+                    //       fontSize: fontSize(context, 12),
+                    //       fontColor: const Color.fromARGB(255, 30, 21, 21),
+                    //       bold: true,
+                    //     ),
+                    //   ),
+                    // : Image.memory(base64ToU8List(model.hrImg!)),
               ),
               Positioned(
                 bottom: 0,

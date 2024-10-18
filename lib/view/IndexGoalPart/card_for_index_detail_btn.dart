@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
 import '../../baseModel/health_index_goal_model.dart';
 import '../../common/widget/widget_custom_text_box.dart';
-import '../../managerClass/base_alert.dart';
+import '../../common/const/base_alert.dart';
 import '../../provider/undex_goal_list_notifier.dart';
 
 class CardForIndexDetailBtn extends ConsumerWidget {

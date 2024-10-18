@@ -10,7 +10,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../baseModel/sport_folder_model.dart';
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 
 class SportFolderTableDataImpl {
   //db 시작 구문

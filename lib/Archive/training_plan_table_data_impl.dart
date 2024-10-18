@@ -33,7 +33,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../baseModel/training_plan_model.dart';
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 
 class TrainingPlanTableDataImpl {
 // 0. db여는 기능

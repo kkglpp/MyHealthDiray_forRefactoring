@@ -27,7 +27,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../baseModel/training_goal_model.dart';
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 
 class TrainingGoalTableDataImpl {
 //0. db열기

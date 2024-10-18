@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/managerClass/double_value_alert_manager.dart';
 
-import '../../common/basic_method.dart';
+import '../../common/const/basic_method.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../managerClass/pick_date_method.dart';
 

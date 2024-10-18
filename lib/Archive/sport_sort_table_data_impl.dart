@@ -9,7 +9,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../baseModel/sorted_sport_model.dart';
-import '../common/basic_method.dart';
+import '../common/const/basic_method.dart';
 
 class SortSportTableDataImpl {
   final String _createSortSportStr = '''CREATE TABLE sort_sport(
