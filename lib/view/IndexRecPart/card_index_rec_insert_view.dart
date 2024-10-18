@@ -132,11 +132,9 @@ class CardIndexRecInsertViewForDate extends StatelessWidget {
   final String value;
   /// 값을 입력하기 위한 상태이냐. 여부
   /// True가 기본값. false면 입력불가.
-  final bool isInsert;
   const CardIndexRecInsertViewForDate({
     super.key,
     required this.value,
-    this.isInsert = true,
   });
 
   @override

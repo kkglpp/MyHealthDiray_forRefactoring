@@ -20,9 +20,10 @@ import 'card_index_rec_insert_view.dart';
 class IndexRecInsertView extends ConsumerWidget {
   static String routeForIndexRecInsertView = "routeForIndexRecInsertView";
   static String routeForIndexRecDetailView = "routeForIndexRecDetailView";
+
   ///true 이면 insert,  false 이면 detail
   final bool opt;
-  const IndexRecInsertView({super.key,required this.opt});
+  const IndexRecInsertView({super.key, required this.opt});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -97,6 +98,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                       metric: "cm",
                                       min: 70,
                                       max: 250,
+                                      isInsert: opt,
                                       changeVal: (value) {
                                         ref
                                             .read(
@@ -115,6 +117,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                       metric: "kg",
                                       min: 20,
                                       max: 150,
+                                      isInsert: opt,
                                       changeVal: (value) {
                                         ref
                                             .read(
@@ -159,6 +162,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                       metric: "%",
                                       min: 0,
                                       max: 70,
+                                      isInsert: opt,
                                       changeVal: (value) {
                                         ref
                                             .read(
@@ -177,6 +181,7 @@ class IndexRecInsertView extends ConsumerWidget {
                                       metric: "kg",
                                       min: 10,
                                       max: 90,
+                                      isInsert: opt,
                                       changeVal: (value) {
                                         ref
                                             .read(
@@ -203,45 +208,71 @@ class IndexRecInsertView extends ConsumerWidget {
 //그래프 들어가는 파트
                       BoxIndexRecGraph(
                         width: maxWidth,
-                        height: descriptHeight, opt: false,
+                        height: descriptHeight,
+                        opt: false,
                       ),
 
                       WidgetDoubleBtn(
                         leftFunc: () {
                           //사용한 상태들을 초기화 하고
-                          ref.read(indexRecModelProvider(recordId).notifier).initState(recordId);
-                          ref.read(showingHealthIndexRecordIDProvider.notifier).state=0;
-                          ref.read(indexRecordsStateProvider.notifier).initializeState();
+                          ref
+                              .read(indexRecModelProvider(recordId).notifier)
+                              .initState(recordId);
+                          ref
+                              .read(showingHealthIndexRecordIDProvider.notifier)
+                              .state = 0;
+                          ref
+                              .read(indexRecordsStateProvider.notifier)
+                              .initializeState();
 
                           //화면에서 나간다.
                           context.pop();
-                            
                         },
-                        rightFunc: ()  async {
-                          // 저장 확인 alert 확인 띄운다.
-                          bool confirm = await baseAlertForConfirm(context, "저장 하시겠습니까?");
-                          if(!confirm){
-                            return;
-                          }
-                          //저장하고
-                          if(opt){
-                          ref.read(indexRecModelProvider(recordId).notifier).insertNewRec();
-                          // insert 일때는 그래프에 들어간 내용들도 변경되기 떄문에 초기화 해야함.
-                          ref.read(accuHeightNotifierProvider.notifier).initializeState();
-                          ref.read(accuWeightNotifierProvider.notifier).initializeState();
-                          ref.read(accuFatNotifierProvider.notifier).initializeState();
-                          ref.read(accuMuscleNotifierProvider.notifier).initializeState();
-                          ref.read(accuInsertDateNotifierProvider.notifier).initializeState();
+                        rightFunc: () async {
+                          if (opt) {
+                            // 저장 확인 alert 확인 띄운다.
+                            bool confirm = await baseAlertForConfirm(
+                                context, "저장 하시겠습니까?");
+                            if (!confirm) {
+                              return;
+                            }
+                            //저장하고
+
+                            ref
+                                .read(indexRecModelProvider(recordId).notifier)
+                                .insertNewRec();
+                            // insert 일때는 그래프에 들어간 내용들도 변경되기 떄문에 초기화 해야함.
+                            ref
+                                .read(accuHeightNotifierProvider.notifier)
+                                .initializeState();
+                            ref
+                                .read(accuWeightNotifierProvider.notifier)
+                                .initializeState();
+                            ref
+                                .read(accuFatNotifierProvider.notifier)
+                                .initializeState();
+                            ref
+                                .read(accuMuscleNotifierProvider.notifier)
+                                .initializeState();
+                            ref
+                                .read(accuInsertDateNotifierProvider.notifier)
+                                .initializeState();
                           }
                           //상태들을 초기화하고
-                          ref.read(indexRecModelProvider(recordId).notifier).initState(recordId);
-                          ref.read(showingHealthIndexRecordIDProvider.notifier).state=0;       
-                          ref.read(indexRecordsStateProvider.notifier).initializeState();
+                          ref
+                              .read(indexRecModelProvider(recordId).notifier)
+                              .initState(recordId);
+                          ref
+                              .read(showingHealthIndexRecordIDProvider.notifier)
+                              .state = 0;
+                          ref
+                              .read(indexRecordsStateProvider.notifier)
+                              .initializeState();
                           //화면에서 나간다.
                           // ignore: use_build_context_synchronously
                           context.pop();
                         },
-                        rightMsg: "✏️ Save",
+                        rightMsg: opt ? "✏️ Save" : "☑︎ Confirm",
                         width: maxWidth,
                         height: btnHeight,
                       ),

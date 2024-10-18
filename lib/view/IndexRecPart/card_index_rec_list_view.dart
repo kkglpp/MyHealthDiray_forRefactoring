@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
+import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_insert_view.dart';
 
 import '../../baseModel/health_index_record_model.dart';
 import '../../common/const/basic_method.dart';
@@ -24,7 +25,6 @@ class CardIndexRecListView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     double imgSize = (width * 0.3).clamp(height * 0.2, height);
-    // .clamp(heightValue, heightValue);
     final List<String> titleList = ["BMI", "체 중", "체지방율", "골격근량"];
     final List<Color> colorList = [
       bmiColor,
@@ -39,7 +39,7 @@ class CardIndexRecListView extends ConsumerWidget {
         //화면에 보여줄 id로  provider를 셋팅 한다.
         ref.read(showingHealthIndexRecordIDProvider.notifier).state =
             model.hrId!;
-        context.go('/IndexRecords/ShowDetail/${model.hrId}');
+        context.goNamed(IndexRecInsertView.routeForIndexRecDetailView);
       },
       child: Container(
         width: width,
@@ -97,7 +97,6 @@ class CardIndexRecListView extends ConsumerWidget {
             SizedBox(
               width: (width - imgSize - 5),
               height: height,
-              // color: Colors.red[100],
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -107,7 +106,7 @@ class CardIndexRecListView extends ConsumerWidget {
                     children: [
                       for (int i = 0; i < 4; i++)
                         BarCardIndexRecListView(
-                          maxValue: 50,
+                          maxValue: maxValueList[i],
                           value: valueList[i],
                           height: height,
                           width: width * (1 / 12),

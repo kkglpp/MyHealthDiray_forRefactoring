@@ -38,6 +38,7 @@ class BoxIndexRecGraph extends ConsumerWidget {
       fatColor,
       muscleColor
     ];
+    //넓이값 조절
 
     // final today = onlyDay(DateTime.now());
     //각 부분 높이 계산
@@ -60,6 +61,7 @@ class BoxIndexRecGraph extends ConsumerWidget {
 // -> 개수가 2개 넘고, insert 아니면 (detail 이면) : 꽉채운다.
 // 그 외에는 모두 한자리 비운다.    
     double interval = insertDate.length != 1 && opt? (insertDate.length - 1): (width - 20) / (insertDate.length);
+    double sidePadding = interval/2;
 
     return Container(
       color: Colors.amber[100],
@@ -115,7 +117,7 @@ class BoxIndexRecGraph extends ConsumerWidget {
               : SizedBox(
                   // color: Colors.black26,
                   height: graphHeight,
-                  width: width,
+                  width: width-sidePadding,
                   child: CustomPaint(
                     painter: LineGraphForIndexes(
                         heightList: heightState,

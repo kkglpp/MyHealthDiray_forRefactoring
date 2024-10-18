@@ -60,6 +60,13 @@ class NavigationNotifier extends ChangeNotifier {
                     return const IndexRecInsertView(opt: true,);
                   },
                 ),
+                GoRoute(
+                  path: "detail",
+                  name: IndexRecInsertView.routeForIndexRecDetailView,
+                  builder: (context, state) {
+                    return const IndexRecInsertView(opt: false,);
+                  },
+                ),
               ],
             ),
             

@@ -132,11 +132,9 @@ ORDER BY hr_id ASC;
     try {
       final List<Map<String, dynamic>> result =
           await db.rawQuery(_getRecordsStr, [limit]);
-          print("db???");
-          print(result.toString());
+
       return result.map((e) => HealthIndexRecordModel.fromMap(e)).toList();
     } catch (e) {
-      print('db : $e');
       return [];
     }
   }
