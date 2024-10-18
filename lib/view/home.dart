@@ -3,8 +3,6 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/base_layout.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
-
-import '../common/basic_method.dart';
 import '../common/widget/widget_custom_text_box.dart';
 import 'btn_for_home.dart';
 

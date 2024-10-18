@@ -1,14 +1,7 @@
-import 'dart:math';
+
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:intl/intl.dart';
-double calcFontSize(int fontLength, double width, double height){
-
-  double wsize = (width/fontLength)*0.8;
-  double hsize = height*0.8;
-  return min(wsize, hsize)/1.5;
-}
-
 
 /* 기타 필요한 함수 */
 // 객체를 Map으로 바꿔서, 이 함수에 넣으면 List로 자동으로 바꿔준다.
@@ -32,10 +25,13 @@ bool isBase64(String value) {
   return base64RegExp.hasMatch(value);
 }
 
+//이미지를 Bas64로 저장하면 나중에 online 서비스로 바꿀 때 편할거라 생각
+
+//Sqlite 쓸때 이미지를 String으로 바꿔서 저장하기위함
 String u8toBase64(Uint8List value) {
   return base64Encode(value);
 }
-
+//저장된 base64를 Unit8List
 Uint8List base64ToU8List(String value) {
   return base64Decode(value);
 }
