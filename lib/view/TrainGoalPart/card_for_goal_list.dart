@@ -27,6 +27,11 @@ class CardForGoalList extends ConsumerWidget {
     double recSize = fontSize(context, 3);
     double metricSize = fontSize(context, 2);
     double dateSize = fontSize(context, 1);
+    //각 요소들 넓이 값 설정
+    double titleWidth = maxWidth*0.25;
+    double goalWidth = maxWidth * 0.15;
+    double metricWidth = maxWidth *0.1;
+    double dateWidth = maxWidth * 0.2;
 
     return Container(
       height: height,
@@ -43,26 +48,32 @@ class CardForGoalList extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           WidgetCustomTextBox(
+            width: titleWidth,
             msg: sportInfo.sportName,
             fontSize: titleSize,
           ),
           WidgetCustomTextBox(
+            width: goalWidth,
             msg: goal.tgGoal1.toString(),
             fontSize: recSize,
           ),
           WidgetCustomTextBox(
+            width: metricWidth,
             msg: sportInfo.metric1,
             fontSize: metricSize,
           ),
           WidgetCustomTextBox(
+            width: goalWidth,
             msg: goal.tgGoal2.toString(),
             fontSize: recSize,
           ),
           WidgetCustomTextBox(
+            width: metricWidth,
             msg: sportInfo.metric2,
             fontSize: metricSize,
           ),
           WidgetCustomTextBox(
+            width: dateWidth,
             msg: goal.tgDueDate,
             fontSize: dateSize,
           ),

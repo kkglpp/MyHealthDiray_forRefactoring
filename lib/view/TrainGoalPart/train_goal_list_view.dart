@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -22,6 +24,11 @@ class TrainGoalListView extends ConsumerWidget {
     // 상태 관리는 TrainGoalListNotifier
     // TrainGoalListProvider
     final state = ref.watch(trainingGoalListPageProvider);
+    if (state.isNotEmpty){
+    print("!@");
+    print(state[0].toString());
+    print("!@");
+    }
 
     //sport ID 랑 sportName과 Metric을 매칭하는 map을 하나 가져 와야  한다.
     //int 를 넣어서 String 을 가져와야 한다.
@@ -46,7 +53,8 @@ class TrainGoalListView extends ConsumerWidget {
 
       return BaseLayout(
           barTitle: "훈련 목표 리스트",
-          body: Center(
+          body: 
+          Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -177,11 +185,14 @@ class TrainGoalListView extends ConsumerWidget {
                                       ),
                                     )
                                   //각 리스트 카드 간단하게 보여주자
-                                  : CardForGoalList(
-                                      goal: state[index],
-                                      maxWidth: maxWidth,
-                                      height: cardHeight,
-                                    );
+                                  : Padding(
+                                    padding: const EdgeInsets.fromLTRB(0,8,0,0),
+                                    child: CardForGoalList(
+                                        goal: state[index],
+                                        maxWidth: maxWidth,
+                                        height: cardHeight,
+                                      ),
+                                  );
                             },
                           ),
                         ),

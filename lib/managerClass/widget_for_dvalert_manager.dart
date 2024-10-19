@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/common/const/size.dart';
 
 import '../../provider/collection_of_basic_state_provider.dart';
 import '../common/const/basic_method.dart';
@@ -24,7 +25,9 @@ class WidgetForDValertManager extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double maxWidth = (MediaQuery.of(context).size.width) * 0.8;
     double maxHeight = (MediaQuery.of(context).size.height) * 0.5;
-    double fontSize = (maxWidth / 10).clamp(10, 22);
+    double fsize = fontSize(context, 6);
+    double valueFsize = fontSize(context, 14);
+    double metricFfsize = fontSize(context, 4);
     double state = ref.watch(insertDoubleValueProvider(initialValue));
     // 값을 바꾸는 함수 설정
     return SizedBox(
@@ -62,12 +65,12 @@ class WidgetForDValertManager extends ConsumerWidget {
                       },
                       icon: Icon(
                         Icons.remove,
-                        size: fontSize,
+                        size: fsize,
                       )),
                 ),
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
-                  child: WidgetCustomTextBox(msg: "5", fontSize: fontSize),
+                  child: WidgetCustomTextBox(msg: "5", fontSize: fsize),
                 ),
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
@@ -77,7 +80,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                       },
                       icon: Icon(
                         Icons.add,
-                        size: fontSize,
+                        size: fsize,
                       )),
                 ),
               ],
@@ -97,12 +100,12 @@ class WidgetForDValertManager extends ConsumerWidget {
                       },
                       icon: Icon(
                         Icons.remove,
-                        size: fontSize,
+                        size: fsize,
                       )),
                 ),
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
-                  child: WidgetCustomTextBox(msg: "1", fontSize: fontSize),
+                  child: WidgetCustomTextBox(msg: "1", fontSize: fsize),
                 ),
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
@@ -112,7 +115,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                       },
                       icon: Icon(
                         Icons.add,
-                        size: fontSize,
+                        size: fsize,
                       )),
                 ),
               ],
@@ -132,12 +135,12 @@ class WidgetForDValertManager extends ConsumerWidget {
                       },
                       icon: Icon(
                         Icons.remove,
-                        size: fontSize,
+                        size: fsize,
                       )),
                 ),
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
-                  child: WidgetCustomTextBox(msg: "0.1", fontSize: fontSize),
+                  child: WidgetCustomTextBox(msg: "0.1", fontSize: fsize),
                 ),
                 SizedBox(
                   width: (maxWidth * 0.8) / 3,
@@ -147,7 +150,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                     },
                     icon: Icon(
                       Icons.add,
-                      size: fontSize,
+                      size: fsize,
                     ),
                   ),
                 ),
@@ -155,22 +158,25 @@ class WidgetForDValertManager extends ConsumerWidget {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               WidgetCustomTextBox(
                   verAlign: 2,
                   fontAlign: 2,
-                  width: (maxWidth * 0.8) / 2,
+                  width: (maxWidth * 0.8) / 1.8,
                   height: maxHeight * 0.2,
                   msg: state.toString(),
-                  fontSize: fontSize * 1.4),
+                  fontSize: valueFsize),
+              SizedBox(
+                width: 3,
+              ),
               WidgetCustomTextBox(
                   verAlign: 2,
                   fontAlign: 0,
                   width: (maxWidth * 0.8) / 4,
                   height: maxHeight * 0.2,
                   msg: "  $metric",
-                  fontSize: fontSize),
+                  fontSize: metricFfsize),
             ],
           )
         ],

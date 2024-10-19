@@ -50,8 +50,10 @@ sport_del
   final String _updateSportStr =
       "UPDATE sport SET sport_description = ? WHERE sport_id =? ";
   final getSportNameStr = "SELECT sport_name FROM sport WHERE sport_id = ? ";
-  final getSportMetric1Str = "SELECT sport_metric1 FROM sport WHERE sport_id = ? ";
-  final getSportMetric2Str = "SELECT sport_metric2 FROM sport WHERE sport_id = ? ";
+  final getSportMetric1Str =
+      "SELECT sport_metric1 FROM sport WHERE sport_id = ? ";
+  final getSportMetric2Str =
+      "SELECT sport_metric2 FROM sport WHERE sport_id = ? ";
 
 // 0. db열기
 
@@ -82,7 +84,6 @@ sport_del
       db.close();
       return false;
     }
-    
   }
 
 // 2. 종목 리스트 가져오기
@@ -160,27 +161,45 @@ sport_del
   Future<String> getSportName(int id) async {
     final Database db = await initializeTable();
     String result = "";
-      List<Map<String, dynamic>> rs = (await db.rawQuery(getSportNameStr,[id]));
+    print("!#!@#@!");
+    print(id);
+    try {
+      List<Map<String, dynamic>> rs =
+          (await db.rawQuery(getSportNameStr, [id]));
+      print(rs.toList());
       result = rs[0]['sport_name'];
+    } catch (e) {
+      print(e);
+    }
     return result;
   }
+
   Future<String> getSportMetric1(int id) async {
     final Database db = await initializeTable();
     String result = "";
-      List<Map<String, dynamic>> rs = (await db.rawQuery(getSportMetric1Str,[id]));
+    try {
+      List<Map<String, dynamic>> rs =
+          (await db.rawQuery(getSportMetric1Str, [id]));
+      print(rs.toList());
       result = rs[0]['sport_metric1'];
+    } catch (e) {
+      print(e);
+    }
     return result;
   }
+
   Future<String> getSportMetric2(int id) async {
     final Database db = await initializeTable();
     String result = "";
-      List<Map<String, dynamic>> rs = (await db.rawQuery(getSportMetric2Str,[id]));
+    try {
+      List<Map<String, dynamic>> rs =
+          (await db.rawQuery(getSportMetric2Str, [id]));
       result = rs[0]['sport_metric2'];
+    } catch (e) {
+      print(e);
+    }
     return result;
   }
-
-
-
 
 // 3. 종목 삭제하기
 

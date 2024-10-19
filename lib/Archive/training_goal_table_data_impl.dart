@@ -34,26 +34,26 @@ class TrainingGoalTableDataImpl {
 
   final String _createTraingGoal = '''CREATE TABLE training_goal(
       tg_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      tgS_id INTEGER,
+      tg_s_id INTEGER,
       tg_goal1 real,
       tg_goal2 real,
       tg_duedate TEXT,
       tg_insertdate TEXT,
-      tgSuccess INTEGER,
-      tgSuccessdate TEXT,
+      tg_success INTEGER,
+      tg_successdate TEXT,
       tg_priority INTEGER,
-      FOREIGN KEY (tgS_id) REFERENCES sport (sport_id) ON UPDATE CASCADE 
+      FOREIGN KEY (tg_s_id) REFERENCES sport (sport_id) ON UPDATE CASCADE 
       );''';
 // 1. goal 목표 추가하는 기능 :
   final String _insertGoalStr = '''
 INSERT INTO training_goal(
-      tgS_id ,
+      tg_s_id ,
       tg_goal1 ,
       tg_goal2 ,
       tg_duedate ,
       tg_insertdate ,
-      tgSuccess ,
-      tgSuccessdate ,
+      tg_success ,
+      tg_successdate ,
       tg_priority 
 ) VALUES (?,?,?,?,?,?,?,?)
 ''';
@@ -61,18 +61,18 @@ INSERT INTO training_goal(
 // 현재 달성중인 목표들 가져오는 기능
 //2. 달성중인 모든 목표들 가져오는 기능 (priority 오름차순 / duedate 오름차순)
   final String _getProGoalListStr =
-      "SELECT * FROM training_goal WHERE tgSuccess =0 ORDER BY tg_priority DESC, tg_id DESC, tg_insertdate DESC LIMIT ?;";
+      "SELECT * FROM training_goal WHERE tg_success =0 ORDER BY tg_priority DESC, tg_id DESC, tg_insertdate DESC LIMIT ?;";
 
 //3. 우선순위 설정된 목표들만 가져오는 기능 (insertDate 오름차순)
   final String _getProPriorityGoalsStr =
-      "SELECT * FROM training_goal WHERE tgSuccess =0 AND tg_priority != 0 ORDER BY  tg_priority ASC, tg_duedate ASC, tg_insertdate ASC";
+      "SELECT * FROM training_goal WHERE tg_success =0 AND tg_priority != 0 ORDER BY  tg_priority ASC, tg_duedate ASC, tg_insertdate ASC";
 
 //     4. 성공한 목표들 가저오는 기능 (n개씩 잘라서)
   final String _getSuccessGoalsStr =
-      "SELECT * FROM training_goal WHERE tgSuccess =1 ORDER BY tg_duedate DESC LIMIT ?";
+      "SELECT * FROM training_goal WHERE tg_success =1 ORDER BY tg_duedate DESC LIMIT ?";
 //     5. 실패한 목표들 가져오는 기능
   final String _getFailedGoalsStr =
-      "SELECT * FROM training_goal WHERE tgSuccess =2 ORDER BY tg_duedate DESC LIMIT ?";
+      "SELECT * FROM training_goal WHERE tg_success =2 ORDER BY tg_duedate DESC LIMIT ?";
 //     6. duedate 가 지난 목표들 가져오는 기능
   final String _getPastGoalsStr =
       "SELECT * FROM training_goal WHERE tg_duedate < date('now') ORDER BY tg_priority ASC, tg_duedate ASC, tg_insertdate ASC;";
@@ -85,16 +85,16 @@ INSERT INTO training_goal(
 // ** Sid를 받아서 해당 종목의 모든 목표들을 가져오는 기능들
 //     7. 달성중인 목표들 가져오는 기능
   final String _getProGoalListBySidStr =
-      "SELECT * FROM training_goal WHERE tgSuccess = 0 AND tgS_id = ? ORDER BY tg_priority ASC, tg_duedate ASC, tg_insertdate ASC;";
+      "SELECT * FROM training_goal WHERE tg_success = 0 AND tgS_id = ? ORDER BY tg_priority ASC, tg_duedate ASC, tg_insertdate ASC;";
 //     8. 성공한 목표들 가저오는 기능
   final String _getSuccessGoalsBySidStr =
-      "SELECT * FROM training_goal WHERE tgSuccess =1 AND tgS_id = ? ORDER BY tg_duedate DESC LIMIT ?";
+      "SELECT * FROM training_goal WHERE tg_success =1 AND tgS_id = ? ORDER BY tg_duedate DESC LIMIT ?";
 //     9. 실패한 목표들 가져오는 기능
   final String _getFailedGoalsBySidStr =
-      "SELECT * FROM training_goal WHERE tgSuccess =2 AND tgS_id = ? ORDER BY tg_duedate DESC LIMIT ?";
+      "SELECT * FROM training_goal WHERE tg_success =2 AND tgS_id = ? ORDER BY tg_duedate DESC LIMIT ?";
 //     10. duedate 가 지난 목표들 가져오는 기능
   final String _getPastGoalsBySidStr =
-      "SELECT * FROM training_goal WHERE tg_duedate < date('now') AND tgS_id = ? ORDER BY tg_priority ASC, tg_duedate ASC, tg_insertdate ASC;";
+      "SELECT * FROM training_goal WHERE tg_duedate < date('now') AND tg_s_id = ? ORDER BY tg_priority ASC, tg_duedate ASC, tg_insertdate ASC;";
 
 // **
 // 11. 목표 삭제하기
@@ -114,14 +114,14 @@ INSERT INTO training_goal(
 // 13. 성공여부를 성공으로 바꾸기
   final String _updateSuccessStr = '''
 UPDATE training_goal
-SET tgSuccess = 1 , tgSuccessdate = ?
+SET tg_success = 1 , tg_successdate = ?
 WHERE tg_id = ?
 ''';
 
 //14. 성공여부를 실패로 바꾸기
   final String _updateFailStr = '''
 UPDATE training_goal 
-Set tgSuccess = 2 , tgSuccessdate = ?
+Set tg_success = 2 , tg_successdate = ?
 WHERE tg_id = ?
 ''';
 
@@ -162,6 +162,7 @@ WHERE tg_id = ?
         modelToList(goal.toMap()).sublist(1),
       );
     } catch (e) {
+      print(e);
       return false;
     }
     return true;

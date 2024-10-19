@@ -94,14 +94,14 @@ class NavigationNotifier extends ChangeNotifier {
                 GoRoute(
                   path: 'insert',
                   name: TrainGoalInsertView.routeForTrainGoalInertView,
-                  builder: (context, state) => const TrainGoalInsertView(),
+                  builder: (context, state) => const TrainGoalInsertView(isInsert :true),
                 ),
 
                 //목표 상세보기 route  traingoal시작 -> insertTrain (하지만 여기서 뒤로갈떄는 TrainGoal 로 가기.)
                 GoRoute(
                   path: 'detail',
                   name: TrainGoalInsertView.routeForTrainGoalDetailView,
-                  builder: (context, state) => const TrainGoalInsertView(),
+                  builder: (context, state) => const TrainGoalInsertView(isInsert : false),
                   routes: [],
                 ),
               ],
