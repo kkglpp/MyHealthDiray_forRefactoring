@@ -45,7 +45,7 @@ class Home extends StatelessWidget {
                   width: width,
                   height: labelHeight,
                   msg: "   ➤  건강 지표 관리",
-                  fontSize: fontSize(context, 10),
+                  fontSize: fontSize(context, 8),
                 ),
               ),
               SizedBox(
@@ -100,7 +100,7 @@ class Home extends StatelessWidget {
                   width: width,
                   height: labelHeight,
                   msg: "   ➤  운동 일정 관리",
-                  fontSize: fontSize(context,6 ),
+                  fontSize: fontSize(context,8 ),
                 ),
               ),
               SizedBox(

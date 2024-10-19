@@ -101,7 +101,7 @@ class IndexGoalInsertView extends ConsumerWidget {
                             opt: forInsert,
                           ),
                           CardIndexGoalValue(
-                            value: modelState.hgHeight,
+                            value: modelState.hgWeight,
                             index: "체 중 : ",
                             metric: "kg",
                             min: 0,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const constMainColor= Color.fromARGB(255, 13, 71, 161);
+const constMainColor= Color.fromARGB(255, 0, 0, 0);
 
 /* 진한 색이 필요할떄 쓸 색상  */
 const constCancleColor = Color.fromARGB(255, 183, 28, 28);
