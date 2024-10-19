@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_elebtn.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
-import '../Archive/sport_sort_table_data_impl.dart';
-import '../provider/sport_list_infolder_notifier.dart';
+import '../../Archive/sport_sort_table_data_impl.dart';
+import '../../provider/sport_list_infolder_notifier.dart';
+
 
 class SportListInFolderManager {
   final BuildContext context;
@@ -47,7 +49,8 @@ class SportListInFolderManager {
                       .read(tempStateProviderForEditFolder(folderID).notifier)
                       .insertListIntoTable();
                   if (!rs) {
-                    await _showFailAlert();
+                    // ignore: use_build_context_synchronously
+                    baseAlertForConfirm(context, "오류가 발생하였습니다.");
                     // return;
                   }
                   ref
@@ -68,36 +71,9 @@ class SportListInFolderManager {
     );
   }
 
-  // 에러처리 위함.
-  _showFailAlert() {
-    double width = MediaQuery.of(context).size.width * 0.7;
-    double height = MediaQuery.of(context).size.height * 0.7;
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          content: WidgetCustomTextBox(
-              width: width,
-              height: height * 0.1,
-              msg: "문제가 발생하였습니다.\n 내부 저장소에 문제가 있습니다.",
-              fontSize: fontSize(context, 2)),
-          actions: [
-            ElevatedButton(
-                onPressed: () {
-                  context.pop();
-                },
-                child: WidgetCustomTextBox(
-                    width: width * 0.5,
-                    height: height * 0.1,
-                    msg: "확인",
-                    fontSize: fontSize(context, 2)))
-          ],
-        );
-      },
-    );
-  }
-
+// 이걸 사실 Provider 쪽에서 하는게 맞긴한데....
+// 하나쯤은..뭐....
+//만약 옮긴다면 SortFolderNOtifier 쪽에서 하면 될듯.
   Future<bool> deleteFromFolder(int folderID, int sportID) async {
     SortSportTableDataImpl db = SortSportTableDataImpl();
     bool rs = await db.deleterow(folderID, sportID);

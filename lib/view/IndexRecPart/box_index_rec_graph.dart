@@ -4,7 +4,7 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_empty_card.dart';
-import 'package:myhealthdiary_app/managerClass/painterManage/line_graph_for_indexes.dart';
+import 'package:myhealthdiary_app/managerClass/painter_manage/line_graph_for_indexes.dart';
 import 'package:myhealthdiary_app/provider/acuu_record_index_notifier.dart';
 
 class BoxIndexRecGraph extends ConsumerWidget {

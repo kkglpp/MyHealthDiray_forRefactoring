@@ -9,8 +9,9 @@ import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_field.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 
-import '../provider/sort_folder_state.dart';
-import '../provider/sport_folder_list_state_notifier.dart';
+import '../../provider/sort_folder_state_notifier.dart';
+import '../../provider/sport_folder_list_state_notifier.dart';
+
 
 class SportFolderListManager {
   final BuildContext context;

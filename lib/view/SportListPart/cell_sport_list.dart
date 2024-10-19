@@ -9,7 +9,7 @@ import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/provider/sport_llist_state_notifier.dart';
 
 import '../../baseModel/sport_folder_model.dart';
-import '../../managerClass/sportlist_infolder_manager.dart';
+import '../../managerClass/sport_list_manage/sportlist_infolder_manager.dart';
 import '../../provider/collection_of_basic_state_provider.dart';
 import '../../provider/sport_folder_list_state_notifier.dart';
 import '../../provider/sport_list_infolder_notifier.dart';
@@ -55,6 +55,8 @@ class CellSportList extends ConsumerWidget {
 //0이 아니면, 폴더에 즐겨찾기만 취소하는 기능이다.
         if(folderID!=0){
           SportListInFolderManager manager = SportListInFolderManager(context: context, ref: ref);
+          //아 이거... 통일 어긋낫는데...ㅁㅇㄴㅁㅇㅁㅇ망;ㅣㅏㅁㄴ;만ㅇ;ㅣ망;망ㅁ;ㅣ안; ㅇ\
+          //하나쯤은.. 괜찮겠지...
           await manager.deleteFromFolder(folderID, sportId);
           await ref.read(sportListInFolderStateProvider(folderID).notifier).getSportInFolder();
         }

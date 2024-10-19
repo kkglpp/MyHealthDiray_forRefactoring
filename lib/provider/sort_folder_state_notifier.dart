@@ -5,21 +5,21 @@ import '../baseModel/sport_folder_model.dart';
 
 
 
-final sortFolderStateProvider = StateNotifierProvider <SortFolderNotifier,SportFolderModel>((ref) {
+final sortFolderStateProvider = StateNotifierProvider <SortFolderStateNotifier,SportFolderModel>((ref) {
   SportFolderModel sampleModel = SportFolderModel(sfName: "폴더명", sfId: 0);
-  SortFolderNotifier notifier = SortFolderNotifier(sampleModel);
+  SortFolderStateNotifier notifier = SortFolderStateNotifier(sampleModel);
   return notifier;
 });
 
-final folderStateForDeleteProvider = StateNotifierProviderFamily <SortFolderNotifier,SportFolderModel,int>((ref,id) {
+final folderStateForDeleteProvider = StateNotifierProviderFamily <SortFolderStateNotifier,SportFolderModel,int>((ref,id) {
   SportFolderModel sampleModel = SportFolderModel(sfName: "폴더명", sfId: id);
-  SortFolderNotifier notifier = SortFolderNotifier(sampleModel);
+  SortFolderStateNotifier notifier = SortFolderStateNotifier(sampleModel);
   return notifier;
 });
 
 
-class SortFolderNotifier extends StateNotifier<SportFolderModel>{
-  SortFolderNotifier(super.state);
+class SortFolderStateNotifier extends StateNotifier<SportFolderModel>{
+  SortFolderStateNotifier(super.state);
   SportFolderModel sampleModel = SportFolderModel(sfName: "폴더명", sfId: 0);
 
   setSampleModel(){

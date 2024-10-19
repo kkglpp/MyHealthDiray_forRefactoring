@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/provider/sort_folder_state.dart';
+import 'package:myhealthdiary_app/provider/sort_folder_state_notifier.dart';
 import 'package:myhealthdiary_app/provider/sport_folder_list_state_notifier.dart';
 import 'package:myhealthdiary_app/provider/sport_llist_state_notifier.dart';
 import 'package:myhealthdiary_app/view/SportListPart/column_all_sportslist.dart';
@@ -11,8 +11,9 @@ import 'package:myhealthdiary_app/view/SportListPart/column_folder_sportlist.dar
 import '../../baseModel/sport_folder_model.dart';
 import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
-import '../../managerClass/sportfolder_list_manager.dart';
-import '../../managerClass/sport_list_manager.dart';
+import '../../managerClass/sport_list_manage/sport_list_manager.dart';
+import '../../managerClass/sport_list_manage/sportfolder_list_manager.dart';
+
 
 class SportListView extends ConsumerWidget {
   ///trainingGoal 입력

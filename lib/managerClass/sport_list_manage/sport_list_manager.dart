@@ -9,10 +9,12 @@ import 'package:myhealthdiary_app/common/widget/widget_custom_text_field.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import 'package:myhealthdiary_app/provider/sport_state_notifier.dart';
 
-import '../baseModel/sport_folder_model.dart';
-import '../provider/sport_folder_list_state_notifier.dart';
-import '../provider/sport_list_infolder_notifier.dart';
-import '../provider/sport_llist_state_notifier.dart';
+import '../../baseModel/sport_folder_model.dart';
+import '../../provider/sport_folder_list_state_notifier.dart';
+import '../../provider/sport_list_infolder_notifier.dart';
+import '../../provider/sport_llist_state_notifier.dart';
+
+
 
 class SportListManager {
   final WidgetRef ref;
@@ -285,6 +287,7 @@ class SportListManager {
                       .read(stateForNewSportProvider.notifier)
                       .insertToDatabase(); // 저장하고
                   if (rs != 1) {
+                    //에러 종류에 따라서 에러처리하려고했는데, 하다보니.. 뭐. 한종류만 처리해도 된다.
                     return showErrorAlert(true);
                   } //에러처리하고
                   await ref
