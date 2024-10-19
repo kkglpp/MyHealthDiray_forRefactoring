@@ -31,7 +31,7 @@ class WidgetDoubleBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     double fsize = max(leftMsg.length, rightMsg.length) < 7
         ? fontSize(context, 3)
-        : fontSize(context, 1.1);
+        : fontSize(context, 2);
     return SizedBox(
       width: width,
       height: height,

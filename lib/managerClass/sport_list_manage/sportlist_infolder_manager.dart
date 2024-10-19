@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_elebtn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import '../../Archive/sport_sort_table_data_impl.dart';
 import '../../provider/sport_list_infolder_notifier.dart';

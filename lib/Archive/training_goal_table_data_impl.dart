@@ -162,7 +162,6 @@ WHERE tg_id = ?
         modelToList(goal.toMap()).sublist(1),
       );
     } catch (e) {
-      print(e);
       return false;
     }
     return true;

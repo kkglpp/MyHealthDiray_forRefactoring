@@ -37,7 +37,7 @@ class CardIndexRecList extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
         //화면에 보여줄 id로  provider를 셋팅 한다.
-        ref.read(showingHealthIndexRecordIDProvider.notifier).state =
+        ref.read(showHealthIndexRecordIDProvider.notifier).state =
             model.hrId!;
         context.goNamed(IndexRecInsertView.routeForIndexRecDetailView);
       },

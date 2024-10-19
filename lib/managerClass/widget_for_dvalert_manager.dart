@@ -167,7 +167,7 @@ class WidgetForDValertManager extends ConsumerWidget {
                   height: maxHeight * 0.2,
                   msg: state.toString(),
                   fontSize: valueFsize),
-              SizedBox(
+              const SizedBox(
                 width: 3,
               ),
               WidgetCustomTextBox(

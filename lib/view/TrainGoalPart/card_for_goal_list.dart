@@ -21,16 +21,16 @@ class CardForGoalList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sportInfo = ref.read(sportInfoProvider(goal.tgSId));
+    final sportInfo = ref.watch(sportInfoProvider(goal.tgSId));
 
-    double titleSize = fontSize(context, 4);
-    double recSize = fontSize(context, 3);
-    double metricSize = fontSize(context, 2);
+    double titleSize = fontSize(context, 2);
+    double recSize = fontSize(context, 2);
+    double metricSize = fontSize(context, 1);
     double dateSize = fontSize(context, 1);
     //각 요소들 넓이 값 설정
-    double titleWidth = maxWidth*0.25;
-    double goalWidth = maxWidth * 0.15;
-    double metricWidth = maxWidth *0.1;
+    double titleWidth = maxWidth*0.22;
+    double goalWidth = maxWidth * 0.13;
+    double metricWidth = maxWidth *0.13;
     double dateWidth = maxWidth * 0.2;
 
     return Container(
@@ -53,21 +53,31 @@ class CardForGoalList extends ConsumerWidget {
             fontSize: titleSize,
           ),
           WidgetCustomTextBox(
+            fontAlign: 2,
             width: goalWidth,
-            msg: goal.tgGoal1.toString(),
+            msg:goal.tgGoal1.toString(),
             fontSize: recSize,
           ),
+          const SizedBox(
+            width: 2,
+          ),
           WidgetCustomTextBox(
+            fontAlign: 0,
             width: metricWidth,
             msg: sportInfo.metric1,
             fontSize: metricSize,
           ),
           WidgetCustomTextBox(
+            fontAlign: 2,
             width: goalWidth,
             msg: goal.tgGoal2.toString(),
             fontSize: recSize,
           ),
+          const SizedBox(
+            width: 2,
+          ),          
           WidgetCustomTextBox(
+            fontAlign: 0,
             width: metricWidth,
             msg: sportInfo.metric2,
             fontSize: metricSize,

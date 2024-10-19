@@ -113,7 +113,7 @@ class IndexRecListView extends ConsumerWidget {
             ),
             floatbtn: WidgetCustomFltBtn(onTap: () {
               //혹시 어디선가 누락 되었을지 모르니, 화면에 보여줄 recordId 관리하는 프로바이더 초기화 하고.
-              ref.read(showingHealthIndexRecordIDProvider.notifier).state =0;
+              ref.read(showHealthIndexRecordIDProvider.notifier).state =0;
               //입력페이지로 넘어간다.
               context.goNamed(IndexRecInsertView.routeForIndexRecInsertView);
             }));

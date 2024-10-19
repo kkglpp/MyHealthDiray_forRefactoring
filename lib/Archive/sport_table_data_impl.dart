@@ -161,15 +161,13 @@ sport_del
   Future<String> getSportName(int id) async {
     final Database db = await initializeTable();
     String result = "";
-    print("!#!@#@!");
-    print(id);
+
     try {
       List<Map<String, dynamic>> rs =
           (await db.rawQuery(getSportNameStr, [id]));
-      print(rs.toList());
       result = rs[0]['sport_name'];
     } catch (e) {
-      print(e);
+      return "";
     }
     return result;
   }
@@ -180,10 +178,9 @@ sport_del
     try {
       List<Map<String, dynamic>> rs =
           (await db.rawQuery(getSportMetric1Str, [id]));
-      print(rs.toList());
       result = rs[0]['sport_metric1'];
     } catch (e) {
-      print(e);
+      return "";
     }
     return result;
   }
@@ -196,7 +193,7 @@ sport_del
           (await db.rawQuery(getSportMetric2Str, [id]));
       result = rs[0]['sport_metric2'];
     } catch (e) {
-      print(e);
+      return "";
     }
     return result;
   }

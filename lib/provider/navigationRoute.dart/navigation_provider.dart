@@ -7,6 +7,7 @@ import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_insert_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
 import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
+import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_detail_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_insert_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
 
@@ -94,15 +95,14 @@ class NavigationNotifier extends ChangeNotifier {
                 GoRoute(
                   path: 'insert',
                   name: TrainGoalInsertView.routeForTrainGoalInertView,
-                  builder: (context, state) => const TrainGoalInsertView(isInsert :true),
+                  builder: (context, state) => const TrainGoalInsertView(),
                 ),
 
                 //목표 상세보기 route  traingoal시작 -> insertTrain (하지만 여기서 뒤로갈떄는 TrainGoal 로 가기.)
                 GoRoute(
                   path: 'detail',
-                  name: TrainGoalInsertView.routeForTrainGoalDetailView,
-                  builder: (context, state) => const TrainGoalInsertView(isInsert : false),
-                  routes: [],
+                  name: TrainGoalDetailView.routeForTrainGoalDetailView,
+                  builder: (context, state) => const TrainGoalDetailView(),
                 ),
               ],
             ),

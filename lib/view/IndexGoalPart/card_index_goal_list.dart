@@ -28,7 +28,7 @@ class CardIndexGoalList extends ConsumerWidget {
       onTap: () async{
 // 페이지를 이동하기 전에 모델 아이디를 provider에 보낸다.
 // showingHealthIndexGoalIDProvider : 화면에 보여주고 싶은 HealthIndexGoalID 관리하는 프로바이더.
-        ref.read(showingHealthIndexGoalIDProvider.notifier).state = model.hgId!;
+        ref.read(showHealthIndexGoalIDProvider.notifier).state = model.hgId!;
         context.goNamed(IndexGoalDetailView.routeNameForIndexGoalDetail);
       },
       child: Dismissible(

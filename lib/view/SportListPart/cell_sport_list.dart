@@ -41,8 +41,7 @@ class CellSportList extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
 //화면에 보여줄 sportID를 셋팅하고
-        ref.read(showingSportIdProvider.notifier).state = sportId;
-        print(ref.read(showingSportIdProvider.notifier).state);
+        ref.read(showSportIdProvider.notifier).state = sportId;
         // ref.read(titleProvider.notifier).state = sport_name;
 //옵션에 따라서 화면을 이동한다.
         if (opt == "goal") {

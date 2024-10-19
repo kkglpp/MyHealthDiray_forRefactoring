@@ -21,12 +21,12 @@ class IndexGoalDetailView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // 이 페이지에서 상태는 IndexGoalNotifier 클래스에서 관리한다.
     //호출할 Provider 이름은 IndexGoalModelProvider
-    final modelId = ref.watch(showingHealthIndexGoalIDProvider);
+    final modelId = ref.watch(showHealthIndexGoalIDProvider);
     final modelState = ref.watch(indexGoalModelProvider(modelId));
 
     return BaseLayout(
         barTitle:
-            "goalID  ${ref.read(showingHealthIndexGoalIDProvider.notifier).state.toString()}",
+            "goalID  ${ref.read(showHealthIndexGoalIDProvider.notifier).state.toString()}",
         appbarOption: false,
         body: LayoutBuilder(builder: (context, constraints) {
           double maxWidth = constraints.maxWidth - 20;

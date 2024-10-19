@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,9 +6,11 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_txt_btn.dart';
 import 'package:myhealthdiary_app/common/widget/widget_empty_card.dart';
+import 'package:myhealthdiary_app/provider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/train_goal_list_notifier.dart';
 import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/card_for_goal_list.dart';
+import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_detail_view.dart';
 
 import '../../common/widget/widget_banner_for_ad.dart';
 
@@ -24,11 +24,6 @@ class TrainGoalListView extends ConsumerWidget {
     // 상태 관리는 TrainGoalListNotifier
     // TrainGoalListProvider
     final state = ref.watch(trainingGoalListPageProvider);
-    if (state.isNotEmpty){
-    print("!@");
-    print(state[0].toString());
-    print("!@");
-    }
 
     //sport ID 랑 sportName과 Metric을 매칭하는 map을 하나 가져 와야  한다.
     //int 를 넣어서 String 을 가져와야 한다.
@@ -177,7 +172,7 @@ class TrainGoalListView extends ConsumerWidget {
                                           fixedSize:
                                               Size(maxWidth, cardHeight)),
                                       onPressed: () {
-                                        // InsertView
+                                        // 10개 더보기
                                       },
                                       child: Icon(
                                         Icons.more_vert,
@@ -187,11 +182,21 @@ class TrainGoalListView extends ConsumerWidget {
                                   //각 리스트 카드 간단하게 보여주자
                                   : Padding(
                                     padding: const EdgeInsets.fromLTRB(0,8,0,0),
-                                    child: CardForGoalList(
-                                        goal: state[index],
-                                        maxWidth: maxWidth,
-                                        height: cardHeight,
-                                      ),
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        //Sport 정보를 보여주기위해서, showingSportIdProvider 를 업데이트
+                                        ref.read(showSportIdProvider.notifier).state = state[index].tgSId;
+                                        // 보여줄 목표 아이디를 관리하는 showingTrainIDProvider 업데이트
+                                        ref.read(showTraingGoalIDProvider.notifier).state = state[index].tgId!;
+                                        //화면이동.
+                                        context.goNamed(TrainGoalDetailView.routeForTrainGoalDetailView);
+                                      },
+                                      child: CardForGoalList(
+                                          goal: state[index],
+                                          maxWidth: maxWidth,
+                                          height: cardHeight,
+                                        ),
+                                    ),
                                   );
                             },
                           ),

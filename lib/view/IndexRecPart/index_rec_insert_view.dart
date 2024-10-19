@@ -32,7 +32,7 @@ class IndexRecInsertView extends ConsumerWidget {
     // provider : 신규 입력 : IndexRecModelProvider
     // provider : 상세 보기 : IndexRecModelProvider
     // 이 화면에서 보여주고 싶은 record 의 id를 가져온다. insert의 경우 0으로 셋팅한다.
-    final recordId = ref.watch(showingHealthIndexRecordIDProvider);
+    final recordId = ref.watch(showHealthIndexRecordIDProvider);
     final record = ref.watch(indexRecModelProvider(recordId));
 
     return LayoutBuilder(
@@ -219,7 +219,7 @@ class IndexRecInsertView extends ConsumerWidget {
                               .read(indexRecModelProvider(recordId).notifier)
                               .initState(recordId);
                           ref
-                              .read(showingHealthIndexRecordIDProvider.notifier)
+                              .read(showHealthIndexRecordIDProvider.notifier)
                               .state = 0;
                           ref
                               .read(indexRecordsStateProvider.notifier)
@@ -263,7 +263,7 @@ class IndexRecInsertView extends ConsumerWidget {
                               .read(indexRecModelProvider(recordId).notifier)
                               .initState(recordId);
                           ref
-                              .read(showingHealthIndexRecordIDProvider.notifier)
+                              .read(showHealthIndexRecordIDProvider.notifier)
                               .state = 0;
                           ref
                               .read(indexRecordsStateProvider.notifier)

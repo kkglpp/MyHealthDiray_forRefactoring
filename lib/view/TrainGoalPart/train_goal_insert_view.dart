@@ -1,12 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
-
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
-import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
@@ -19,17 +15,13 @@ import 'package:myhealthdiary_app/provider/collection_of_basic_state_provider.da
 import 'package:myhealthdiary_app/provider/sharedStateNotifier/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/train_goal_list_notifier.dart';
 import 'package:myhealthdiary_app/provider/train_goal_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
 
 import '../../managerClass/pick_date_method.dart';
 
 class TrainGoalInsertView extends ConsumerWidget {
   static String routeForTrainGoalInertView = "routeForTrainGoalInertView";
-  static String routeForTrainGoalDetailView = "routeForTrainGoalDetailView";
-  final bool isInsert;
   const TrainGoalInsertView({
     super.key,
-    required this.isInsert,
   });
   // LayOutBiolder 를 전체레이아웃 다음에 넣는게 좀 더 비율 생각하기 편한듯하다.
   @override
@@ -77,287 +69,279 @@ class TrainGoalInsertView extends ConsumerWidget {
           double metricSize = fontSize(context, 4);
 
 //이전 페이지에서 설정해놓았을 스포츠 아이디값.
-          final sportID = ref.read(showingSportIdProvider);
+          final sportID = ref.read(showSportIdProvider);
 // 1. 보여주고 싶은 스포츠 정보 provider
           final info = ref.watch(sportInfoProvider(sportID)); //
 // 2. 아직 저장되지 않은, trainGoalmodel을 관리할 상태.
-// parameter로 해서 provider를 구분 안해도 되긴하는데.... 그냥 구분하는게 속편하다.
-// 공부할떄 나누던게 습관된듯.. 어느쪽이 효율적일지는 다음 업데이트떄 고민을 좀 더 해보자.
-          final state = ref.watch(addTrainGoalProvier(sportID));
+// 3. detail 로 넘어 왔을때는 다른 거다.
+          final state = ref.watch(addTrainGoalProvier);
+
           return Center(
             child: SizedBox(
               width: maxWidth,
-              child: state == null
-                  ? SizedBox(
-                      width: max(maxWidth * 0.2, maxHeight * 0.1),
-                      height: max(maxWidth * 0.2, maxHeight * 0.1),
-                      child: const Center(child: CircularProgressIndicator()),
-                    )
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  // 내가 고른 운동 이름을 보는 부분이다.
+                  SizedBox(
+                    width: maxWidth,
+                    height: titlePartHeight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // 내가 고른 운동 이름을 보는 부분이다.
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: sportLeftBox,
+                              height: sportHeight,
+                              child: WidgetCustomTextBox(
+                                fontAlign: 0,
+                                msg: "목표 운동 : ",
+                                fontSize: sportSize,
+                              ),
+                            ),
+                            SizedBox(
+                              width: sportRightBox,
+                              height: sportHeight,
+                              child: WidgetCustomTextBox(
+                                bold: true,
+                                fontAlign: 0,
+                                msg: info.sportName,
+                                fontSize: sportSize,
+                              ),
+                            ),
+                          ],
+                        ),
+                        //날짜를 입력 받는 파트.
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: dateLeftBox,
+                              height: dueDateHeight,
+                              child: WidgetCustomTextBox(
+                                  msg: "목 표 날 짜 : ", fontSize: dateSize),
+                            ),
+                            SizedBox(
+                              width: dateRightBox,
+                              height: dueDateHeight,
+                              child: WidgetCustomTxtBtn(
+                                txt: state.tgDueDate,
+                                width: dateRightBox,
+                                height: dueDateHeight,
+                                fsize: dateSize,
+                                clr: Colors.purple,
+                                onTap: () async {
+
+                                  //목표 날짜를 입력 받는 함수.
+                                  //pickDate 를 이용해서 다이얼로그로 입력 받는다.
+                                  DateTime newDate = await pickDateUsingDialog(
+                                      context, state.tgDueDate);
+                                  //받은 값을 현재 관리하고 있는 model에 넣는다. 근데 한번 저장한 이후 수정은 허용하지 않을꺼야.
+                                  //한번 저장했으면 삭제하고 다시 세우던가, 아니면 이악물고 이루던가..
+                                  ref
+                                      .read(addTrainGoalProvier.notifier)
+                                      .changeDueDate(newDate);
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(
+                          height: dividerHeight,
                           width: maxWidth,
-                          height: titlePartHeight,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: sportLeftBox,
-                                    height: sportHeight,
-                                    child: WidgetCustomTextBox(
-                                      fontAlign: 0,
-                                      msg: "목표 운동 : ",
-                                      fontSize: sportSize,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: sportRightBox,
-                                    height: sportHeight,
-                                    child: WidgetCustomTextBox(
-                                      bold: true,
-                                      fontAlign: 0,
-                                      msg: info.sportName,
-                                      fontSize: sportSize,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              //날짜를 입력 받는 파트.
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SizedBox(
-                                    width: dateLeftBox,
-                                    height: dueDateHeight,
-                                    child: WidgetCustomTextBox(
-                                        msg: "목 표 날 짜 : ", fontSize: dateSize),
-                                  ),
-                                  SizedBox(
-                                    width: dateRightBox,
-                                    height: dueDateHeight,
-                                    child: WidgetCustomTxtBtn(
-                                      txt: state!.tgDueDate,
-                                      width: dateRightBox,
-                                      height: dueDateHeight,
-                                      fsize: dateSize,
-                                      clr: Colors.purple,
-                                      onTap: () async {
-                                        if (!isInsert) {
-                                          return;
-                                        }
-                                        //목표 날짜를 입력 받는 함수.
-                                        //pickDate 를 이용해서 다이얼로그로 입력 받는다.
-                                        DateTime newDate =
-                                            await pickDateUsingDialog(
-                                                context, state.tgDueDate);
-                                        //받은 값을 현재 관리하고 있는 model에 넣는다. 근데 한번 저장한 이후 수정은 허용하지 않을꺼야.
-                                        //한번 저장했으면 삭제하고 다시 세우던가, 아니면 이악물고 이루던가..
-                                        ref
-                                            .read(addTrainGoalProvier(sportID).notifier)
-                                            .changeDueDate(newDate);
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: dividerHeight,
-                                width: maxWidth,
-                                child: const Divider(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
+                          child: const Divider(
+                            color: Colors.black,
                           ),
                         ),
-//각 목표값을 입력하는 부분
-                        SizedBox(
-                          width: maxWidth,
-                          height: valueBoxHeight,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              // Container(
-                              //   color: Colors.amber,
-                              SizedBox(
-                                width: maxWidth,
-                                height: txtHeight,
-                                child: WidgetCustomTextBox(
-                                  fontAlign: 0,
-                                  msg: "목표 기록 입력",
-                                  fontSize: txtSize,
-                                ),
-                              ),
-                              // const Spacer(),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  // SizedBox(
-                                  WidgetCustomTextBox(
-                                    width: recWidth,
-                                    height: recHeight,
-                                    verAlign: 2,
-                                    fontAlign: 2,
-                                    // msg: "6789.1",
-                                    msg: state.tgGoal1.toString(),
-                                    fontSize: recSize,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  // Container(
-                                  //   color: Colors.grey,
-                                  WidgetCustomTextBox(
-                                    width: metricWidth,
-                                    height: recHeight,
-                                    fontAlign: 0,
-                                    verAlign: 2,
-                                    // msg: "일이삼사오",
-                                    msg: info.metric1,
-                                    fontSize: metricSize,
-                                  ),
-                                  const Spacer(),
-                                  SizedBox(
-                                    width: valueBtnWidth,
-                                    height: recHeight * 0.8,
-                                    child: WidgetCustomEleBtn(
-                                        msg: "✓ 입 력",
-                                        color: Colors.purple,
-                                        onPressed: () async {
-                                          //goal1 을 입력하는 동작.
-                                          //alert창을 통해 값을 받아온다.
-                                          double? result =
-                                              await doubleValueAlertManager(
-                                            ref,
-                                            info.sportName,
-                                            info.metric1,
-                                            0, //값 초기값/
-                                            0, //최소값은 0.
-                                            650, // 최대값은 650. 왜냐? 스쿼트 기준 최대 기록이 650은 아직 안넘음. 정 그 이상을 원하면, 새로운 종목해서 단위를 바꾸는 방식을 권하자.
-                                          );
-                                          //받은 값으로 상태 업데이트하고.
-                                          ref
-                                              .read(
-                                                  addTrainGoalProvier(sportID).notifier)
-                                              .changeGoal1(result!);
-                                        },
-                                        width: metricWidth,
-                                        height: recHeight,
-                                        fontSize: btnSize),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(),
-                              //goal2를 입력하는 파트
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  // SizedBox(
-                                  WidgetCustomTextBox(
-                                    width: recWidth,
-                                    height: recHeight,
-                                    verAlign: 2,
-                                    fontAlign: 2,
-                                    msg: state.tgGoal2.toString(),
-                                    fontSize: recSize,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  WidgetCustomTextBox(
-                                    width: metricWidth,
-                                    height: recHeight,
-                                    fontAlign: 0,
-                                    verAlign: 2,
-                                    msg: info.metric2,
-                                    fontSize: metricSize,
-                                  ),
-                                  const Spacer(),
-                                  SizedBox(
-                                    width: valueBtnWidth,
-                                    height: recHeight * 0.8,
-                                    child: WidgetCustomEleBtn(
-                                        msg: "✓ 입 력",
-                                        color: Colors.purple,
-                                        onPressed: () async {
-                                          //alert창을 통해 값을 받아온다.
-                                          double? result =
-                                              await doubleValueAlertManager(
-                                            ref,
-                                            info.sportName,
-                                            info.metric2,
-                                            0, //값 초기값/
-                                            0, //최소값은 0.
-                                            650, // 최대값은 650. 왜냐? 스쿼트 기준 최대 기록이 650은 아직 안넘음. 정 그 이상을 원하면, 새로운 종목해서 단위를 바꾸는 방식을 권하자.
-                                          );
-                                          //받은 값으로 상태 업데이트하고.
-                                          ref
-                                              .read(
-                                                  addTrainGoalProvier(sportID).notifier)
-                                              .changeGoal2(result!);
-                                        },
-                                        width: metricWidth,
-                                        height: recHeight,
-                                        fontSize: btnSize),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(),
-                              SizedBox(
-                                height: dividerHeight,
-                                width: maxWidth,
-                                child: const Divider(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const BannerForAd(),
-                        const Spacer(),
-                        WidgetDoubleBtn(
-                          leftFunc: () {
-                            //취소 . 돌아가기 . 상태들 초기화하고 -> list 페이지로 돌아가야한다. sportList 아니고 goalList.
-                            ref
-                                .read(addTrainGoalProvier(sportID).notifier)
-                                .initiateState();
-                            //화면에서 나간다. 라우팅을 해놨기 떄문에 sportList로 가지 않음.
-                            context.pop();
-                          },
-                          rightFunc: () async {
-                            //저장하는 함수
-                            //우선 정말 저장할 건지 확인하고
-                            bool confirm = await baseAlertForConfirm(context, "목표를 저장하시겠습니까?");
-                            //저장 안하면 아무것도 안하고 그대로 두기
-                            if (!confirm){return;}
-                            //저장 하고
-                            bool rs = await ref
-                                .read(addTrainGoalProvier(sportID).notifier)
-                                .saveGoal();
-                            //결과보고 오류떠서 false나면 메시지띄우기.
-                            if (!rs) {
-                              await baseAlertForConfirm(context, "저장 되지 않았습니다.");
-                              return;
-                            }
-                            //성공하면 저장성공 띄우기
-                            await baseAlertForConfirm(context, "저장 되었습니다.");
-                            //돌아갈 화면 초기화
-                            ref.read(trainingGoalListPageProvider.notifier).initiateState();
-                            //화면 이동
-                            context.pop();
-                          },
-                          width: maxWidth,
-                          height: btnHeight,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        )
                       ],
                     ),
+                  ),
+//각 목표값을 입력하는 부분
+                  SizedBox(
+                    width: maxWidth,
+                    height: valueBoxHeight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        // Container(
+                        //   color: Colors.amber,
+                        SizedBox(
+                          width: maxWidth,
+                          height: txtHeight,
+                          child: WidgetCustomTextBox(
+                            fontAlign: 0,
+                            msg: "목표 기록 입력",
+                            fontSize: txtSize,
+                          ),
+                        ),
+                        // const Spacer(),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            // SizedBox(
+                            WidgetCustomTextBox(
+                              width: recWidth,
+                              height: recHeight,
+                              verAlign: 2,
+                              fontAlign: 2,
+                              // msg: "6789.1",
+                              msg: state.tgGoal1.toString(),
+                              fontSize: recSize,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            // Container(
+                            //   color: Colors.grey,
+                            WidgetCustomTextBox(
+                              width: metricWidth,
+                              height: recHeight,
+                              fontAlign: 0,
+                              verAlign: 2,
+                              // msg: "일이삼사오",
+                              msg: info.metric1,
+                              fontSize: metricSize,
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                              width: valueBtnWidth,
+                              height: recHeight * 0.8,
+                              child: WidgetCustomEleBtn(
+                                  msg: "✓ 입 력",
+                                  color: Colors.purple,
+                                  onPressed: () async {
+                                    //goal1 을 입력하는 동작.
+                                    //alert창을 통해 값을 받아온다.
+                                    double? result =
+                                        await doubleValueAlertManager(
+                                      ref,
+                                      info.sportName,
+                                      info.metric1,
+                                      0, //값 초기값/
+                                      0, //최소값은 0.
+                                      650, // 최대값은 650. 왜냐? 스쿼트 기준 최대 기록이 650은 아직 안넘음. 정 그 이상을 원하면, 새로운 종목해서 단위를 바꾸는 방식을 권하자.
+                                    );
+                                    //받은 값으로 상태 업데이트하고.
+                                    ref
+                                        .read(addTrainGoalProvier.notifier)
+                                        .changeGoal1(result!);
+                                  },
+                                  width: metricWidth,
+                                  height: recHeight,
+                                  fontSize: btnSize),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        //goal2를 입력하는 파트
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            // SizedBox(
+                            WidgetCustomTextBox(
+                              width: recWidth,
+                              height: recHeight,
+                              verAlign: 2,
+                              fontAlign: 2,
+                              msg: state.tgGoal2.toString(),
+                              fontSize: recSize,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            WidgetCustomTextBox(
+                              width: metricWidth,
+                              height: recHeight,
+                              fontAlign: 0,
+                              verAlign: 2,
+                              msg: info.metric2,
+                              fontSize: metricSize,
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                              width: valueBtnWidth,
+                              height: recHeight * 0.8,
+                              child: WidgetCustomEleBtn(
+                                  msg: "✓ 입 력",
+                                  color: Colors.purple,
+                                  onPressed: () async {
+                                    //alert창을 통해 값을 받아온다.
+                                    double? result =
+                                        await doubleValueAlertManager(
+                                      ref,
+                                      info.sportName,
+                                      info.metric2,
+                                      0, //값 초기값/
+                                      0, //최소값은 0.
+                                      650, // 최대값은 650. 왜냐? 스쿼트 기준 최대 기록이 650은 아직 안넘음. 정 그 이상을 원하면, 새로운 종목해서 단위를 바꾸는 방식을 권하자.
+                                    );
+                                    //받은 값으로 상태 업데이트하고.
+                                    ref
+                                        .read(addTrainGoalProvier.notifier)
+                                        .changeGoal2(result!);
+                                  },
+                                  width: metricWidth,
+                                  height: recHeight,
+                                  fontSize: btnSize),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        SizedBox(
+                          height: dividerHeight,
+                          width: maxWidth,
+                          child: const Divider(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const BannerForAd(),
+                  const Spacer(),
+                  WidgetDoubleBtn(
+                    leftFunc: () {
+                      //취소 . 돌아가기 . 상태들 초기화하고 -> list 페이지로 돌아가야한다. sportList 아니고 goalList.
+                      ref.read(addTrainGoalProvier.notifier).initiateState();
+                      //화면에서 나간다. 라우팅을 해놨기 떄문에 sportList로 가지 않음.
+                      context.pop();
+                    },
+                    rightFunc: () async {
+                      //저장하는 함수
+                      //우선 정말 저장할 건지 확인하고
+                      bool confirm =
+                          await baseAlertForConfirm(context, "목표를 저장하시겠습니까?");
+                      //저장 안하면 아무것도 안하고 그대로 두기
+                      if (!confirm) {
+                        return;
+                      }
+                      //저장 하고
+                      bool rs = await ref
+                          .read(addTrainGoalProvier.notifier)
+                          .saveGoal();
+                      //결과보고 오류떠서 false나면 메시지띄우기.
+                      if (!rs) {
+                        await baseAlertForConfirm(context, "저장 되지 않았습니다.");
+                        return;
+                      }
+                      //성공하면 저장성공 띄우기
+                      await baseAlertForConfirm(context, "저장 되었습니다.");
+                      //돌아갈 화면 초기화
+                      ref
+                          .read(trainingGoalListPageProvider.notifier)
+                          .initiateState();
+                      //화면 이동
+                      context.pop();
+                    },
+                    width: maxWidth,
+                    height: btnHeight,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  )
+                ],
+              ),
             ),
           );
         }));

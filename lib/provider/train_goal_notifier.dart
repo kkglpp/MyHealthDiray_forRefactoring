@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/baseModel/training_goal_model.dart';
+import 'package:myhealthdiary_app/provider/collection_of_basic_state_provider.dart';
 
 import '../Archive/training_goal_table_data_impl.dart';
 import '../common/const/basic_method.dart';
@@ -9,8 +10,7 @@ import '../common/const/basic_method.dart';
 //SportID는 항상있다.
 //tg ID 가 0 이면 새로운 목록 만들기이다.
 final addTrainGoalProvier =
-        StateNotifierProviderFamily<TrainGoalNotifier, TrainingGoalModel,int>(
-      (ref,sportID) {
+    StateNotifierProvider<TrainGoalNotifier, TrainingGoalModel>((ref) {
   TrainingGoalModel sampleModel = TrainingGoalModel(
     tgId: 0,
     tgSId: 0,
@@ -22,9 +22,27 @@ final addTrainGoalProvier =
     tgSuccessDate: onlyDay(DateTime.now()),
     tgPriority: 0,
   );
-
+  int sportID = ref.read(showSportIdProvider.notifier).state;
   TrainGoalNotifier notifier = TrainGoalNotifier(sampleModel);
   notifier.sportID = sportID;
+  notifier.initiateState();
+  return notifier;
+});
+
+final trainGoalProvider =
+    StateNotifierProviderFamily<TrainGoalNotifier, TrainingGoalModel, int >((ref, goalID) {
+  TrainingGoalModel sampleModel = TrainingGoalModel(
+    tgId: goalID,
+    tgSId: 0,
+    tgGoal1: 0,
+    tgGoal2: 0,
+    tgDueDate: onlyDay(DateTime.now().add(const Duration(days: 30))),
+    tgInsertDate: onlyDay(DateTime.now()),
+    tgSuccess: 0,
+    tgSuccessDate: onlyDay(DateTime.now()),
+    tgPriority: 0,
+  );
+  TrainGoalNotifier notifier = TrainGoalNotifier(sampleModel);
   notifier.initiateState();
   return notifier;
 });
@@ -48,11 +66,9 @@ class TrainGoalNotifier extends StateNotifier<TrainingGoalModel> {
     tgPriority: 0,
   );
 
-
   initiateState() async {
-
     //state 가 null 이거나 id 가 0 이면 샘플모델을 넣는다. (isnert 에서사용)
-    if(state.tgId == 0 ){
+    if (state.tgId == 0) {
       state = sampleModel.copyWith(tgSId: sportID);
       return;
     }
@@ -76,7 +92,7 @@ class TrainGoalNotifier extends StateNotifier<TrainingGoalModel> {
 
   Future<bool> saveGoal() async {
     TrainingGoalTableDataImpl db = TrainingGoalTableDataImpl();
-    print(modelToList(state.toMap()).sublist(1));
+    // print(modelToList(state.toMap()).sublist(1));
     bool rs = await db.insertTrainGoal(state);
     return rs;
   }
