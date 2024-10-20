@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sort_folder_state_notifier.dart';
@@ -16,18 +17,25 @@ import '../../managerClass/sport_list_manage/sportfolder_list_manager.dart';
 
 class SportListView extends ConsumerWidget {
   ///trainingGoal 입력
-  static String get routeForInsertTrainGoal => "routeForInsertTrainGoal";
+  static String  routeForInsertTrainGoal = "routeForInsertTrainGoal";
 
   ///Training계획 입력
-  static String get routeForInsertTrainPlan => "routeForInsertTrainPlan";
+  static String  routeForInsertTrainPlan = "routeForInsertTrainPlan";
 
   ///Training 계획 업데이트
-  static String get routeForUpdatePlan => "routeForUpdatePlan";
+  static String  routeForUpdatePlan = "routeForUpdatePlan";
 
   ///계획없이 운동하기.
-  static String get routeForTrain => "routeForTrain";
+  static String  routeForTrainWithout = "routeForTrainWithout";
+
+  ///계획 있게 운동하기. 근데 추가할거있을때
+  static String  routeForTrainAsPlan = "routeForTrainAsPlan";
+
+
   /// goal : 목표 입력
   /// plan : 운동 계획 입력
+  /// trainAsPlan : 운동하러 왔는데 계획에 운동 추가
+  /// trainWithoutPlan : 계획은 없는데 일단 운동.
   final String opt;
   const SportListView({
     super.key,
@@ -36,6 +44,8 @@ class SportListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print("???? :${GoRouterState.of(context).uri.toString()}  ");
+ 
     return LayoutBuilder(
       builder: (context, constraints) {
         double maxWidth = constraints.maxWidth - 20;

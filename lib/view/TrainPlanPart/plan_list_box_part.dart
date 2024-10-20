@@ -6,14 +6,15 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_title_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
 
-class BoxPlanList extends ConsumerWidget {
+class PlanListBoxPart extends ConsumerWidget {
   final double width;
   final double height;
   final List<String> dailyPlanList;
-  const BoxPlanList({super.key,required this.width,required this.height,required this.dailyPlanList});
-
+  const PlanListBoxPart({super.key,required this.width,required this.height,required this.dailyPlanList});
+  //내가 선택한 날짜에 어떤 계획들이 있는지 달력 아래에 List로 보여주는 파트이다.
+  // 번잡할 듯 싶어서 분리하였다.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final date = onlyDay(ref.read(selectedDayProvider.notifier).state);
@@ -34,7 +35,7 @@ class BoxPlanList extends ConsumerWidget {
             child: GestureDetector(
               onTap: (){
                 ref.read(titleProvider.notifier).state = dailyPlanList[index];
-                context.goNamed(PlanAddNewTitleView.routeForPlanDetailView);
+                context.goNamed(PlanDayTodoListView.routeForPlanDetailView);
               },
               child: Container(
                 decoration: BoxDecoration(

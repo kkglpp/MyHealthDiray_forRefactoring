@@ -24,7 +24,7 @@ class TrainPlanAddManager {
     double btnPartHeight = maxHeight * 0.15;
 
     double fsize01 = fontSize(context, 3);
-    double fsize02 = fontSize(context, 2);
+    // double fsize02 = fontSize(context, 2);
 
     String title = ""; //나중에 반환할 값
     await showDialog(

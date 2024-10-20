@@ -11,7 +11,7 @@ class ColumnFolderSportList extends ConsumerWidget {
   final double widthSize;
   final double heightSize;
   final double cellHeight;
-
+  /// plan / goal / train
   final String opt;
   const ColumnFolderSportList(
       {super.key,

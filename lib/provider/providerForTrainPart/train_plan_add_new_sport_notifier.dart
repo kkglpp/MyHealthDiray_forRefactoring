@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

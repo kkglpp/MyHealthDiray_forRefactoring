@@ -4,19 +4,19 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_title_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
 
 import '../../baseModel/training_plan_model.dart';
 import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 
-class PlanDetailCard extends ConsumerWidget {
+class PlanDayTodoListCard extends ConsumerWidget {
   final PlanListOfPlanSet set;
   final double width;
   final double height;
 
   ///"plan" : 계획대로 보러 가기  "train" : 계획대로 운동하러가기
   final String opt;
-  const PlanDetailCard(
+  const PlanDayTodoListCard(
       {super.key,
       required this.set,
       required this.width,
@@ -39,7 +39,7 @@ class PlanDetailCard extends ConsumerWidget {
           // context.goNamed(TrainingStartView.routeName1);
         }
         if (opt == "plan") {
-          context.goNamed(PlanAddNewTitleView.routeForPlanDetailView);
+          context.goNamed(PlanDayTodoListView.routeForPlanDetailView);
         }
       },
       child: SizedBox(

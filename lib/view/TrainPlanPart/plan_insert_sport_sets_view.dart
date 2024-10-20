@@ -16,15 +16,25 @@ import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_add_new_sport_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_daily_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_title_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
 
-class PlanAddNewSportView extends ConsumerWidget {
+/// 매일의 계획에 운동 세트를추가하는 페이지.
+class PlanInsertSportSetsView extends ConsumerWidget {
   static String routeForPlanAddNewSportSet = "routeForPlanAddNewSportSet";
   static String routeForPlanUpdateSportSet = "routeForPlanUpdateSportSet";
-  const PlanAddNewSportView({super.key});
+  static String routeForTrainAsPlanInsertSetView = "routeForTrainAsPlanInsertSetView";
+  static String routeForTrainWithoutPlanInsertSetView = "routeForTrainWithoutPlanInsertSetView";
+
+  /// goal : 목표 입력
+  /// plan : 운동 계획 입력
+  /// trainAsPlan : 운동하러 왔는데 계획에 운동 추가
+  /// trainWithoutPlan : 계획은 없는데 일단 운동.
+  final String opt;
+  const PlanInsertSportSetsView({super.key, required this.opt});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print(GoRouterState.of(context).uri.toString()  );
     return BaseLayout(
         barTitle: "운동 계획 입력",
         body: LayoutBuilder(
@@ -34,7 +44,7 @@ class PlanAddNewSportView extends ConsumerWidget {
 
             //높이 계산
             double sportTitleHeight = maxHeight * 0.1;
-            double divHeight = maxHeight * 0.02;
+            // double divHeight = maxHeight * 0.02;
             double setBoxHeight = maxHeight * 0.62;
             double setRowHeight = maxHeight * 0.08;
             double btnHeight = maxHeight * 0.08;
@@ -87,7 +97,7 @@ class PlanAddNewSportView extends ConsumerWidget {
                       SizedBox(
                         width: sportTitleBtnWidth,
                         child: IconButton(
-                          icon: Icon(Icons.remove),
+                          icon: const Icon(Icons.remove),
                           onPressed: () {
                             ref
                                 .read(trainPlanAddNewSportNotifierProvider
@@ -104,7 +114,7 @@ class PlanAddNewSportView extends ConsumerWidget {
                       SizedBox(
                         width: sportTitleBtnWidth,
                         child: IconButton(
-                          icon: Icon(Icons.add),
+                          icon: const Icon(Icons.add),
                           onPressed: () {
                             ref
                                 .read(trainPlanAddNewSportNotifierProvider
@@ -215,13 +225,12 @@ class PlanAddNewSportView extends ConsumerWidget {
                       },
                     ),
                   ),
-                  BannerForAd(),
+                  const BannerForAd(),
                   WidgetDoubleBtn(
                     leftFunc: () {
                       context.pop();
                     },
                     rightFunc: () async {
-                      print("savePlave : ${ref.read(titleProvider.notifier).state}");
                       //저장여부 확인하고
                       bool confirm =
                           await baseAlertForConfirm(context, "저장 하시겠습니까?");
@@ -232,21 +241,17 @@ class PlanAddNewSportView extends ConsumerWidget {
                       await ref
                           .read(trainPlanAddNewSportNotifierProvider.notifier)
                           .savePlanList();
-                      print("savePlave2 : ${ref.read(titleProvider.notifier).state}");
-
                       //돌아갈화면 초기화
                       await ref
                           .read(trainPlanDailyNotifierProvider.notifier)
                           .refreshState();
-                      //저장후 이동하는 곳은 detail 그날 계획들을 보던 곳.
-                      print("savePlave3 : ${ref.read(titleProvider.notifier).state}");
-
-                      context
-                          .goNamed(PlanAddNewTitleView.routeForPlanAddNewTitle);
+                      // 저장후 이동하는 곳은  pop 하면 알아서 잘이동한다. Routing을 잘해뒀기 때문에!ㅋㅋ
+                      context.pop();
                     },
                     width: maxWidth,
                     height: btnHeight,
-                    rightMsg: "✏️ Save Plan",
+                    rightMsg:
+                        opt == "plan" ? "✏️ Save Plan" : "Setting Complete",
                   )
                 ], //전체 Column
               ),

@@ -51,7 +51,7 @@ class TrainPlanDailyNotifier extends _$TrainPlanDailyNotifier {
     state =const AsyncLoading(); //state를 로딩으로 바꾸고. 
     // db에서 삭제하고
     TrainingPlanTableDataImpl db = TrainingPlanTableDataImpl();
-    bool rs = await db.deleteDaySpecificSport(
+    await db.deleteDaySpecificSport(
       _currentState[index].tpTitle,
       _currentState[index].tpTrainDate,
       _currentState[index].tpSId,

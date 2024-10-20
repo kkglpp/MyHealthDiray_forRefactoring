@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../Archive/training_plan_table_data_impl.dart';
 
 final trainPlanListProvider =
-    AutoDisposeStateNotifierProvider<TrainPlanListNotifier, Map<DateTime, List<String>>>((ref) {
+    StateNotifierProvider<TrainPlanListNotifier, Map<DateTime, List<String>>>((ref) {
   TrainPlanListNotifier notifier = TrainPlanListNotifier({});
   notifier.initState();
   return notifier;

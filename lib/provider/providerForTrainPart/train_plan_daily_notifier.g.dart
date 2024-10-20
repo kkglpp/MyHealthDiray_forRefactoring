@@ -7,7 +7,7 @@ part of 'train_plan_daily_notifier.dart';
 // **************************************************************************
 
 String _$trainPlanDailyNotifierHash() =>
-    r'c90c9279227e78772cfccba3928bb9e84ab1884e';
+    r'ba32e20323beaa21f92ba09fa9ea2bbd34785462';
 
 /// See also [TrainPlanDailyNotifier].
 @ProviderFor(TrainPlanDailyNotifier)

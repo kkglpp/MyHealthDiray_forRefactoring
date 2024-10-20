@@ -7,7 +7,7 @@ import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_llist_state_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_sport_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_insert_sport_sets_view.dart';
 
 import '../../baseModel/sport_folder_model.dart';
 import '../../managerClass/sport_list_manage/sportlist_infolder_manager.dart';
@@ -23,8 +23,10 @@ class CellSportList extends ConsumerWidget {
   final double eachheight;
 
   /// 스포츠를 눌럿을때 어디로 갈지 결정하는 요소이다. goal plan train   planUpdate는 제꼈다....
-  ///goal => 목표 입력
-  ///plan => 계획 입력
+  /// goal : 목표 입력
+  /// plan : 운동 계획 입력
+  /// trainAsPlan : 운동하러 왔는데 계획에 운동 추가
+  /// trainWithoutPlan : 계획은 없는데 일단 운동.
   final String opt;
   final int folderID;
   const CellSportList(
@@ -51,15 +53,19 @@ class CellSportList extends ConsumerWidget {
           context.goNamed(TrainGoalInsertView.routeForTrainGoalInertView);
         }
         if (opt == "plan") {
-          context.goNamed(PlanAddNewSportView.routeForPlanAddNewSportSet);
+          context.goNamed(PlanInsertSportSetsView.routeForPlanAddNewSportSet);
         }
         if (opt == "planUpdate") {
           // String planTitle = ref.read(titleProvider.notifier).state;
           // String planDate = ref.read(trainDateProvider.notifier).state;
           // context.goNamed(TrainingPlanAddSetView.routeName2);
         }
-        if (opt == "train") {
-          // context.goNamed(TrainingPlanAddSetView.routeName4);
+        //운동하러 가기 파트
+        if (opt == "trainAsPlan") {
+          context.goNamed(PlanInsertSportSetsView.routeForTrainAsPlanInsertSetView);
+        }
+        if (opt == "trainWithoutPlan") {
+          context.goNamed(PlanInsertSportSetsView.routeForTrainWithoutPlanInsertSetView);
         }
       },
 //길게 눌렀을때의 삭제기능 : Folder 내 목록을 보여줄떄와, 전체 목록을 보여줄 때가 다르다.

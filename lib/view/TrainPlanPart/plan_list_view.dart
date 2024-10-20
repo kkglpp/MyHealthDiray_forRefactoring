@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_list_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/box_plan_list.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/carlendar_plan_list.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_title_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_box_part.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_carlendar_part.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
 
 import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 
@@ -16,6 +16,8 @@ class TrainPlanListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+        print(GoRouterState.of(context).uri.toString()  );
+
     return BaseLayout(
         barTitle: "운동 계획 보기",
         leadbtn: const SizedBox(),
@@ -31,12 +33,12 @@ class TrainPlanListView extends ConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CarlendarPlanList(
+                  PlanListCarlendarPart(
                       maxWidth: maxWidth, maxHeight: carlendarHeight),
                   Consumer(builder: (context, ref, child) {
                     final selectDayState = ref.watch(selectedDayProvider);                 
                     final state = ref.watch(trainPlanListProvider);
-                    return BoxPlanList(
+                    return PlanListBoxPart(
                       width: maxWidth,
                       height: planBoxHeight,
                       dailyPlanList: state[turnDate(selectDayState)]??[],
@@ -49,7 +51,7 @@ class TrainPlanListView extends ConsumerWidget {
                     rightFunc: () {
                       //새로운 플랜 추가하는 버튼
                       ref.read(titleProvider.notifier).state="";
-                      context.goNamed(PlanAddNewTitleView.routeForPlanAddNewTitle);
+                      context.goNamed(PlanDayTodoListView.routeForPlanAddNewTitle);
                     },
                     width: maxWidth,
                     height: btnHeight,

@@ -7,7 +7,7 @@ part of 'train_plan_add_new_sport_notifier.dart';
 // **************************************************************************
 
 String _$trainPlanAddNewSportNotifierHash() =>
-    r'd245e443c495453c4b633c5e4ebe5238c0e41b6b';
+    r'156a1e9c5213eeb0256fd7f5e1aeb92ed248b077';
 
 /// See also [TrainPlanAddNewSportNotifier].
 @ProviderFor(TrainPlanAddNewSportNotifier)

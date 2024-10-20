@@ -5,17 +5,18 @@ import 'package:table_calendar/table_calendar.dart';
 
 import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 
-class CarlendarPlanList extends ConsumerWidget {
+class PlanListCarlendarPart extends ConsumerWidget {
   final double maxWidth;
   final double maxHeight;
-  const CarlendarPlanList({super.key, required this.maxWidth, required this.maxHeight});
+  const PlanListCarlendarPart({super.key, required this.maxWidth, required this.maxHeight});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectDayState = ref.watch(selectedDayProvider);
     final focusDayState = ref.watch(focusedDayProvider);
     final planDate = ref.watch(trainPlanListProvider);
-
+    // TableCarlendar를 통해서 달력에다가 계획을 표시하는 파트이다.
+    // 코드 번잡해질까봐 분리하였다.
     return Container(
       // color: Colors.green[100],
       decoration: BoxDecoration(

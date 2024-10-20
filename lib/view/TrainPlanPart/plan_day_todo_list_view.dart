@@ -16,18 +16,27 @@ import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_daily_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_list_notifier.dart';
 import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_detail_card.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_card.dart';
 
-class PlanAddNewTitleView extends ConsumerWidget {
+/// 운동 계획을 insert하고 d
+class PlanDayTodoListView extends ConsumerWidget {
   static String routeForPlanAddNewTitle = "routeForPlanAddNewTitle";
   static String routeForPlanDetailView = "routeForPlanDetailView";
+  static String routeForReadyWithoutPlan = "routeForReadyWithoutPlan";
+  static String routeForReadyAsPlan = "routeForReadyAsPlan";
   ///True 면 신규등록, False 면 상세보기/수정하기
   final bool isNew;
+
+  /// plan : 계획 관리 하는 옵션.
+  /// trainAsPlan : 계획있이 운동하러 가는 옵션
+  /// trainWithOutPlan: 계획 없이.
   final String opt;
-  const PlanAddNewTitleView({super.key, required this.isNew,required this.opt});
+  const PlanDayTodoListView({super.key, required this.isNew,required this.opt});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+        print(GoRouterState.of(context).uri.toString()  );
+
     return BaseLayout(
       leadbtn: const SizedBox(),
       body: LayoutBuilder(
@@ -55,9 +64,10 @@ class PlanAddNewTitleView extends ConsumerWidget {
         double dateLeftFz = fontSize(context, 3);
         double dateRightFz = fontSize(context, 4);
         double cardLeftFz = fontSize(context, 4);
+        //계획의 타이틀과 날짜를 관찰 / 가져오는 provier
         final planTitle = ref.watch(titleProvider);
         final planDate = ref.watch(selectedDayProvider);
-
+        // 계획에 들어가는 운동들을 보여주는 Provider
         final state = ref.watch(trainPlanDailyNotifierProvider);
         List<PlanListOfPlanSet> stateList = state.when(
           data: (data) {return data;},
@@ -84,7 +94,7 @@ class PlanAddNewTitleView extends ConsumerWidget {
                   children: [
                     WidgetCustomTextBox(
                         width: titleLefitWidth,
-                        msg: "Plan Title : ",
+                        msg: "Train Title : ",
                         fontSize: titleLeftFz,
                         verAlign: 1,
                         fontAlign: 2,
@@ -96,10 +106,13 @@ class PlanAddNewTitleView extends ConsumerWidget {
                     GestureDetector(
                         onTap: () async {
                           if(!isNew){return;}
+                          // 타이틀은 한번에 설정할 수 있도록 해야 추가적인 로직을 생략 할 수 있다.
+                          // 하지만 편의성을 위해서 다음 버전에서는 로직을 추가하든, 화면 class를 분리하든
+                          // 또다른 방법을 찾든 하자.
+                          if(planTitle.trim().isNotEmpty){return;}
                           TrainPlanAddManager manager =
                               TrainPlanAddManager(context, ref);
                           String newTitle = await manager.setTitleManager();
-                          // print(newTitle);
                           ref.read(titleProvider.notifier).state = newTitle;
                         },
                         child: WidgetCustomTextBox(
@@ -172,21 +185,34 @@ class PlanAddNewTitleView extends ConsumerWidget {
                                 msg: "운동 추가하기",
                                 width: maxWidth,
                                 onPressed: () async {
-                                  print(planTitle);
+// 운동 종목을 고르는 페이지로 이동한다. 이동한 페이지는 같지만, 이동되는 경로가 다르다.
+// 근데 이럴거면 sportList 쪽은 그냥 별도의 루트로 뺴는게 맞지 않나 싶다.                                  
+                                  // print(planTitle);
                                   if (planTitle.trim() == "") {
                                     await baseAlertForConfirm(
                                         context, "타이틀을 먼저 입력해 주세요.");
                                     return;
                                   }
+                                  if(opt =="trainWithoutPlan"){
+                                    context.goNamed(SportListView.routeForTrainWithout);
+                                    return;
+                                  }
+                                  if(opt=="trainAsPlan"){
+                                    context.goNamed(SportListView.routeForTrainAsPlan);
+                                    return;
+                                  }
+//운동하러 가는 경우는 다 처리했다.                                  
                                   //처음 등록이면 insertTrainPlan 옵션이다
                                   if (stateList.isEmpty) {
                                     context.goNamed(
                                         SportListView.routeForInsertTrainPlan);
+                                        return;
                                   }
                                   //이미 운동이 있으면 UpdatePlan 옵션이다.
                                   if (stateList.isNotEmpty) {
                                     context.goNamed(
                                         SportListView.routeForUpdatePlan);
+                                        return;
                                   }
                                 }),
                           )
@@ -201,7 +227,7 @@ class PlanAddNewTitleView extends ConsumerWidget {
                           onDismissed: (direction) {
                             ref.read(trainPlanDailyNotifierProvider.notifier).deleteList(index);
                           },
-                          child: PlanDetailCard(
+                          child: PlanDayTodoListCard(
                             set: stateList[index],
                             width: maxWidth,
                             height: cardHeight,

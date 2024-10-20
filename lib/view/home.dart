@@ -5,6 +5,7 @@ import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
+import 'package:myhealthdiary_app/view/TrainRecPart/train_rec_home_view.dart';
 import '../common/widget/widget_custom_text_box.dart';
 import 'btn_for_home.dart';
 
@@ -163,7 +164,7 @@ class Home extends StatelessWidget {
                           fit: BoxFit.fitHeight,
                         ),
                       ),
-                      navi: "_",
+                      navi: TrainRecHomeView.routeForTrainHome,
                       width: trainGridWidth,
                       height: trainGridHeight,
                     ),
