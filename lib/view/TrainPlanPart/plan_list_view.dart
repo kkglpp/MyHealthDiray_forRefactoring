@@ -19,7 +19,7 @@ class TrainPlanListView extends ConsumerWidget {
         // print(GoRouterState.of(context).uri.toString()  );
 
     return BaseLayout(
-        barTitle: "운동 계획 보기",
+        barTitle: "훈련 일정 관리",
         leadbtn: const SizedBox(),
         body: LayoutBuilder(
           builder: (context, constraints) {

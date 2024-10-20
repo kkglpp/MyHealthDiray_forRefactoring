@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_add_new_sport_notifier.dart';
 
 import '../../baseModel/training_plan_model.dart';
@@ -99,6 +98,7 @@ class TrainStartCard extends ConsumerWidget {
                       // // print(rs);
                       // ref.read(boolForTrainingCard(model.tpId!).notifier).state =
                       //     rs;
+                      if(!rs){return;}
                       timerAct();
                     },
                     icon: Icon(

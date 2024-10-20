@@ -37,6 +37,7 @@ class PlanDayTodoListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     return BaseLayout(
+      barTitle: "훈련 일정 확인",
       leadbtn: const SizedBox(),
       body: LayoutBuilder(
       builder: (context, constraints) {
