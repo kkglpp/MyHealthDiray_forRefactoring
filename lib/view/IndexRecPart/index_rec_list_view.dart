@@ -8,7 +8,7 @@ import '../../common/widget/widget_custom_flt_btn.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/widget/widget_empty_card.dart';
 
-import '../../provider/collection_of_basic_state_provider.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'card_index_rec_list.dart';
 import 'index_rec_insert_view.dart';
 

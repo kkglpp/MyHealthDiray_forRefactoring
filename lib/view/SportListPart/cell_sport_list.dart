@@ -6,13 +6,13 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/provider/sport_llist_state_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForSportList/sport_llist_state_notifier.dart';
 
 import '../../baseModel/sport_folder_model.dart';
 import '../../managerClass/sport_list_manage/sportlist_infolder_manager.dart';
-import '../../provider/collection_of_basic_state_provider.dart';
-import '../../provider/sport_folder_list_state_notifier.dart';
-import '../../provider/sport_list_infolder_notifier.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
+import '../../provider/providerForSportList/sport_folder_list_state_notifier.dart';
+import '../../provider/providerForSportList/sport_list_infolder_notifier.dart';
 import '../TrainGoalPart/train_goal_insert_view.dart';
 
 class CellSportList extends ConsumerWidget {

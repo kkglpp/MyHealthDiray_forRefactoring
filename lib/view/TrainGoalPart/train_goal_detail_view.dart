@@ -12,11 +12,10 @@ import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_icon_btn.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
-import 'package:myhealthdiary_app/provider/train_goal_list_notifier.dart';
-
-import '../../provider/collection_of_basic_state_provider.dart';
-import '../../provider/sharedStateNotifier/sport_info_notifier.dart';
-import '../../provider/train_goal_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_list_notifier.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
+import '../../provider/providerForSportList/sport_info_notifier.dart';
+import '../../provider/providerForTrainPart/train_goal_notifier.dart';
 
 class TrainGoalDetailView extends ConsumerWidget {
   static String routeForTrainGoalDetailView = "routeForTrainGoalDetailView";
@@ -26,7 +25,7 @@ class TrainGoalDetailView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 //이전 페이지에서 설정해놓았을 스포츠 아이디값.
     final sportID = ref.read(showSportIdProvider);
-    final goalID = ref.watch(showTraingGoalIDProvider);
+    final goalID = ref.read(showTraingGoalIDProvider);
 // 1. 보여주고 싶은 스포츠 정보 provider
     final info = ref.watch(sportInfoProvider(sportID)); //
     final goal = ref.watch(trainGoalProvider(goalID));
@@ -36,7 +35,7 @@ class TrainGoalDetailView extends ConsumerWidget {
         double maxWidth = constraints.maxWidth - 20;
         double maxHeight = constraints.maxHeight;
         //3파트 높이 계산
-        double titleHeight = maxHeight * 0.2;
+        double titleHeight = maxHeight * 0.19;
         double valueHeight = maxHeight * 0.2;
         double successBoxHeight = maxHeight * 0.25;
         //banner 파트는 0.15 정도 생각함

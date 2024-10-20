@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/baseModel/training_goal_model.dart';
 
-import '../Archive/training_goal_table_data_impl.dart';
+import '../../Archive/training_goal_table_data_impl.dart';
 
 final trainingGoalListPageProvider =
     StateNotifierProvider<TrainGoalListNotifier, List<TrainingGoalModel>>(

@@ -1,11 +1,9 @@
-
 import 'dart:convert';
 import 'package:intl/intl.dart';
 
 /* 기타 필요한 함수 */
 // 객체를 Map으로 바꿔서, 이 함수에 넣으면 List로 자동으로 바꿔준다.
 // model에서는 이미지를 base64 의 문자열로 받는다. 이를 UNIT8List로 바꿔야 한다.
-
 
 List<dynamic> modelToList(Map<String, dynamic> map) {
   return map.values.map(
@@ -20,7 +18,8 @@ List<dynamic> modelToList(Map<String, dynamic> map) {
 
 //값이 Base64 문자열인지 확인하는 함수
 bool isBase64(String value) {
-  final RegExp base64RegExp = RegExp(r'^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$');
+  final RegExp base64RegExp = RegExp(
+      r'^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$');
   return base64RegExp.hasMatch(value);
 }
 /* 폐기처분 */

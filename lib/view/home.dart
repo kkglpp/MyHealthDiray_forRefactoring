@@ -4,6 +4,7 @@ import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
 import '../common/widget/widget_custom_text_box.dart';
 import 'btn_for_home.dart';
 
@@ -85,7 +86,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: width - 20,
+                width: width - 20,  
                 height: pad,
                 child: const Divider(
                   color: Colors.black,
@@ -135,7 +136,7 @@ class Home extends StatelessWidget {
                           fit: BoxFit.fitWidth,
                         ),
                       ),
-                      navi: "_",
+                      navi: TrainPlanListView.routeForTrainPlanListView,
                       width: trainGridWidth,
                       height: trainGridHeight,
                     ),

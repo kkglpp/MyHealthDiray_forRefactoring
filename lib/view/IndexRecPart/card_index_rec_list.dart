@@ -9,7 +9,7 @@ import '../../common/const/basic_method.dart';
 import '../../common/const/colors.dart';
 
 import '../../common/widget/widget_custom_text_box.dart';
-import '../../provider/collection_of_basic_state_provider.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'bar_card_index_rec_list_view.dart';
 
 class CardIndexRecList extends ConsumerWidget {

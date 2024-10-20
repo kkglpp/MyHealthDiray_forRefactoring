@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
-import 'package:myhealthdiary_app/provider/undex_goal_list_notifier.dart';
+import 'package:myhealthdiary_app/provider/index_goal_list_notifier.dart';
 import '../../baseModel/health_index_goal_model.dart';
 import '../../common/widget/widget_custom_text_box.dart';
-import '../../provider/collection_of_basic_state_provider.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'index_goal_detail_view.dart';
 
 class CardIndexGoalList extends ConsumerWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../Archive/sport_sort_table_data_impl.dart';
-import '../Archive/sport_table_data_impl.dart';
-import '../baseModel/sorted_sport_model.dart';
-import '../baseModel/sport_model.dart';
+import '../../Archive/sport_sort_table_data_impl.dart';
+import '../../Archive/sport_table_data_impl.dart';
+import '../../baseModel/sorted_sport_model.dart';
+import '../../baseModel/sport_model.dart';
 
 
 

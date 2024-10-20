@@ -10,6 +10,7 @@ import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_detail_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_insert_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
 
 import '../../view/home.dart';
 
@@ -78,7 +79,6 @@ class NavigationNotifier extends ChangeNotifier {
               ],
             ),
 // 훈련 목표 관리 페이지 루팅
-
             GoRoute(
               path: "TrainGoal",
               name: TrainGoalListView.routeForTrainGoalListView,
@@ -97,7 +97,6 @@ class NavigationNotifier extends ChangeNotifier {
                   name: TrainGoalInsertView.routeForTrainGoalInertView,
                   builder: (context, state) => const TrainGoalInsertView(),
                 ),
-
                 //목표 상세보기 route  traingoal시작 -> insertTrain (하지만 여기서 뒤로갈떄는 TrainGoal 로 가기.)
                 GoRoute(
                   path: 'detail',
@@ -106,6 +105,21 @@ class NavigationNotifier extends ChangeNotifier {
                 ),
               ],
             ),
+//운동 계획 관리 페이지 루트            
+            GoRoute(
+              path: "trainPlan",
+              name: TrainPlanListView.routeForTrainPlanListView,
+              builder: (context, state) => const TrainPlanListView(),
+              routes: [
+
+              ]
+              ),
+//운동 하러 가기 페이지 루트              
+            GoRoute(
+              path: "train",
+              name: "__",
+              builder: (context, state) => const TrainPlanListView(),
+              ),
           ],
         )
       ];

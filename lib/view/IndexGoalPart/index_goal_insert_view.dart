@@ -10,11 +10,11 @@ import '../../common/const/basic_method.dart';
 import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/const/base_alert.dart';
-import '../../provider/undex_goal_list_notifier.dart';
+import '../../provider/index_goal_list_notifier.dart';
 
 class IndexGoalInsertView extends ConsumerWidget {
   static String routeNameForIndexGoalInsertView = "routeNameForIndexGoalInsert";
-  static String routeNameForIndexGoalUpdateView = "routeNameForIndexGoalInsert";
+  // static String routeNameForIndexGoalUpdateView = "routeNameForIndexGoalInsert";
   final bool forInsert;
   const IndexGoalInsertView({super.key, required this.forInsert});
 

@@ -18,11 +18,15 @@ Future<bool> baseAlertForConfirm(BuildContext context, String title) async {
     barrierDismissible: false,
     builder: (context) {
       return AlertDialog(
-        title: WidgetCustomTextBox(
+        content: WidgetCustomTextBox(
+            maxLine: 3,
+            verAlign: 1,
             width: width * 0.8,
-            height: height * 0.08,
+            height: height * 0.12,
             msg: title,
-            fontSize: fontSize(context, 7)),
+            fontSize: title.length > 10
+                ? fontSize(context, 3)
+                : fontSize(context, 5)),
         actions: [
           WidgetDoubleBtn(
               leftFunc: () {

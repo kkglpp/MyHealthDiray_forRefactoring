@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../Archive/sport_folder_table_data_impl.dart';
-import '../baseModel/sport_folder_model.dart';
+import '../../Archive/sport_folder_table_data_impl.dart';
+import '../../baseModel/sport_folder_model.dart';
 
 
 

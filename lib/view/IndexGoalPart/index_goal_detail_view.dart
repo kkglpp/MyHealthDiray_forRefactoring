@@ -10,7 +10,7 @@ import '../../common/const/basic_method.dart';
 import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/widget/widget_empty_card.dart';
-import '../../provider/collection_of_basic_state_provider.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 import '../../provider/index_goal_notifier.dart';
 
 class IndexGoalDetailView extends ConsumerWidget {
@@ -47,7 +47,7 @@ class IndexGoalDetailView extends ConsumerWidget {
           double doubleBtnBox = boxheightSize(maxHeight * 0.1); //95
 
           return modelState == null
-              ? WidgetEmptyCard(width: maxWidth, height: maxHeight, fontSize: fontSize(context, 12),)
+              ? Center(child: WidgetEmptyCard(width: maxWidth, height: maxHeight, fontSize: fontSize(context, 12),))
               : Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

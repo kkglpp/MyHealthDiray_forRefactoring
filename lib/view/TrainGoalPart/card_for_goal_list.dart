@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/baseModel/training_goal_model.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/provider/sharedStateNotifier/sport_info_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 
 import '../../common/const/colors.dart';
 import '../../common/const/size.dart';

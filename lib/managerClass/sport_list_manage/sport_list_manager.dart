@@ -3,16 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_field.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
-import 'package:myhealthdiary_app/provider/sport_state_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForSportList/sport_state_notifier.dart';
 
 import '../../baseModel/sport_folder_model.dart';
-import '../../provider/sport_folder_list_state_notifier.dart';
-import '../../provider/sport_list_infolder_notifier.dart';
-import '../../provider/sport_llist_state_notifier.dart';
+import '../../provider/providerForSportList/sport_folder_list_state_notifier.dart';
+import '../../provider/providerForSportList/sport_list_infolder_notifier.dart';
+import '../../provider/providerForSportList/sport_llist_state_notifier.dart';
 
 
 
@@ -288,7 +289,8 @@ class SportListManager {
                       .insertToDatabase(); // 저장하고
                   if (rs != 1) {
                     //에러 종류에 따라서 에러처리하려고했는데, 하다보니.. 뭐. 한종류만 처리해도 된다.
-                    return showErrorAlert(true);
+                    // return showErrorAlert(true);
+                    return baseAlertForConfirm(context, "문제가 발생하였습니다. \n종목 이름이 누락되었을 수 있습니다.\n 확인후 다시 시도해보세요.");
                   } //에러처리하고
                   await ref
                       .read(stateForNewSportProvider.notifier)
@@ -316,7 +318,7 @@ class SportListManager {
         await ref.read(wholeListStateProvider.notifier).deleteSport(sportID);
     //결과학인
     if (!rs) {
-      showErrorAlert(false);
+      return baseAlertForConfirm(context, "문제가 발생하였습니다.\n 이미 지운 데이터 일 수 있습니다.\n app 재실행후 다시 시도해보세요.");
     }
     //전체리스트 새로고침
     ref.read(wholeListStateProvider.notifier).setWholeList();
@@ -332,34 +334,34 @@ class SportListManager {
   }
 
   // 에러처리 위함.
-  showErrorAlert(bool opt) {
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          content: WidgetCustomTextBox(
-            width: 250,
-            height: 35,
-            msg:
-                "문제가 발생하였습니다. ${opt ? '\n종목 이름이 누락되었거나' : ''} \n app 재실행후 다시 시도해보세요.",
-            fontSize: fontSize(context, 3),
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                context.pop();
-              },
-              child: WidgetCustomTextBox(
-                width: 100,
-                height: 30,
-                msg: "확인",
-                fontSize: fontSize(context, 2),
-              ),
-            )
-          ],
-        );
-      },
-    );
-  }
+  // showErrorAlert(bool opt) {
+  //   showDialog(
+  //     barrierDismissible: false,
+  //     context: context,
+  //     builder: (context) {
+  //       return AlertDialog(
+  //         content: WidgetCustomTextBox(
+  //           width: 250,
+  //           height: 35,
+  //           msg:
+  //               "문제가 발생하였습니다. ${opt ? '\n종목 이름이 누락되었거나' : ''} \n app 재실행후 다시 시도해보세요.",
+  //           fontSize: fontSize(context, 3),
+  //         ),
+  //         actions: [
+  //           ElevatedButton(
+  //             onPressed: () {
+  //               context.pop();
+  //             },
+  //             child: WidgetCustomTextBox(
+  //               width: 100,
+  //               height: 30,
+  //               msg: "확인",
+  //               fontSize: fontSize(context, 2),
+  //             ),
+  //           )
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 } // end class

@@ -5,7 +5,7 @@ import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
 import '../../baseModel/health_index_goal_model.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../common/const/base_alert.dart';
-import '../../provider/undex_goal_list_notifier.dart';
+import '../../provider/index_goal_list_notifier.dart';
 
 class PartForIndexDetailBtn extends ConsumerWidget {
   final HealthIndexGoalModel goal;

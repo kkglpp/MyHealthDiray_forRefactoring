@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const constMainColor= Color.fromARGB(255, 0, 0, 0);
+const constMainColor = Color.fromARGB(255, 0, 0, 0);
 
 /* 진한 색이 필요할떄 쓸 색상  */
 const constCancleColor = Color.fromARGB(255, 183, 28, 28);
@@ -25,4 +25,4 @@ const muscleColor = Colors.purple;
 const weightColor = Colors.blue;
 const bmiColor = Colors.red;
 const constInputColor = Color.fromARGB(255, 240, 240, 240);
-const constBorderColor =Color(0xFFF3F2F2);
+const constBorderColor = Color(0xFFF3F2F2);

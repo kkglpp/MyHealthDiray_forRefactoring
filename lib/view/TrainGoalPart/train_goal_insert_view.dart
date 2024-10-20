@@ -11,10 +11,10 @@ import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_txt_btn.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import 'package:myhealthdiary_app/managerClass/double_value_alert_manager.dart';
-import 'package:myhealthdiary_app/provider/collection_of_basic_state_provider.dart';
-import 'package:myhealthdiary_app/provider/sharedStateNotifier/sport_info_notifier.dart';
-import 'package:myhealthdiary_app/provider/train_goal_list_notifier.dart';
-import 'package:myhealthdiary_app/provider/train_goal_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_list_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_notifier.dart';
 
 import '../../managerClass/pick_date_method.dart';
 
@@ -67,7 +67,6 @@ class TrainGoalInsertView extends ConsumerWidget {
           double recSize = fontSize(context, 13);
           double btnSize = fontSize(context, 3);
           double metricSize = fontSize(context, 4);
-
 //이전 페이지에서 설정해놓았을 스포츠 아이디값.
           final sportID = ref.read(showSportIdProvider);
 // 1. 보여주고 싶은 스포츠 정보 provider
@@ -75,7 +74,6 @@ class TrainGoalInsertView extends ConsumerWidget {
 // 2. 아직 저장되지 않은, trainGoalmodel을 관리할 상태.
 // 3. detail 로 넘어 왔을때는 다른 거다.
           final state = ref.watch(addTrainGoalProvier);
-
           return Center(
             child: SizedBox(
               width: maxWidth,
@@ -329,7 +327,7 @@ class TrainGoalInsertView extends ConsumerWidget {
                       await baseAlertForConfirm(context, "저장 되었습니다.");
                       //돌아갈 화면 초기화
                       ref
-                          .read(trainingGoalListPageProvider.notifier)
+                          .read(trainingGoalListPageProvider .notifier)
                           .initiateState();
                       //화면 이동
                       context.pop();

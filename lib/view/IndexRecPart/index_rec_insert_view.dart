@@ -13,7 +13,7 @@ import '../../common/const/basic_method.dart';
 import '../../common/widget/layOut/base_layout.dart';
 import '../../common/widget/widget_custom_text_box.dart';
 import '../../provider/acuu_record_index_notifier.dart';
-import '../../provider/collection_of_basic_state_provider.dart';
+import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 import '../../provider/index_record_notifier.dart';
 import 'card_index_record.dart';
 
