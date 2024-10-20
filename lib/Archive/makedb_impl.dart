@@ -81,16 +81,16 @@ class MakeDBImpl {
       FOREIGN KEY (tp_s_id) REFERENCES sport (sport_id) ON UPDATE CASCADE 
       );''';
   //운동 수행 기록을 저장하는 테이블
-  final String _createTraingRec = '''CREATE TABLE training_rec(
-      tr_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      tr_title TEXT,
-      tr_s_id INTEGER,
-      tr_set INTEGER,
-      tr_rec1 real,
-      tr_rec2 real,
-      tr_traindate TEXT,
-      FOREIGN KEY (tr_s_id) REFERENCES sport (sport_id) ON UPDATE CASCADE 
-      );''';
+  // final String _createTraingRec = '''CREATE TABLE training_rec(
+  //     tr_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  //     tr_title TEXT,
+  //     tr_s_id INTEGER,
+  //     tr_set INTEGER,
+  //     tr_rec1 real,
+  //     tr_rec2 real,
+  //     tr_traindate TEXT,
+  //     FOREIGN KEY (tr_s_id) REFERENCES sport (sport_id) ON UPDATE CASCADE 
+  //     );''';
 
 /* 그외 릴레이션 테이블을 만드는 구문 */
   //눈바디를 저장하기 위한 테이블
@@ -110,7 +110,7 @@ class MakeDBImpl {
       _createSortSport,
       _createTraingGoal,
       _createTraingPlan,
-      _createTraingRec,
+      // _createTraingRec,
       _createBodyRec
     ];
     String path = await getDatabasesPath();
