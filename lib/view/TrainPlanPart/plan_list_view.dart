@@ -4,8 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_list_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/bax_plan_liset.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/box_plan_list.dart';
 import 'package:myhealthdiary_app/view/TrainPlanPart/carlendar_plan_list.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_title_view.dart';
 
 import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
 
@@ -17,7 +18,7 @@ class TrainPlanListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return BaseLayout(
         barTitle: "운동 계획 보기",
-        // leadbtn: SizedBox(),
+        leadbtn: const SizedBox(),
         body: LayoutBuilder(
           builder: (context, constraints) {
             double maxWidth = constraints.maxWidth - 20;
@@ -47,6 +48,8 @@ class TrainPlanListView extends ConsumerWidget {
                     },
                     rightFunc: () {
                       //새로운 플랜 추가하는 버튼
+                      ref.read(titleProvider.notifier).state="";
+                      context.goNamed(PlanAddNewTitleView.routeForPlanAddNewTitle);
                     },
                     width: maxWidth,
                     height: btnHeight,

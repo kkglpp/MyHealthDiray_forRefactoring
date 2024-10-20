@@ -7,6 +7,7 @@ import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_llist_state_notifier.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_sport_view.dart';
 
 import '../../baseModel/sport_folder_model.dart';
 import '../../managerClass/sport_list_manage/sportlist_infolder_manager.dart';
@@ -22,6 +23,8 @@ class CellSportList extends ConsumerWidget {
   final double eachheight;
 
   /// 스포츠를 눌럿을때 어디로 갈지 결정하는 요소이다. goal plan train   planUpdate는 제꼈다....
+  ///goal => 목표 입력
+  ///plan => 계획 입력
   final String opt;
   final int folderID;
   const CellSportList(
@@ -48,7 +51,7 @@ class CellSportList extends ConsumerWidget {
           context.goNamed(TrainGoalInsertView.routeForTrainGoalInertView);
         }
         if (opt == "plan") {
-          // context.goNamed(TrainingPlanAddSetView.routeName1);
+          context.goNamed(PlanAddNewSportView.routeForPlanAddNewSportSet);
         }
         if (opt == "planUpdate") {
           // String planTitle = ref.read(titleProvider.notifier).state;

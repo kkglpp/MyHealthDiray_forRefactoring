@@ -8,6 +8,8 @@ class ColumnAllSportsList extends ConsumerWidget {
   final double width;
   final double height;
   final double cellHeight;
+  ///goal => 목표 입력으로
+  ///plan => 계획 입력으로
   final String opt;
   const ColumnAllSportsList({
     super.key,

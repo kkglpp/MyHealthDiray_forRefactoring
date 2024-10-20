@@ -10,6 +10,8 @@ import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_detail_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_insert_view.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_sport_view.dart';
+import 'package:myhealthdiary_app/view/TrainPlanPart/plan_add_new_title_view.dart';
 import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
 
 import '../../view/home.dart';
@@ -111,7 +113,43 @@ class NavigationNotifier extends ChangeNotifier {
               name: TrainPlanListView.routeForTrainPlanListView,
               builder: (context, state) => const TrainPlanListView(),
               routes: [
-
+//운동 계획을 새로 입력하는 과정.
+//add New Title . 모든 운동 계획은 Title + date 조합으로 분류 되도록 db를 짯다.
+// 같은날 같은 Title로 계획 한 세트를 등록해야한다.
+                GoRoute(
+                  path: "addPlan",
+                  name: PlanAddNewTitleView.routeForPlanAddNewTitle,
+                  builder: (context, state) => const PlanAddNewTitleView(isNew: true, opt: "plan"),
+                  routes: [                    
+                  GoRoute(
+                    path: 'selectSport',
+                    name: SportListView.routeForInsertTrainPlan,
+                    builder: (context, state) => const SportListView(opt: 'plan',),
+                    ),
+                  GoRoute(
+                    path:'addSportSet',
+                    name: PlanAddNewSportView.routeForPlanAddNewSportSet,
+                    builder: (context, state) => const PlanAddNewSportView(),
+                    )                    
+                  ]
+                  ),
+                GoRoute(
+                  path: "showPlan",
+                  name: PlanAddNewTitleView.routeForPlanDetailView,
+                  builder: (context, state) => const PlanAddNewTitleView(isNew: false,opt: "plan"),
+                  routes: [                    
+                  GoRoute(
+                    path: 'selectSport',
+                    name: SportListView.routeForUpdatePlan,
+                    builder: (context, state) => const SportListView(opt: 'plan',),
+                    ),
+                  GoRoute(
+                    path:'addSportSet',
+                    name: PlanAddNewSportView.routeForPlanUpdateSportSet,
+                    builder: (context, state) => const PlanAddNewSportView(),
+                    )                    
+                  ]
+                  ),
               ]
               ),
 //운동 하러 가기 페이지 루트              

@@ -16,8 +16,10 @@ final showSportIdProvider = StateProvider<int>((ref) => 0);
 final insertDoubleValueProvider =
     StateProviderFamily<double, double>((ref, initial) => initial);
 
+final titleProvider = StateProvider((ref) =>"");
 //flutter run 
 // 고른 날짜를 관리하기 위한 provider
-final selectedDayProvider = StateProvider.autoDispose<DateTime>((ref) => DateTime.now());
+final selectedDayProvider = StateProvider<DateTime>((ref) => DateTime.now());
 //focusing된 날짜를 관리하기 위한 provider
-final focusedDayProvider = StateProvider.autoDispose<DateTime>((ref) => DateTime.now());
+final focusedDayProvider = StateProvider<DateTime>((ref) => DateTime.now());
+

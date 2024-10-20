@@ -26,6 +26,8 @@ class SportListView extends ConsumerWidget {
 
   ///계획없이 운동하기.
   static String get routeForTrain => "routeForTrain";
+  /// goal : 목표 입력
+  /// plan : 운동 계획 입력
   final String opt;
   const SportListView({
     super.key,
