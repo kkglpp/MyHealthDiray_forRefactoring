@@ -16,7 +16,7 @@ class TrainPlanListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-        print(GoRouterState.of(context).uri.toString()  );
+        // print(GoRouterState.of(context).uri.toString()  );
 
     return BaseLayout(
         barTitle: "운동 계획 보기",

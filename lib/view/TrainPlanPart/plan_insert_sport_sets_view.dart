@@ -16,14 +16,15 @@ import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_add_new_sport_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_daily_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
 
 /// 매일의 계획에 운동 세트를추가하는 페이지.
 class PlanInsertSportSetsView extends ConsumerWidget {
   static String routeForPlanAddNewSportSet = "routeForPlanAddNewSportSet";
   static String routeForPlanUpdateSportSet = "routeForPlanUpdateSportSet";
-  static String routeForTrainAsPlanInsertSetView = "routeForTrainAsPlanInsertSetView";
-  static String routeForTrainWithoutPlanInsertSetView = "routeForTrainWithoutPlanInsertSetView";
+  static String routeForTrainAsPlanInsertSetView =
+      "routeForTrainAsPlanInsertSetView";
+  static String routeForTrainWithoutPlanInsertSetView =
+      "routeForTrainWithoutPlanInsertSetView";
 
   /// goal : 목표 입력
   /// plan : 운동 계획 입력
@@ -34,7 +35,6 @@ class PlanInsertSportSetsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print(GoRouterState.of(context).uri.toString()  );
     return BaseLayout(
         barTitle: "운동 계획 입력",
         body: LayoutBuilder(

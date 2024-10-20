@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
+import 'package:myhealthdiary_app/view/TrainRecPart/train_start_view.dart';
 
 import '../../baseModel/training_plan_model.dart';
 import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
@@ -33,13 +33,22 @@ class PlanDayTodoListCard extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () {
+        //title 셋팅
         ref.read(titleProvider.notifier).state = set.tpTitle;
+        //sportID 셋팅
         ref.read(showSportIdProvider.notifier).state = set.tpSId;
-        if (opt == "train") {
-          // context.goNamed(TrainingStartView.routeName1);
+
+        if (opt == "trainAsPlan") {
+          context.goNamed(TrainStartView.routeForStartWithPlan);
+          return;
+        }
+        if(opt == "trainWithoutPlan"){
+          context.goNamed(TrainStartView.routeForStartWithoutPlan);
+          return;
         }
         if (opt == "plan") {
-          context.goNamed(PlanDayTodoListView.routeForPlanDetailView);
+          // context.goNamed(PlanDayTodoListView.routeForPlanDetailView);
+          return;
         }
       },
       child: SizedBox(

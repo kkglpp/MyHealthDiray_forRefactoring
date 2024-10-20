@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sort_folder_state_notifier.dart';
@@ -44,7 +43,7 @@ class SportListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print("???? :${GoRouterState.of(context).uri.toString()}  ");
+    // print("???? :${GoRouterState.of(context).uri.toString()}  ");
  
     return LayoutBuilder(
       builder: (context, constraints) {

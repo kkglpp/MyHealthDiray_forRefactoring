@@ -29,13 +29,12 @@ class PlanDayTodoListView extends ConsumerWidget {
 
   /// plan : 계획 관리 하는 옵션.
   /// trainAsPlan : 계획있이 운동하러 가는 옵션
-  /// trainWithOutPlan: 계획 없이.
+  /// trainWithoutPlan: 계획 없이.
   final String opt;
   const PlanDayTodoListView({super.key, required this.isNew,required this.opt});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-        print(GoRouterState.of(context).uri.toString()  );
 
     return BaseLayout(
       leadbtn: const SizedBox(),
@@ -52,6 +51,7 @@ class PlanDayTodoListView extends ConsumerWidget {
         double btnPartHeight = maxHeight * 0.08;
         //세부 높이 계산
         double cardHeight = maxHeight * 0.08;
+        double addSportBtnPadding = maxHeight * 0.1;
 
         //넓이 계산
         double titleLefitWidth = maxWidth * 0.3;
@@ -177,7 +177,7 @@ class PlanDayTodoListView extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     return index == stateList.length
                         ? Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                            padding:  EdgeInsets.fromLTRB(0, addSportBtnPadding, 0, 20),
                             child: WidgetCustomEleBtn(
                                 color: Colors.purple,
                                 fontSize: cardLeftFz,

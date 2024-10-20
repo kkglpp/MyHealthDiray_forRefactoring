@@ -23,3 +23,11 @@ final selectedDayProvider = StateProvider<DateTime>((ref) => DateTime.now());
 //focusing된 날짜를 관리하기 위한 provider
 final focusedDayProvider = StateProvider<DateTime>((ref) => DateTime.now());
 
+//운동 수행 파트에서 Timer를 컨트롤 하기위한 Provider.
+final doublForTimerProvider = StateProvider<double>((ref) => 30);
+final doublForTimerProviderMax = StateProvider<double>((ref) => 30);
+
+
+//각 trainingRow를 관리하는 bool 값 provider
+//false 면 미수행. 
+final boolForTrainingCard = AutoDisposeStateProviderFamily<bool,int>((ref,setID) => false);

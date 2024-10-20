@@ -15,6 +15,7 @@ import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dar
 import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainRecPart/train_rec_home_view.dart';
 import 'package:myhealthdiary_app/view/TrainRecPart/train_show_plan_view.dart';
+import 'package:myhealthdiary_app/view/TrainRecPart/train_start_view.dart';
 
 import '../../view/home.dart';
 
@@ -199,6 +200,11 @@ class NavigationNotifier extends ChangeNotifier {
                                     const PlanInsertSportSetsView(
                                         opt: "trainAsPlan"),
                               ),
+                              GoRoute(
+                                path:'starTrain',
+                                name: TrainStartView.routeForStartWithPlan,
+                                builder: (context, state) => const TrainStartView(opt: "AsPlan"),
+                                )
                             ])
                       ]),
                   // 계획 없이 운동하러 가는 파트.
@@ -223,6 +229,11 @@ class NavigationNotifier extends ChangeNotifier {
                               const PlanInsertSportSetsView(
                                   opt: "trainWithoutPlan"),
                         ),
+                              GoRoute(
+                                path:'starTrain',
+                                name: TrainStartView.routeForStartWithoutPlan,
+                                builder: (context, state) => const TrainStartView(opt: "WithoutPlan"),
+                                )
                       ])
                 ]),
           ],

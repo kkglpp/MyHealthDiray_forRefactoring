@@ -29,13 +29,6 @@ class TrainPlanAddNewSportNotifier extends _$TrainPlanAddNewSportNotifier {
 //Method
   @override
   Future<List<TrainingPlanModel>> build() async {
-    //SportID를 셋팅한다.
-    sportID = ref.read(showSportIdProvider.notifier).state;
-    //title을 셋팅한다.
-    title = ref.read(titleProvider.notifier).state;
-    //날짜를 셋팅한다.
-    trainDate = onlyDay(ref.read(selectedDayProvider.notifier).state);
-    //db에서 기존 리스트를 불러오고 이 것을 preTemp에 넣어둔다.
     preTemp = await getPreviousList();
     //최초 빌드니까 그대로 리턴해준다.
     return preTemp;
@@ -43,12 +36,20 @@ class TrainPlanAddNewSportNotifier extends _$TrainPlanAddNewSportNotifier {
 
   /// db에서 기존 저장된 계획을 불러와 반환하는 함수.
   Future<List<TrainingPlanModel>> getPreviousList() async {
+    //SportID를 셋팅한다.
+    sportID = ref.read(showSportIdProvider.notifier).state;
+    //title을 셋팅한다.
+    title = ref.read(titleProvider.notifier).state;
+    //날짜를 셋팅한다.
+    trainDate = onlyDay(ref.read(selectedDayProvider.notifier).state);    
     TrainingPlanTableDataImpl db = TrainingPlanTableDataImpl();
+    print( "1_ $sportID 2_ $title 3_ $trainDate"     );
+
     return List.from(await db.getDaysEachSportPlan(title, sportID, trainDate));
   }
 
   /// 처음 상태로 되돌리는 함수
-  /// 저장안하고 나갈때 사용
+  /// 저장안하고 나갈때도 사용하고, trainStart에서 화면을 새로고침할때도 사용한다.
   void resetState() async {
     temp = [];
     preTemp = await getPreviousList();
@@ -118,13 +119,15 @@ class TrainPlanAddNewSportNotifier extends _$TrainPlanAddNewSportNotifier {
     return rs;
   }
 
-  //done 으로 바꾸기.
-  // Future<bool> donePlanRow(int planId) async {
-  //   TrainingPlanTableDataImpl db = TrainingPlanTableDataImpl();
-  //   bool rs = await db.updateDone(1, planId);
-  //   print(rs);
-  //   if(!rs){return false;}
-  //   initState();
-  //   return rs;
-  // }
+  ///done 으로 바꾸기.
+  /// train start view 에서 쓰는 함수 이다.
+  Future<bool> donePlanRow(int planId) async {
+    TrainingPlanTableDataImpl db = TrainingPlanTableDataImpl();
+    bool rs = await db.updateDone(1, planId);
+    if (!rs) {
+      return false;
+    }
+    resetState();
+    return rs;
+  }
 } //end class
