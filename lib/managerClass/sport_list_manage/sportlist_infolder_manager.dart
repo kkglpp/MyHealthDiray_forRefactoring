@@ -5,7 +5,7 @@ import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
-import 'package:myhealthdiary_app/sport.list.part/provider/sport_list_infolder_notifier.dart';
+import 'package:myhealthdiary_app/provider/providerForSportList/sport_list_infolder_notifier.dart';
 import '../../datasource/sport_sort_table_data_impl.dart';
 
 
