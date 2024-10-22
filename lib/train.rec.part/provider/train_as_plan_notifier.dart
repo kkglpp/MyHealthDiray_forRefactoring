@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../Archive/training_plan_table_data_impl.dart';
+import '../../datasource/training_plan_table_data_impl.dart';
 
 part 'train_as_plan_notifier.g.dart';
 

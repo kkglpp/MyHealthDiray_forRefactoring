@@ -5,16 +5,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_field.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_field.dart';
+import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/sport.list.part/provider/sport_folder_list_state_notifier.dart';
 import 'package:myhealthdiary_app/sport.list.part/provider/sport_list_infolder_notifier.dart';
 import 'package:myhealthdiary_app/sport.list.part/provider/sport_llist_state_notifier.dart';
 import 'package:myhealthdiary_app/sport.list.part/provider/sport_state_notifier.dart';
 
 
-import '../../baseModel/sport_folder_model.dart';
+import '../../model/sport_folder_model.dart';
 
 
 

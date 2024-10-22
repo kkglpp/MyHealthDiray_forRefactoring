@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myhealthdiary_app/Archive/health_index_rec_table_data_impl.dart';
+import 'package:myhealthdiary_app/index.record.part/provider/health_index_rec_table_data_impl.dart';
 import 'package:flutter/material.dart';
 
 

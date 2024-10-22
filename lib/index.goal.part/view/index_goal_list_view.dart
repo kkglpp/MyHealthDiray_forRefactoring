@@ -7,10 +7,10 @@ import 'package:myhealthdiary_app/index.goal.part/provider/index_goal_notifier.d
 import 'package:myhealthdiary_app/index.goal.part/view/index_goal_insert_view.dart';
 import 'package:myhealthdiary_app/index.goal.part/view/card_index_goal_list.dart';
 
-import '../../common/widget/layOut/base_layout.dart';
-import '../../common/widget/widget_custom_flt_btn.dart';
-import '../../common/widget/widget_custom_txt_btn.dart';
-import '../../common/widget/widget_empty_card.dart';
+import '../../common/component/layOut/base_layout.dart';
+import '../../common/component/widget_custom_flt_btn.dart';
+import '../../common/component/widget_custom_txt_btn.dart';
+import '../../common/component/widget_empty_card.dart';
 import '../provider/index_goal_list_notifier.dart';
 
 class IndexGoalListView extends ConsumerWidget {

@@ -9,7 +9,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/sport_folder_model.dart';
+import '../model/sport_folder_model.dart';
 import '../common/const/basic_method.dart';
 
 class SportFolderTableDataImpl {

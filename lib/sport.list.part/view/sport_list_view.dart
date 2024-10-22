@@ -9,9 +9,9 @@ import 'package:myhealthdiary_app/sport.list.part/provider/sport_llist_state_not
 import 'package:myhealthdiary_app/sport.list.part/view/column_all_sportslist.dart';
 import 'package:myhealthdiary_app/sport.list.part/view/column_folder_sportlist.dart';
 
-import '../../baseModel/sport_folder_model.dart';
-import '../../common/widget/layOut/base_layout.dart';
-import '../../common/widget/widget_custom_text_box.dart';
+import '../../model/sport_folder_model.dart';
+import '../../common/component/layOut/base_layout.dart';
+import '../../common/component/widget_custom_text_box.dart';
 import '../../managerClass/sport_list_manage/sport_list_manager.dart';
 import '../../managerClass/sport_list_manage/sportfolder_list_manager.dart';
 

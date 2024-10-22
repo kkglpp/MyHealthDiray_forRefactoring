@@ -14,7 +14,7 @@ HI Goal Table에 데이터를 CRUD하는 기능들이 있어야함.
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/health_index_goal_model.dart';
+import '../model/health_index_goal_model.dart';
 import '../common/const/basic_method.dart';
 
 class HealthIndexGoalTableDataImpl {

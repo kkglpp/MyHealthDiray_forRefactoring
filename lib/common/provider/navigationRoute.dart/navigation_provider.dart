@@ -201,10 +201,11 @@ class NavigationNotifier extends ChangeNotifier {
                                         opt: "trainAsPlan"),
                               ),
                               GoRoute(
-                                path:'starTrain',
+                                path: 'starTrain',
                                 name: TrainStartView.routeForStartWithPlan,
-                                builder: (context, state) => const TrainStartView(opt: "AsPlan"),
-                                )
+                                builder: (context, state) =>
+                                    const TrainStartView(opt: "AsPlan"),
+                              )
                             ])
                       ]),
                   // 계획 없이 운동하러 가는 파트.
@@ -229,11 +230,12 @@ class NavigationNotifier extends ChangeNotifier {
                               const PlanInsertSportSetsView(
                                   opt: "trainWithoutPlan"),
                         ),
-                              GoRoute(
-                                path:'starTrain',
-                                name: TrainStartView.routeForStartWithoutPlan,
-                                builder: (context, state) => const TrainStartView(opt: "WithoutPlan"),
-                                )
+                        GoRoute(
+                          path: 'starTrain',
+                          name: TrainStartView.routeForStartWithoutPlan,
+                          builder: (context, state) =>
+                              const TrainStartView(opt: "WithoutPlan"),
+                        )
                       ])
                 ]),
           ],

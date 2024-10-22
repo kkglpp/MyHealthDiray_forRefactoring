@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/basic_method.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/train.plan.part/view/plan_day_todo_list_view.dart';
 

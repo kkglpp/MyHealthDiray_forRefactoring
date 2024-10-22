@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 
-import '../../common/widget/widget_custom_text_box.dart';
+import '../../common/component/widget_custom_text_box.dart';
 import '../../managerClass/double_value_alert_manager.dart';
 
 class CardIndexRecord extends ConsumerWidget {

@@ -32,7 +32,7 @@ TrainingPlan 운동 계획을 CRUD 하는 기능들이 있어야함
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/training_plan_model.dart';
+import '../model/training_plan_model.dart';
 import '../common/const/basic_method.dart';
 
 class TrainingPlanTableDataImpl {

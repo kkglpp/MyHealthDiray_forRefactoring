@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../Archive/health_index_rec_table_data_impl.dart';
-import '../../baseModel/health_index_record_model.dart';
+import 'health_index_rec_table_data_impl.dart';
+import '../../model/health_index_record_model.dart';
 import '../../common/const/basic_method.dart';
 
 

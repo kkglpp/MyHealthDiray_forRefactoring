@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
+import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/train.plan.part/provider/train_plan_list_notifier.dart';
 import 'package:myhealthdiary_app/train.plan.part/view/plan_list_box_part.dart';
 import 'package:myhealthdiary_app/train.plan.part/view/plan_list_carlendar_part.dart';

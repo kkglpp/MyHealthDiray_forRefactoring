@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 
 class TrainShowPlanCard extends ConsumerWidget {
   final Color bgclr;

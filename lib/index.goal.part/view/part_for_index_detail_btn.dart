@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/index.goal.part/provider/index_goal_notifier.dart';
-import '../../baseModel/health_index_goal_model.dart';
-import '../../common/widget/widget_custom_text_box.dart';
+import '../../model/health_index_goal_model.dart';
+import '../../common/component/widget_custom_text_box.dart';
 import '../../common/const/base_alert.dart';
 import '../provider/index_goal_list_notifier.dart';
 

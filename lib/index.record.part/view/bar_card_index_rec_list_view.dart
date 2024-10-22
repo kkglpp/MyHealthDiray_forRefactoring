@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 
 import '../../common/const/basic_method.dart';
-import '../../common/widget/widget_custom_text_box.dart';
+import '../../common/component/widget_custom_text_box.dart';
 
 
 class BarCardIndexRecListView extends StatelessWidget {

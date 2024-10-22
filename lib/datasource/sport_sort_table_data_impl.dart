@@ -5,10 +5,9 @@
 //2. row를 삭제하는 기능 : sf_id와 s_id를 받아서 둘다 이리하는 row를 지운다.
 //3. 폴더명별로 조회하는 기능 : sf_id를 받아와서 해당 폴더에 들어있는 모든 ss_sport_id와 ss_sport_name을 가져온다.
 
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import '../baseModel/sorted_sport_model.dart';
+import '../model/sorted_sport_model.dart';
 import '../common/const/basic_method.dart';
 
 class SortSportTableDataImpl {
@@ -41,7 +40,7 @@ FROM sort_sport
 WHERE ss_sf_id=?
 ''';
 
-  final String _deleteRowFromDeletedSport = ''' 
+  final String _deleteRowFromDeletedSport = '''
   DELETE FROM sort_sport WHERE ss_sport_id = ?;
   ''';
 
@@ -60,13 +59,12 @@ WHERE ss_sf_id=?
 //1. 다수의 row를 추가하는 기능 : 다수의 sf_id 와 s_id, s_name을 받아서 넣는다.
   Future<bool> insertRow(SortSportModel row) async {
     final Database db = await initializeTable();
-
     try {
       await db.rawInsert(_insertRowStr, [modelToList(row.toMap())]);
     } catch (e) {
       return false;
     }
-          return true;
+    return true;
   }
 
   Future<bool> insertRows(List<SortSportModel> rowList) async {
@@ -89,7 +87,7 @@ WHERE ss_sf_id=?
     } catch (e) {
       return false;
     }
-          return true;
+    return true;
   }
 
 //3. 폴더명별로 조회
@@ -98,26 +96,20 @@ WHERE ss_sf_id=?
     try {
       final List<Map<String, dynamic>> result =
           await db.rawQuery(_getSortedSportStr, [folderID]);
-        
       return result.map((e) => SortSportModel.fromMap(e)).toList();
     } catch (e) {
-              return [];
+      return [];
     }
   }
 
-
   //4. SportID가 일치하는 모든 row 삭제하기. 전체종목에서 지울떄 같이 해야한다.
-  Future<bool> deleteAllRowFromSportID(int sportID) async{
+  Future<bool> deleteAllRowFromSportID(int sportID) async {
     final Database db = await initializeTable();
-    try{
-      await db.rawDelete(_deleteRowFromDeletedSport,[sportID]);
-
-    }catch(e){
+    try {
+      await db.rawDelete(_deleteRowFromDeletedSport, [sportID]);
+    } catch (e) {
       return false;
-
     }
     return true;
-  }//end deletallrowFrom
+  } //end deletallrowFrom
 }
-
-

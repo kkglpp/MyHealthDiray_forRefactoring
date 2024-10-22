@@ -26,7 +26,7 @@ TrainingGoal 테이블에 훈련 목표들을 CRUD 하는 기능들이 있어야
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/training_goal_model.dart';
+import '../model/training_goal_model.dart';
 import '../common/const/basic_method.dart';
 
 class TrainingGoalTableDataImpl {

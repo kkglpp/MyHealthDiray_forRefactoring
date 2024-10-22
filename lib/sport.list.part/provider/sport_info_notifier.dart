@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../Archive/sport_table_data_impl.dart';
-import '../../baseModel/mapped_sport_model.dart';
+import '../../datasource/sport_table_data_impl.dart';
+import '../../model/mapped_sport_model.dart';
 
 
 //스포츠 아이디를 입력받고 이름과 단위 정보를 상태로 갖고 있는다.

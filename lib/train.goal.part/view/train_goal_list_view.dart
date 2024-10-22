@@ -3,15 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_txt_btn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_empty_card.dart';
+import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_txt_btn.dart';
+import 'package:myhealthdiary_app/common/component/widget_empty_card.dart';
 import 'package:myhealthdiary_app/common/provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/sport.list.part/view/sport_list_view.dart';
+import 'package:myhealthdiary_app/train.goal.part/provider/train_goal_list_notifier.dart';
 import 'package:myhealthdiary_app/train.goal.part/view/card_for_goal_list.dart';
 import 'package:myhealthdiary_app/train.goal.part/view/train_goal_detail_view.dart';
 
-import '../../common/widget/widget_banner_for_ad.dart';
+import '../../common/component/widget_banner_for_ad.dart';
 
 class TrainGoalListView extends ConsumerWidget {
   static String routeForTrainGoalListView = "routeForTrainGoalListView";

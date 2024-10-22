@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../Archive/health_index_goal_table_data_impl.dart';
-import '../../baseModel/health_index_goal_model.dart';
+import '../../datasource/health_index_goal_table_data_impl.dart';
+import '../../model/health_index_goal_model.dart';
 
 
 final healthIndexGoalListProvider = StateNotifierProvider< IndexGoalListNotifier,List<HealthIndexGoalModel>>((ref){

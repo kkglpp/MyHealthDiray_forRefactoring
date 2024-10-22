@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/index.goal.part/provider/index_goal_notifier.dart';
 import 'package:myhealthdiary_app/index.goal.part/view/card_index_goal_value.dart';
 
 import '../../common/const/basic_method.dart';
-import '../../common/widget/layOut/base_layout.dart';
-import '../../common/widget/widget_custom_text_box.dart';
+import '../../common/component/layOut/base_layout.dart';
+import '../../common/component/widget_custom_text_box.dart';
 import '../../common/const/base_alert.dart';
 import '../provider/index_goal_list_notifier.dart';
 

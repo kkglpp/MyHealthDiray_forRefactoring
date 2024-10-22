@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_elebtn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
+import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/sport.list.part/provider/sport_list_infolder_notifier.dart';
-import '../../Archive/sport_sort_table_data_impl.dart';
+import '../../datasource/sport_sort_table_data_impl.dart';
 
 
 class SportListInFolderManager {

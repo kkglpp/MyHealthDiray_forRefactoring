@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/train.plan.part/provider/train_plan_add_new_sport_notifier.dart';
 
-import '../../baseModel/training_plan_model.dart';
+import '../../model/training_plan_model.dart';
 
 
 class TrainStartCard extends ConsumerWidget {

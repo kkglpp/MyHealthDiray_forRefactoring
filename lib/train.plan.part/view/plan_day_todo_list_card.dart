@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/sport.list.part/provider/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/train.plan.part/view/plan_insert_sport_sets_view.dart';
 import 'package:myhealthdiary_app/train.rec.part/view/train_start_view.dart';
 
-import '../../baseModel/training_plan_model.dart';
+import '../../model/training_plan_model.dart';
 import '../../common/provider/providerForShared/collection_of_basic_state_provider.dart';
 
 class PlanDayTodoListCard extends ConsumerWidget {

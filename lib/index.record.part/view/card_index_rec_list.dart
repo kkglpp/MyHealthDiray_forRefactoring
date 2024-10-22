@@ -4,11 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/index.record.part/view/index_rec_insert_view.dart';
 
-import '../../baseModel/health_index_record_model.dart';
+import '../../model/health_index_record_model.dart';
 import '../../common/const/basic_method.dart';
 import '../../common/const/colors.dart';
 
-import '../../common/widget/widget_custom_text_box.dart';
+import '../../common/component/widget_custom_text_box.dart';
 import '../../common/provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'bar_card_index_rec_list_view.dart';
 

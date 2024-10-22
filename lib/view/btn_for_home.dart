@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../common/widget/widget_custom_text_box.dart';
+import '../common/component/widget_custom_text_box.dart';
 
 class BtnForHome extends StatelessWidget {
   final String msg;

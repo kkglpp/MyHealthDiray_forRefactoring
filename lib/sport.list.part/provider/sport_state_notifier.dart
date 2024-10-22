@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../Archive/sport_table_data_impl.dart';
-import '../../baseModel/sport_model.dart';
+import '../../datasource/sport_table_data_impl.dart';
+import '../../model/sport_model.dart';
 
 final stateForNewSportProvider =
     StateNotifierProvider<SportStateNotifier, SportModel?>((ref) {

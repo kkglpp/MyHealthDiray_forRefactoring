@@ -13,7 +13,7 @@ Sport 테이블에서 데이터를 CRUD 하기위한 기능들이 있어야함.
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../baseModel/sport_model.dart';
+import '../model/sport_model.dart';
 import '../common/const/basic_method.dart';
 
 class SportTableImpl {

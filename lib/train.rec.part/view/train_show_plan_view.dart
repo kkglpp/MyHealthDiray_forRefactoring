@@ -3,11 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/basic_method.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_elebtn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/provider/providerForShared/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/train.plan.part/view/plan_day_todo_list_view.dart';
+import 'package:myhealthdiary_app/train.rec.part/provider/train_as_plan_notifier.dart';
 import 'package:myhealthdiary_app/train.rec.part/view/train_show_plan_card.dart';
 
 class TrainShowPlanView extends ConsumerWidget {

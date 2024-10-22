@@ -5,16 +5,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myhealthdiary_app/baseModel/training_plan_model.dart';
+import 'package:myhealthdiary_app/model/training_plan_model.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_elebtn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/sport.list.part/provider/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/train.plan.part/provider/train_plan_add_new_sport_notifier.dart';
 import 'package:myhealthdiary_app/train.plan.part/provider/train_plan_daily_notifier.dart';
 
 import '../../common/const/basic_method.dart';
-import '../../common/widget/layOut/base_layout.dart';
+import '../../common/component/layOut/base_layout.dart';
 import 'train_start_card.dart';
 
 class TrainStartView extends ConsumerWidget {

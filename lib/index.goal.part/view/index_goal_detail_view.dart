@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/common/component/widget_banner_for_ad.dart';
+import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/index.goal.part/view/part_for_index_detail_btn.dart';
 
 import '../../common/const/basic_method.dart';
-import '../../common/widget/layOut/base_layout.dart';
-import '../../common/widget/widget_custom_text_box.dart';
-import '../../common/widget/widget_empty_card.dart';
+import '../../common/component/layOut/base_layout.dart';
+import '../../common/component/widget_custom_text_box.dart';
+import '../../common/component/widget_empty_card.dart';
 import '../../common/provider/providerForShared/collection_of_basic_state_provider.dart';
 import '../provider/index_goal_notifier.dart';
 

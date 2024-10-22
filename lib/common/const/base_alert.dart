@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_elebtn.dart';
-import '../widget/widget_custom_text_box.dart';
-import '../widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
+import '../component/widget_custom_text_box.dart';
+import '../component/widget_double_btn.dart';
 
 /*
 메시지 하나 보여주고 

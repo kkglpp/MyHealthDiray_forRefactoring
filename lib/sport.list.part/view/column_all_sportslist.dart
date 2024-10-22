@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/sport.list.part/view/cell_sport_list.dart';
-import '../../baseModel/sport_model.dart';
+import '../../model/sport_model.dart';
 
 class ColumnAllSportsList extends ConsumerWidget {
   final List<SportModel> list;

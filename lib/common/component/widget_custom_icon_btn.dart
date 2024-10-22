@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 
 class WidgetCustomIconBtn extends StatelessWidget {
   final double width;
