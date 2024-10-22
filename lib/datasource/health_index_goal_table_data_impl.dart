@@ -98,13 +98,10 @@ VALUES (?,?,?,?,?,?,?,?,?)
 // 0. db를 여는 함수.
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
-    return openDatabase(
-      join(path, 'HealthLife.db'),
-      onCreate: (db, version) async {
-        await db.execute(_createHIgoal);
-      },
-      version: 1
-    );
+    return openDatabase(join(path, 'HealthLife.db'),
+        onCreate: (db, version) async {
+      await db.execute(_createHIgoal);
+    }, version: 1);
   }
 
 // 1. healthIndex goal 리스트를 가져오는 함수
@@ -127,7 +124,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
     try {
       final List<Map<String, dynamic>> result =
           await db.rawQuery(_getGoalStr, [id]);
-      // print(result.toString());    
+      // print(result.toString());
       return result.map((e) => HealthIndexGoalModel.fromMap(e)).toList()[0];
     } catch (e) {
       // print(e);
@@ -140,7 +137,6 @@ VALUES (?,?,?,?,?,?,?,?,?)
     final Database db = await initializeTable();
 
     try {
-      
       await db.rawInsert(
         _insertGoalStr,
         modelToList(goal.toMap()).sublist(1),

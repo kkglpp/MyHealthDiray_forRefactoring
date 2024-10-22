@@ -89,7 +89,7 @@ class MakeDBImpl {
   //     tr_rec1 real,
   //     tr_rec2 real,
   //     tr_traindate TEXT,
-  //     FOREIGN KEY (tr_s_id) REFERENCES sport (sport_id) ON UPDATE CASCADE 
+  //     FOREIGN KEY (tr_s_id) REFERENCES sport (sport_id) ON UPDATE CASCADE
   //     );''';
 
 /* 그외 릴레이션 테이블을 만드는 구문 */

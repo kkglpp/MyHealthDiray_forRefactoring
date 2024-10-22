@@ -98,7 +98,8 @@ INSERT INTO training_goal(
 
 // **
 // 11. 목표 삭제하기
-  final String _deleteGoalByGoalid = "DELETE FROM training_goal WHERE tg_id = ?";
+  final String _deleteGoalByGoalid =
+      "DELETE FROM training_goal WHERE tg_id = ?";
   // final String _deleteGoalByGoalid = "DELETE FROM training_goal WHERE tg_id = ?";
 // 12. 우선순위 바꾸기. (상단 고정하기.)
   final String _updatePriorityTxn1 = '''
@@ -127,7 +128,6 @@ WHERE tg_id = ?
 
 //15.목표 하나 가져오기
   final String _getGoalStr = "SELECT * FROM training_goal WHERE tg_id = ?";
-
 
 /* Method */
 
@@ -289,7 +289,7 @@ WHERE tg_id = ?
     } catch (e) {
       return false;
     }
-    return result==1;
+    return result == 1;
   }
 
 // 12. 우선순위 바꾸기. (상단 고정하기.)
@@ -315,9 +315,7 @@ WHERE tg_id = ?
   Future<bool> updateSuccess(int goalID) async {
     final Database db = await initializeTable();
     try {
-      await db.rawInsert(_updateSuccessStr, [
-        onlyDay(DateTime.now()), goalID
-      ]);
+      await db.rawInsert(_updateSuccessStr, [onlyDay(DateTime.now()), goalID]);
     } catch (e) {
       return false;
     }
@@ -328,9 +326,7 @@ WHERE tg_id = ?
   Future<bool> updateFail(int goalID) async {
     final Database db = await initializeTable();
     try {
-      await db.rawInsert(_updateFailStr, [
-        onlyDay(DateTime.now()),goalID
-      ]);
+      await db.rawInsert(_updateFailStr, [onlyDay(DateTime.now()), goalID]);
     } catch (e) {
       return false;
     }
@@ -339,16 +335,14 @@ WHERE tg_id = ?
 
   //15. 목표 하나 가져오기.
 
-  Future<TrainingGoalModel?> getOneGoal(int goalID) async{
+  Future<TrainingGoalModel?> getOneGoal(int goalID) async {
     final Database db = await initializeTable();
-    try{
-      List<Map<String, dynamic>> result = await db.rawQuery(_getGoalStr,[goalID]);
+    try {
+      List<Map<String, dynamic>> result =
+          await db.rawQuery(_getGoalStr, [goalID]);
       return result.map((e) => TrainingGoalModel.fromMap(e)).toList()[0];
-    }catch(e){
+    } catch (e) {
       return null;
     }
-  }//end getOneGoal
-
-
-
+  } //end getOneGoal
 } //class end

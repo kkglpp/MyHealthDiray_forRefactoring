@@ -61,7 +61,6 @@ sf_name
 // 2.폴더 지우는 기능
 
   Future<bool> deleteSportFolder(int id) async {
-
     final Database db = await initializeTable();
 
     try {
@@ -89,7 +88,6 @@ sf_name
 
 // 4.폴더명 바꾸는 기능
   Future<bool> updateSportFolder(int id, String name) async {
-
     final Database db = await initializeTable();
     try {
       await db.rawUpdate(_updateFolderName, [name, id]);
