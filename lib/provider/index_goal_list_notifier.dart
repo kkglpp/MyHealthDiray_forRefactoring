@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/datasource/health_index_goal_table.dart';
 
-import '../../datasource/health_index_goal_table_data_impl.dart';
+import '../datasource/health_index_goal_table_impl.dart';
 import '../../model/health_index_goal_model.dart';
 
 
@@ -16,14 +17,14 @@ class IndexGoalListNotifier extends StateNotifier<List<HealthIndexGoalModel>> {
 
   /// db에서 값 새로 불러오기.
   initializeState() async {
-    HealthIndexGoalTableDataImpl dbhandler = HealthIndexGoalTableDataImpl();
+    HealthIndexGoalData dbhandler = HealthIndexGoalTableImpl();
     List<HealthIndexGoalModel> result = await dbhandler.getGoalList();
     state = List.from(result);
   }
 
   /// Goal 하나 삭제하는 함수
   deleteGoal(int id) async {
-    HealthIndexGoalTableDataImpl handler = HealthIndexGoalTableDataImpl();
+    HealthIndexGoalData handler = HealthIndexGoalTableImpl();
     await handler.deleteGoal(id);
     initializeState();
   }

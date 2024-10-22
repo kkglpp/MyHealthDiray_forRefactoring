@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/datasource/health_index_goal_table.dart';
 
-import '../../datasource/health_index_goal_table_data_impl.dart';
+import '../datasource/health_index_goal_table_impl.dart';
 import '../../model/health_index_goal_model.dart';
 import '../../common/const/basic_method.dart';
 
@@ -38,7 +39,7 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
   );
 
     initForDetail(int id)async{
-    HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
+    HealthIndexGoalData db = HealthIndexGoalTableImpl();
     
     HealthIndexGoalModel? temp = await db.getGoal(id);
     if(temp==null){
@@ -77,7 +78,7 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
   Future<bool> insertHealthGoal() async {
     // print(state!.toMap().toString());
     // return false;
-    HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
+    HealthIndexGoalData db = HealthIndexGoalTableImpl();
     try{
     bool result = await db.insertGoal(state!);
     return result;
@@ -87,7 +88,7 @@ class IndexGoalNotifier extends StateNotifier<HealthIndexGoalModel?> {
     }
   }
  Future<bool> updateSuccess(bool success) async {
-    HealthIndexGoalTableDataImpl db = HealthIndexGoalTableDataImpl();
+    HealthIndexGoalData db = HealthIndexGoalTableImpl();
     bool result = false;
     if (success) {
       result = await db.goalSuccess(state!.hgId!, onlyDay(DateTime.now()));

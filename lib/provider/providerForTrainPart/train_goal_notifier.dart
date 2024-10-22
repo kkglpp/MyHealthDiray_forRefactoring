@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/model/training_goal_model.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
-import '../../datasource/training_goal_table_data_impl.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
+import '../../datasource/training_goal_table_impl.dart';
 import '../../common/const/basic_method.dart';
 
 //ID값이 0 이면 insert를 위한것.
@@ -29,7 +29,8 @@ final addTrainGoalProvier =
 });
 
 final trainGoalProvider =
-    StateNotifierProviderFamily<TrainGoalNotifier, TrainingGoalModel, int >((ref, goalID) {
+    StateNotifierProviderFamily<TrainGoalNotifier, TrainingGoalModel, int>(
+        (ref, goalID) {
   TrainingGoalModel sampleModel = TrainingGoalModel(
     tgId: goalID,
     tgSId: 0,

@@ -1,7 +1,7 @@
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../datasource/training_plan_table_data_impl.dart';
+import '../../datasource/training_plan_table_impl.dart';
 import '../../model/training_plan_model.dart';
 import '../../common/const/basic_method.dart';
 
@@ -41,9 +41,8 @@ class TrainPlanAddNewSportNotifier extends _$TrainPlanAddNewSportNotifier {
     //title을 셋팅한다.
     title = ref.read(titleProvider.notifier).state;
     //날짜를 셋팅한다.
-    trainDate = onlyDay(ref.read(selectedDayProvider.notifier).state);    
+    trainDate = onlyDay(ref.read(selectedDayProvider.notifier).state);
     TrainingPlanTableDataImpl db = TrainingPlanTableDataImpl();
-    print( "1_ $sportID 2_ $title 3_ $trainDate"     );
 
     return List.from(await db.getDaysEachSportPlan(title, sportID, trainDate));
   }

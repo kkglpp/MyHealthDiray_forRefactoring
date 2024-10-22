@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../datasource/sport_table_data_impl.dart';
+import '../../datasource/sport_table_impl.dart';
 import '../../model/sport_model.dart';
 
 final stateForNewSportProvider =

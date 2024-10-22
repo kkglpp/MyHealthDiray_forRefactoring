@@ -10,13 +10,14 @@ Sport 테이블에서 데이터를 CRUD 하기위한 기능들이 있어야함.
 
  */
 
+import 'package:myhealthdiary_app/datasource/sport_table.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../model/sport_model.dart';
 import '../common/const/basic_method.dart';
 
-class SportTableImpl {
+class SportTableImpl implements SportTable {
   final String _createSportStr = '''CREATE TABLE sport(
       sport_id INTEGER PRIMARY KEY AUTOINCREMENT,
       sport_name TEXT,
@@ -27,14 +28,14 @@ class SportTableImpl {
       );''';
 
   final String _insertSportStr = '''
-INSERT INTO sport(
-sport_name,
-sport_metric1,
-sport_metric2,
-sport_description,
-sport_del
-) VALUES (?,?,?,?,?)
-''';
+      INSERT INTO sport(
+      sport_name,
+      sport_metric1,
+      sport_metric2,
+      sport_description,
+      sport_del
+      ) VALUES (?,?,?,?,?)
+      ''';
   final String _getSportListStr =
       "SELECT * FROM sport WHERE sport_del IS NOT 1";
   // final String _getSportmapStr =
@@ -58,6 +59,7 @@ sport_del
 // 0. db열기
 
 // 0. db를 여는 함수.
+  @override
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
     return openDatabase(
@@ -70,6 +72,7 @@ sport_del
   }
 
 // 1. 종목 추가하기
+  @override
   Future<bool> insertSport(SportModel sport) async {
     final Database db = await initializeTable();
     try {
@@ -88,6 +91,7 @@ sport_del
 
 // 2. 종목 리스트 가져오기
 
+  @override
   Future<List<SportModel>> getSportList() async {
     final Database db = await initializeTable();
     try {
@@ -101,6 +105,7 @@ sport_del
 
   //2.1 종목을 map으로 가져오기
 
+  @override
   Future<Map<int, String>> getSportMap() async {
     final Database db = await initializeTable();
     List<Map<String, dynamic>> result;
@@ -121,6 +126,7 @@ sport_del
   }
 
   //Metric1 가져오기
+  @override
   Future<Map<int, String>> getMetric1Map() async {
     final Database db = await initializeTable();
     List<Map<String, dynamic>> result;
@@ -141,6 +147,7 @@ sport_del
   }
 
   //Metric2 가져오기
+  @override
   Future<Map<int, String>> getMetric2Map() async {
     final Database db = await initializeTable();
     List<Map<String, dynamic>> result;
@@ -200,6 +207,7 @@ sport_del
 
 // 3. 종목 삭제하기
 
+  @override
   Future<bool> deleteSport(int id) async {
     final Database db = await initializeTable();
     try {
@@ -211,6 +219,7 @@ sport_del
   }
 
 // 4. 한종목의 정보 가져오기
+  @override
   Future<SportModel?> getSport(int id) async {
     final Database db = await initializeTable();
     try {
@@ -222,6 +231,7 @@ sport_del
   }
 // 5. 종목 설명 수정하기. (Description)
 
+  @override
   Future<bool> updateSport(String description, int id) async {
     final Database db = await initializeTable();
 

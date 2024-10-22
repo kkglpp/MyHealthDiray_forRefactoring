@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_list_notifier.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../provider/constProvider/collection_of_basic_state_provider.dart';
+import '../../provider/constProvider/constStateProvider.dart';
 
 class PlanListCarlendarPart extends ConsumerWidget {
   final double maxWidth;

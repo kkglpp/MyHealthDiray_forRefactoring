@@ -5,12 +5,13 @@
 //2. row를 삭제하는 기능 : sf_id와 s_id를 받아서 둘다 이리하는 row를 지운다.
 //3. 폴더명별로 조회하는 기능 : sf_id를 받아와서 해당 폴더에 들어있는 모든 ss_sport_id와 ss_sport_name을 가져온다.
 
+import 'package:myhealthdiary_app/datasource/sport_sort_table.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../model/sorted_sport_model.dart';
 import '../common/const/basic_method.dart';
 
-class SortSportTableDataImpl {
+class SortSportTableImpl extends SportSortTable {
   final String _createSortSportStr = '''CREATE TABLE sort_sport(
       ss_sf_id INTEGER,
       ss_sport_id INTEGER,
@@ -46,6 +47,7 @@ WHERE ss_sf_id=?
 
 //0. db 시작하는 기능
 
+  @override
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
     return openDatabase(
@@ -57,6 +59,7 @@ WHERE ss_sf_id=?
   }
 
 //1. 다수의 row를 추가하는 기능 : 다수의 sf_id 와 s_id, s_name을 받아서 넣는다.
+  @override
   Future<bool> insertRow(SortSportModel row) async {
     final Database db = await initializeTable();
     try {
@@ -67,6 +70,7 @@ WHERE ss_sf_id=?
     return true;
   }
 
+  @override
   Future<bool> insertRows(List<SortSportModel> rowList) async {
     final Database db = await initializeTable();
     try {
@@ -80,7 +84,8 @@ WHERE ss_sf_id=?
   }
 
 //2. row를 삭제하는 기능 : sf_id와 s_id를 받아서 둘다 이리하는 row를 지운다.
-  Future<bool> deleterow(int folderID, int sportID) async {
+  @override
+  Future<bool> deleteRow(int folderID, int sportID) async {
     final Database db = await initializeTable();
     try {
       await db.rawDelete(_deleteRowStr, [folderID, sportID]);
@@ -91,6 +96,7 @@ WHERE ss_sf_id=?
   }
 
 //3. 폴더명별로 조회
+  @override
   Future<List<SortSportModel>> getListSortedSport(int folderID) async {
     final Database db = await initializeTable();
     try {
@@ -103,6 +109,7 @@ WHERE ss_sf_id=?
   }
 
   //4. SportID가 일치하는 모든 row 삭제하기. 전체종목에서 지울떄 같이 해야한다.
+  @override
   Future<bool> deleteAllRowFromSportID(int sportID) async {
     final Database db = await initializeTable();
     try {
@@ -111,5 +118,7 @@ WHERE ss_sf_id=?
       return false;
     }
     return true;
-  } //end deletallrowFrom
+  }
+  
+
 }

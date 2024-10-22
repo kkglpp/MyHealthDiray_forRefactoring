@@ -9,7 +9,7 @@ import 'package:myhealthdiary_app/view/trainPlanPart/plan_list_box_part.dart';
 import 'package:myhealthdiary_app/view/trainPlanPart/plan_list_carlendar_part.dart';
 
 
-import '../../provider/constProvider/collection_of_basic_state_provider.dart';
+import '../../provider/constProvider/constStateProvider.dart';
 
 class TrainPlanListView extends ConsumerWidget {
   static String routeForTrainPlanListView = "routeForTrainPlanListView";

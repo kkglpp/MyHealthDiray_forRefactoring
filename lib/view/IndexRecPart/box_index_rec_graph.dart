@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/alert_manager/painter_manage/line_graph_for_indexes.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/component/widget_empty_card.dart';
-import 'package:myhealthdiary_app/managerClass/painter_manage/line_graph_for_indexes.dart';
-import 'package:myhealthdiary_app/provider/acuu_record_index_notifier.dart';
+import 'package:myhealthdiary_app/provider/accu_record_index_notifier.dart';
 
 class BoxIndexRecGraph extends ConsumerWidget {
   ///insert 인지 Detail 인지 구분하는곳.

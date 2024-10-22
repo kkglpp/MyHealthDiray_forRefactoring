@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myhealthdiary_app/alert_manager/double_value_alert_manager.dart';
+import 'package:myhealthdiary_app/alert_manager/pick_date_method.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
@@ -10,13 +12,11 @@ import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_txt_btn.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
-import 'package:myhealthdiary_app/managerClass/double_value_alert_manager.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_list_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_notifier.dart';
 
-import '../../managerClass/pick_date_method.dart';
 
 class TrainGoalInsertView extends ConsumerWidget {
   static String routeForTrainGoalInertView = "routeForTrainGoalInertView";

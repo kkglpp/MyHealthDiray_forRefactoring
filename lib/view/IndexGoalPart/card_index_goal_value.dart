@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/alert_manager/double_value_alert_manager.dart';
+import 'package:myhealthdiary_app/alert_manager/pick_date_method.dart';
 import '../../common/const/basic_method.dart';
 import '../../common/component/widget_custom_text_box.dart';
-import '../../managerClass/double_value_alert_manager.dart';
-import '../../managerClass/pick_date_method.dart';
+
 
 //  IndexGoalInsertView Widget에서 사용하는 카드이다.
 //  opt에 따라서 DetailView 에서도 재탕하자.

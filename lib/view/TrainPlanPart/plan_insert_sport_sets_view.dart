@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myhealthdiary_app/alert_manager/double_value_alert_manager.dart';
 import 'package:myhealthdiary_app/model/training_plan_model.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
@@ -11,8 +12,7 @@ import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/component/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
-import 'package:myhealthdiary_app/managerClass/double_value_alert_manager.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_add_new_sport_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_daily_notifier.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import '../common/component/widget_custom_text_box.dart';
 import 'widget_for_dvalert_manager.dart';
 

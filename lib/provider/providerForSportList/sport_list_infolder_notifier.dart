@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../datasource/sport_sort_table_data_impl.dart';
-import '../../datasource/sport_table_data_impl.dart';
+import '../../datasource/sport_sort_table_impl.dart';
+import '../../datasource/sport_table_impl.dart';
 import '../../model/sorted_sport_model.dart';
 import '../../model/sport_model.dart';
 
@@ -31,14 +31,12 @@ final tempStateProviderForEditFolder = StateNotifierProviderFamily<SportListInFo
   return notifier;
 });
 
-
-
 class SportListInFolderNotifier extends StateNotifier <List<SortSportModel>>{
   SportListInFolderNotifier(super.state);
   int folderId =0;
 
   getSportInFolder()async{
-    SortSportTableDataImpl db = SortSportTableDataImpl();
+    SortSportTableImpl db = SortSportTableImpl();
     List<SortSportModel> temp = await db.getListSortedSport(folderId);
     state = temp;
   }
@@ -72,7 +70,6 @@ resetTempState(){
   state = [];
 }
 
-
 removeSportFromTempFolder(SortSportModel model) async {
     List<SortSportModel> tempList = List.from(state);
     tempList.removeWhere((exist) => exist.sportId == model.sportId);
@@ -80,7 +77,7 @@ removeSportFromTempFolder(SortSportModel model) async {
 }
 
 insertListIntoTable()async{
-  SortSportTableDataImpl db = SortSportTableDataImpl();
+  SortSportTableImpl db = SortSportTableImpl();
   bool rs = await db.insertRows(state);
   return rs;
 }

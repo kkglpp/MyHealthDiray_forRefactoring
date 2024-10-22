@@ -6,13 +6,14 @@
 // 3.폴더 리스트를 가져오는 기능
 // 4.폴더명 바꾸는 기능
 
+import 'package:myhealthdiary_app/datasource/sport_folder_table.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../model/sport_folder_model.dart';
 import '../common/const/basic_method.dart';
 
-class SportFolderTableDataImpl {
+class SportFolderTableImpl implements SportFolderTable {
   //db 시작 구문
   final String _createSportFolder = '''CREATE TABLE sport_folder(
       sf_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -31,6 +32,7 @@ sf_name
 
 // 0.db 시작 하는기능
 
+  @override
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
     return openDatabase(
@@ -43,6 +45,7 @@ sf_name
 
 // 1.폴더 추가기능
 // String 하나만 가져와서 해도 되지만, 나중에 어떤 Column을 추가할지 모르니 일단 모델로 작업.
+  @override
   Future<bool> insertSportFolder(SportFolderModel folder) async {
     final Database db = await initializeTable();
 
@@ -60,6 +63,7 @@ sf_name
 
 // 2.폴더 지우는 기능
 
+  @override
   Future<bool> deleteSportFolder(int id) async {
     final Database db = await initializeTable();
 
@@ -74,6 +78,7 @@ sf_name
   }
 // 3.폴더 리스트를 가져오는 기능
 
+  @override
   Future<List<SportFolderModel>> getSportFolder() async {
     final Database db = await initializeTable();
     try {
@@ -87,6 +92,7 @@ sf_name
   }
 
 // 4.폴더명 바꾸는 기능
+  @override
   Future<bool> updateSportFolder(int id, String name) async {
     final Database db = await initializeTable();
     try {

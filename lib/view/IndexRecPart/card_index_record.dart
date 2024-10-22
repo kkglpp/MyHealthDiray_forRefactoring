@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/alert_manager/double_value_alert_manager.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 
 import '../../common/component/widget_custom_text_box.dart';
-import '../../managerClass/double_value_alert_manager.dart';
 
 class CardIndexRecord extends ConsumerWidget {
   /// 지표 이름. 왼쪽 상자 텍스트

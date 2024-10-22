@@ -1,7 +1,7 @@
 //달력에 계획들을 보여주기 위한 Provider
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../datasource/training_plan_table_data_impl.dart';
+import '../../datasource/training_plan_table_impl.dart';
 
 final trainPlanListProvider =
     StateNotifierProvider<TrainPlanListNotifier, Map<DateTime, List<String>>>((ref) {

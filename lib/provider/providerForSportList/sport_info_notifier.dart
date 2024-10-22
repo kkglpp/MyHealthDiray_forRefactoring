@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../datasource/sport_table_data_impl.dart';
+import '../../datasource/sport_table_impl.dart';
 import '../../model/mapped_sport_model.dart';
 
 
@@ -20,7 +20,6 @@ final sportInfoProvider =
 class SportMapStateNotifer extends StateNotifier< MappedSportModel> {
   final int sportID;
   SportMapStateNotifer(super.state, this.sportID);
-
 
   initState() async {
     SportTableImpl db = SportTableImpl();

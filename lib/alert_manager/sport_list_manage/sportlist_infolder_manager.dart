@@ -6,7 +6,7 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_list_infolder_notifier.dart';
-import '../../datasource/sport_sort_table_data_impl.dart';
+import '../../datasource/sport_sort_table_impl.dart';
 
 
 class SportListInFolderManager {
@@ -74,8 +74,8 @@ class SportListInFolderManager {
 // 하나쯤은..뭐....
 //만약 옮긴다면 SortFolderNOtifier 쪽에서 하면 될듯.
   Future<bool> deleteFromFolder(int folderID, int sportID) async {
-    SortSportTableDataImpl db = SortSportTableDataImpl();
-    bool rs = await db.deleterow(folderID, sportID);
+    SortSportTableImpl db = SortSportTableImpl();
+    bool rs = await db.deleteRow(folderID, sportID);
     return rs;
   }
 } //end class

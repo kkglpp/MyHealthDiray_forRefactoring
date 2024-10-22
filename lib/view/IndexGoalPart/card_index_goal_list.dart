@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import 'package:myhealthdiary_app/provider/index_goal_list_notifier.dart';
 import '../../model/health_index_goal_model.dart';
 import '../../common/component/widget_custom_text_box.dart';

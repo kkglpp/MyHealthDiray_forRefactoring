@@ -23,13 +23,14 @@ TrainingGoal 테이블에 훈련 목표들을 CRUD 하는 기능들이 있어야
 
  */
 
+import 'package:myhealthdiary_app/datasource/training_goal_table.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../model/training_goal_model.dart';
 import '../common/const/basic_method.dart';
 
-class TrainingGoalTableDataImpl {
+class TrainingGoalTableDataImpl implements TrainingGoalTableData {
 //0. db열기
 
   final String _createTraingGoal = '''CREATE TABLE training_goal(
@@ -142,6 +143,7 @@ WHERE tg_id = ?
   //   Database db.close();
   // }
 
+  @override
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
     return openDatabase(
@@ -154,6 +156,7 @@ WHERE tg_id = ?
 
 // 1. goal 목표 추가하는 기능 :
 
+  @override
   Future<bool> insertTrainGoal(TrainingGoalModel goal) async {
     final Database db = await initializeTable();
     try {
@@ -169,6 +172,7 @@ WHERE tg_id = ?
 
 // ** 종목 구분 없이 조건에 만족하는 기능들 다가져오기
 //     2. 달성중인 목표들 가져오는 기능
+  @override
   Future<List<TrainingGoalModel>> getGoalList(int amount) async {
     final Database db = await initializeTable();
     try {
@@ -181,6 +185,7 @@ WHERE tg_id = ?
   }
 
 //     3. 우선순위 설정된 목표들만 가져오는 기능
+  @override
   Future<List<TrainingGoalModel>> getProPriorityGoals() async {
     final Database db = await initializeTable();
 
@@ -194,6 +199,7 @@ WHERE tg_id = ?
   }
 
 //     4. 성공한 목표들 가저오는 기능
+  @override
   Future<List<TrainingGoalModel>> getSuccessGoals(int amount) async {
     final Database db = await initializeTable();
     try {
@@ -206,6 +212,7 @@ WHERE tg_id = ?
   }
 
 //     5. 실패한 목표들 가져오는 기능
+  @override
   Future<List<TrainingGoalModel>> getFailedGoals(int amount) async {
     final Database db = await initializeTable();
     try {
@@ -218,6 +225,7 @@ WHERE tg_id = ?
   }
 
 //     6. duedate 가 지난 목표들 가져오는 기능
+  @override
   Future<List<TrainingGoalModel>> getPastGoals() async {
     final Database db = await initializeTable();
     try {
@@ -231,6 +239,7 @@ WHERE tg_id = ?
 
 // ** Sid를 받아서 해당 종목의 모든 목표들을 가져오는 기능들
 //     7. 종목 특정  달성중인 목표들 가져오는 기능
+  @override
   Future<List<TrainingGoalModel>> getProGoalListBySid(int sportID) async {
     final Database db = await initializeTable();
     try {
@@ -243,6 +252,7 @@ WHERE tg_id = ?
   }
 
 //     8. 종목 특정 성공한 목표들 가저오는 기능
+  @override
   Future<List<TrainingGoalModel>> getSuccessGoalsBySid(int sportID) async {
     final Database db = await initializeTable();
     try {
@@ -256,6 +266,7 @@ WHERE tg_id = ?
 
 //     9. 종목특정 실패한 목표들 가져오는 기능
 
+  @override
   Future<List<TrainingGoalModel>> getFailedGoalsBySid(int sportID) async {
     final Database db = await initializeTable();
     try {
@@ -268,6 +279,7 @@ WHERE tg_id = ?
   }
 
 //     10. duedate 가 지난 목표들 가져오는 기능
+  @override
   Future<List<TrainingGoalModel>> getPastGoalsBySid(int sportID) async {
     final Database db = await initializeTable();
     try {
@@ -281,6 +293,7 @@ WHERE tg_id = ?
 // **
 // 11. 목표 삭제하기
 
+  @override
   Future<bool> deleteTrainGoal(int goalID) async {
     int result = 0;
     Database db = await initializeTable();
@@ -293,6 +306,7 @@ WHERE tg_id = ?
   }
 
 // 12. 우선순위 바꾸기. (상단 고정하기.)
+  @override
   Future<bool> updatePriority(int threshold, int newPriority, int id) async {
     Database db = await initializeTable();
     int result = 0;
@@ -312,6 +326,7 @@ WHERE tg_id = ?
   }
 
 // 13. 성공여부를 성공으로 바꾸기
+  @override
   Future<bool> updateSuccess(int goalID) async {
     final Database db = await initializeTable();
     try {
@@ -323,6 +338,7 @@ WHERE tg_id = ?
   }
 
 // 14. 성공여부를 실패로 바꾸기
+  @override
   Future<bool> updateFail(int goalID) async {
     final Database db = await initializeTable();
     try {
@@ -335,6 +351,7 @@ WHERE tg_id = ?
 
   //15. 목표 하나 가져오기.
 
+  @override
   Future<TrainingGoalModel?> getOneGoal(int goalID) async {
     final Database db = await initializeTable();
     try {

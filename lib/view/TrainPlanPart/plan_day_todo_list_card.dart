@@ -6,7 +6,7 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 
 
 import 'package:myhealthdiary_app/model/training_plan_model.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/view/trainPlanPart/plan_insert_sport_sets_view.dart';
 import 'package:myhealthdiary_app/view/trainRecPart/train_start_view.dart';

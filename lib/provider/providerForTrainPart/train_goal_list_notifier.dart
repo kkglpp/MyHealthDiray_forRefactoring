@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/model/training_goal_model.dart';
 
-import '../../datasource/training_goal_table_data_impl.dart';
+import '../../datasource/training_goal_table_impl.dart';
 
 final trainingGoalListPageProvider =
     StateNotifierProvider<TrainGoalListNotifier, List<TrainingGoalModel>>(
@@ -12,14 +12,13 @@ final trainingGoalListPageProvider =
   },
 );
 
-
 class TrainGoalListNotifier extends StateNotifier<List<TrainingGoalModel>> {
   TrainGoalListNotifier(super.state);
   int amount = 10;
 
-  List<TrainingGoalModel> successList =[];
-  List<TrainingGoalModel> failList=[];
-  List<TrainingGoalModel> progressList=[];
+  List<TrainingGoalModel> successList = [];
+  List<TrainingGoalModel> failList = [];
+  List<TrainingGoalModel> progressList = [];
 
 // 상태 새로고침
 // 성공 / 실패/ 진행중인 목표 리스트를 각각만들어서 관리한다.
@@ -31,7 +30,7 @@ class TrainGoalListNotifier extends StateNotifier<List<TrainingGoalModel>> {
     // print("list 가져오기?${progressList.length} ");
   }
 
-  initiateState() async{
+  initiateState() async {
     await setState();
     showProgressList();
   }
@@ -41,21 +40,22 @@ class TrainGoalListNotifier extends StateNotifier<List<TrainingGoalModel>> {
     initiateState();
   }
 
-  moreList() async{
-    amount+=10;
+  moreList() async {
+    amount += 10;
     setState();
   }
 
-  showSuccessList(){
+  showSuccessList() {
     state = successList;
   }
-  showFailList(){
+
+  showFailList() {
     state = failList;
   }
-  showProgressList(){
+
+  showProgressList() {
     state = progressList;
   }
-
 
 // 임박한 순서로 내림차순/오름차순 정리
   sortForASC() {
@@ -77,5 +77,4 @@ class TrainGoalListNotifier extends StateNotifier<List<TrainingGoalModel>> {
     });
     state = tempList;
   }
-
 }//end class

@@ -6,7 +6,7 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_txt_btn.dart';
 import 'package:myhealthdiary_app/common/component/widget_empty_card.dart';
-import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/constStateProvider.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_list_notifier.dart';
 import 'package:myhealthdiary_app/view/TrainGoalPart/card_for_goal_list.dart';
 import 'package:myhealthdiary_app/view/sportListPart/sport_list_view.dart';

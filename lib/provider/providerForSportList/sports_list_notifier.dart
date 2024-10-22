@@ -1,18 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../datasource/sport_sort_table_data_impl.dart';
-import '../../datasource/sport_table_data_impl.dart';
+import '../../datasource/sport_sort_table_impl.dart';
+import '../../datasource/sport_table_impl.dart';
 import '../../model/sport_model.dart';
 
-final wholeListStateProvider = StateNotifierProvider<SportListStateNotifier,List<SportModel>>((ref) {
+final wholeListStateProvider =
+    StateNotifierProvider<SportListStateNotifier, List<SportModel>>((ref) {
   SportListStateNotifier notifier = SportListStateNotifier([]);
   notifier.setWholeList();
   return notifier;
 });
 
-
-
-class SportListStateNotifier extends StateNotifier <List<SportModel>>{
+class SportListStateNotifier extends StateNotifier<List<SportModel>> {
   SportListStateNotifier(super.state);
 
   setWholeList() async {
@@ -21,21 +20,19 @@ class SportListStateNotifier extends StateNotifier <List<SportModel>>{
     state = temp;
   }
 
-  deleteSport(int sportID)async{
+  deleteSport(int sportID) async {
     SportTableImpl db = SportTableImpl();
-    SortSportTableDataImpl db2 = SortSportTableDataImpl();
+    SortSportTableImpl db2 = SortSportTableImpl();
     bool rs = await db.deleteSport(sportID);
-    if (rs == false){
+    if (rs == false) {
       return false;
     }
     rs = await db2.deleteAllRowFromSportID(sportID);
 
-   if (rs == false){
+    if (rs == false) {
       return false;
     }
-    
+
     return true;
   }
-
-
 }

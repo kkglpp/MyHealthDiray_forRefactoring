@@ -29,13 +29,14 @@ TrainingPlan 운동 계획을 CRUD 하는 기능들이 있어야함
 
 */
 
+import 'package:myhealthdiary_app/datasource/training_plan_table.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../model/training_plan_model.dart';
 import '../common/const/basic_method.dart';
 
-class TrainingPlanTableDataImpl {
+class TrainingPlanTableDataImpl implements TrainingPlanTableData{
 // 0. db여는 기능
   final String _createTraingPlanStr = '''CREATE TABLE training_plan(
       tp_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -152,6 +153,7 @@ final String _getTitlesPerdayForPeriod = '''
 /* Method */
 
 /// 0. db여는 기능
+  @override
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
     return openDatabase(
@@ -166,6 +168,7 @@ final String _getTitlesPerdayForPeriod = '''
 
 //insert
 /// 1. 여러 row를 한번에 입력하는 기능
+  @override
   Future<bool> insertMultipleTrainingPlans(
       List<TrainingPlanModel> plans) async {
     final Database db = await initializeTable();
@@ -208,6 +211,7 @@ final String _getTitlesPerdayForPeriod = '''
   // }
 
 /// 3. done을 Update하는 기능
+  @override
   Future<bool> updateDone(int done, int id) async {
     Database db = await initializeTable();
     int result = 0;
@@ -244,6 +248,7 @@ final String _getTitlesPerdayForPeriod = '''
   ///5. 타이틀과 날짜 가지고 그날 운동 계획 종목들을 가져와야한다.
   /// {title, s_id, traindate, 총 세트수, 수행 완료한 세트수} 형태로 데이터를 반환한다.
   /// 넣어줄 값은 title, traindate 두가지 이다.
+  @override
   Future<List<PlanListOfPlanSet>> getDaysPlanSportList(
       String title, String date) async {
     Database db = await initializeTable();
@@ -260,6 +265,7 @@ final String _getTitlesPerdayForPeriod = '''
 
   /// 6. 5에서 가져온 정보에서 각 s_id 들을 통해서 가져올 수 있어야한다.
   /// 즉 해당 날짜, 해당 타이틀의 해당 종목 운동 계획의 모든 세트 수를 가져오는 구문
+  @override
   Future<List<TrainingPlanModel>> getDaysEachSportPlan(String title,
       int sportID, String date) async {
     Database db = await initializeTable();
@@ -274,6 +280,7 @@ final String _getTitlesPerdayForPeriod = '''
 
 //DELETE
   /// 7. 한 row를 삭제하는 기능 (trainingPlan ID)
+  @override
   Future<bool> deleteOnePlan(int id) async {
     Database db = await initializeTable();
     int result = 0;
@@ -287,6 +294,7 @@ final String _getTitlesPerdayForPeriod = '''
   }
 
   /// 8. 제목과 날짜를 받아서 해당 row 삭제하는 기능
+  @override
   Future<bool> deleteDayPlan(String title, String date) async {
     Database db = await initializeTable();
     int result = 0;
@@ -300,6 +308,7 @@ final String _getTitlesPerdayForPeriod = '''
   }
 
   /// 9.제목과 날짜와 종목을 받아서 삭제하는 기능
+  @override
   Future<bool> deleteDaySpecificSport(
       String title, String date, int sportID) async {
     Database db = await initializeTable();
@@ -314,6 +323,7 @@ final String _getTitlesPerdayForPeriod = '''
     return result >0;
   }
 
+  @override
   Future<List<Map<String, dynamic>>> getTrainingListEachDay() async {
     Database db = await initializeTable();
     try{
@@ -324,6 +334,7 @@ final String _getTitlesPerdayForPeriod = '''
     }
   }
 
+  @override
   Future<List<Map<String,dynamic>>> getTitlesPerdayForPeriod() async {
       Database db = await initializeTable();
       String yesterday = onlyDay(DateTime.now().subtract(const Duration(days: 1)));

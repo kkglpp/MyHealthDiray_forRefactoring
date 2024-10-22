@@ -11,13 +11,14 @@ HI Goal Table에 데이터를 CRUD하는 기능들이 있어야함.
 5. healthIndex goal을 삭제하는 함수.
 */
 
+import 'package:myhealthdiary_app/datasource/health_index_goal_table.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../model/health_index_goal_model.dart';
 import '../common/const/basic_method.dart';
 
-class HealthIndexGoalTableDataImpl {
+class HealthIndexGoalTableImpl implements HealthIndexGoalData {
   /*   SQL 구문들 정리 */
 //0. db가 없을때 만드는 구문.
   final String _createHIgoal = '''CREATE TABLE hi_goal(
@@ -96,6 +97,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
 
 /* Method */
 // 0. db를 여는 함수.
+  @override
   Future<Database> initializeTable() async {
     String path = await getDatabasesPath();
     return openDatabase(join(path, 'HealthLife.db'),
@@ -105,6 +107,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   }
 
 // 1. healthIndex goal 리스트를 가져오는 함수
+  @override
   Future<List<HealthIndexGoalModel>> getGoalList() async {
     final Database db = await initializeTable();
     try {
@@ -119,6 +122,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   }
 
 // 2. healthIndex goal 1개를 가져오는 함수
+  @override
   Future<HealthIndexGoalModel?> getGoal(int id) async {
     final Database db = await initializeTable();
     try {
@@ -133,6 +137,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   }
 
 // 3. healthIndex goal을 새로 입력하는 함수
+  @override
   Future<bool> insertGoal(HealthIndexGoalModel goal) async {
     final Database db = await initializeTable();
 
@@ -155,6 +160,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
 //   - success 여부 변경 + successdate 입력
 
 //4.1 duedate 변경함수
+  @override
   Future<bool> updateDuedate(int id, String newDate) async {
     final Database db = await initializeTable();
 
@@ -168,6 +174,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   } //duedate 변경함수 끝 (updateDuedate)
 
 //4.2 우선목표 변경 함수
+  @override
   Future<bool> updatePriority(int id) async {
     final Database db = await initializeTable();
     try {
@@ -186,6 +193,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   }
 
   //4.3 success 여부 및 successdate 변경 함수
+  @override
   Future<bool> goalSuccess(int id, String date) async {
     final Database db = await initializeTable();
 
@@ -198,6 +206,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   }
 
   //4.3 success 여부 및 successdate 변경 함수
+  @override
   Future<bool> failSuccess(int id, String date) async {
     final Database db = await initializeTable();
     try {
@@ -209,7 +218,7 @@ VALUES (?,?,?,?,?,?,?,?,?)
   }
 
 // 5. healthIndex goal을 삭제하는 함수.
-
+  @override
   Future<bool> deleteGoal(int id) async {
     final Database db = await initializeTable();
     try {
@@ -217,7 +226,6 @@ VALUES (?,?,?,?,?,?,?,?,?)
     } catch (e) {
       return false;
     }
-
     return true;
   }
 }
