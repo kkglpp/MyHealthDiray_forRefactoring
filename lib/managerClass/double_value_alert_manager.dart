@@ -5,7 +5,7 @@ import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
 
 
-import '../provider/providerForShared/collection_of_basic_state_provider.dart';
+import '../common/provider/providerForShared/collection_of_basic_state_provider.dart';
 import '../common/widget/widget_custom_text_box.dart';
 import 'widget_for_dvalert_manager.dart';
 

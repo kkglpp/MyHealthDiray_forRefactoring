@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'Archive/makedb_impl.dart';
-import 'provider/navigationRoute.dart/navigation_provider.dart';
+import 'common/provider/navigationRoute.dart/navigation_provider.dart';
 
 Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized(); 

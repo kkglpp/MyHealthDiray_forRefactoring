@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
-import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainRecPart/train_rec_home_view.dart';
+import 'package:myhealthdiary_app/index.goal.part/view/index_goal_list_view.dart';
+import 'package:myhealthdiary_app/index.record.part/view/index_rec_list_view.dart';
+import 'package:myhealthdiary_app/train.goal.part/view/train_goal_list_view.dart';
+import 'package:myhealthdiary_app/train.plan.part/view/plan_list_view.dart';
+import 'package:myhealthdiary_app/train.rec.part/view/train_rec_home_view.dart';
 import '../common/widget/widget_custom_text_box.dart';
 import 'btn_for_home.dart';
 
