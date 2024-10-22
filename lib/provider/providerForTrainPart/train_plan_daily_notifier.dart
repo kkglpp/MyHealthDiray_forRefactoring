@@ -1,5 +1,5 @@
 import 'package:myhealthdiary_app/model/training_plan_model.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../datasource/training_plan_table_data_impl.dart';
 import '../../common/const/basic_method.dart';

@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-<<<<<<< HEAD:lib/train.goal.part/view/card_for_goal_list.dart
-import 'package:myhealthdiary_app/model/training_goal_model.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/sport.list.part/provider/sport_info_notifier.dart';
-=======
-import 'package:myhealthdiary_app/baseModel/training_goal_model.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+import 'package:myhealthdiary_app/model/training_goal_model.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
->>>>>>> parent of 6825cc4 (파트별로 폴더 분리.):lib/view/TrainGoalPart/card_for_goal_list.dart
-
 import '../../common/const/colors.dart';
 import '../../common/const/size.dart';
 

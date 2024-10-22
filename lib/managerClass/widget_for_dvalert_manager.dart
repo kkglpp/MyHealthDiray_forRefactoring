@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 
-import '../provider/providerForShared/collection_of_basic_state_provider.dart';
+import '../provider/constProvider/collection_of_basic_state_provider.dart';
 import '../common/const/basic_method.dart';
 import '../common/component/widget_custom_text_box.dart';
 

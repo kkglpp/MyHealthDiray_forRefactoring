@@ -3,6 +3,9 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/view/indexGoalPart/index_goal_list_view.dart';
 import 'package:myhealthdiary_app/view/indexRecPart/index_rec_list_view.dart';
+import 'package:myhealthdiary_app/view/trainGoalPart/train_goal_list_view.dart';
+import 'package:myhealthdiary_app/view/trainPlanPart/plan_list_view.dart';
+import 'package:myhealthdiary_app/view/trainRecPart/train_rec_home_view.dart';
 import '../common/component/widget_custom_text_box.dart';
 import 'btn_for_home.dart';
 

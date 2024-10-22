@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/colors.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/card_index_goal_value.dart';
+import 'package:myhealthdiary_app/view/indexGoalPart/card_index_goal_value.dart';
 
 
 import '../../common/const/basic_method.dart';

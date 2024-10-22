@@ -13,12 +13,7 @@ import 'package:myhealthdiary_app/provider/providerForSportList/sport_list_infol
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_llist_state_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_state_notifier.dart';
 
-
-
 import '../../model/sport_folder_model.dart';
-
-
-
 
 class SportListManager {
   final WidgetRef ref;
@@ -69,7 +64,7 @@ class SportListManager {
     final double exHeight = height * 0.2;
     final double contentHeight = height * 0.7;
     // final double indexHeight = height * 0.1;
-    final double btnHeight = height *0.1;
+    final double btnHeight = height * 0.1;
 
     // 구성요소 크기
     final double indexWidth = width * 0.25;
@@ -293,7 +288,8 @@ class SportListManager {
                   if (rs != 1) {
                     //에러 종류에 따라서 에러처리하려고했는데, 하다보니.. 뭐. 한종류만 처리해도 된다.
                     // return showErrorAlert(true);
-                    return baseAlertForConfirm(context, "문제가 발생하였습니다. \n종목 이름이 누락되었을 수 있습니다.\n 확인후 다시 시도해보세요.");
+                    return baseAlertForConfirm(context,
+                        "문제가 발생하였습니다. \n종목 이름이 누락되었을 수 있습니다.\n 확인후 다시 시도해보세요.");
                   } //에러처리하고
                   await ref
                       .read(stateForNewSportProvider.notifier)
@@ -321,7 +317,8 @@ class SportListManager {
         await ref.read(wholeListStateProvider.notifier).deleteSport(sportID);
     //결과학인
     if (!rs) {
-      return baseAlertForConfirm(context, "문제가 발생하였습니다.\n 이미 지운 데이터 일 수 있습니다.\n app 재실행후 다시 시도해보세요.");
+      return baseAlertForConfirm(
+          context, "문제가 발생하였습니다.\n 이미 지운 데이터 일 수 있습니다.\n app 재실행후 다시 시도해보세요.");
     }
     //전체리스트 새로고침
     ref.read(wholeListStateProvider.notifier).setWholeList();

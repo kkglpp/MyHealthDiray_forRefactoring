@@ -5,30 +5,19 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/const/base_alert.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-<<<<<<< HEAD:lib/train.goal.part/view/train_goal_detail_view.dart
-import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/component/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_icon_btn.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
-import 'package:myhealthdiary_app/sport.list.part/provider/sport_info_notifier.dart';
-import 'package:myhealthdiary_app/train.goal.part/provider/train_goal_list_notifier.dart';
-import 'package:myhealthdiary_app/train.goal.part/provider/train_goal_notifier.dart';
-import '../../common/provider/providerForShared/collection_of_basic_state_provider.dart';
-
-=======
-import 'package:myhealthdiary_app/common/widget/layOut/base_layout.dart';
-import 'package:myhealthdiary_app/common/widget/widget_banner_for_ad.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_icon_btn.dart';
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/common/widget/widget_double_btn.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_list_notifier.dart';
-import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
-import '../../provider/providerForSportList/sport_info_notifier.dart';
-import '../../provider/providerForTrainPart/train_goal_notifier.dart';
->>>>>>> parent of 6825cc4 (파트별로 폴더 분리.):lib/view/TrainGoalPart/train_goal_detail_view.dart
+import 'package:myhealthdiary_app/provider/providerForTrainPart/train_goal_notifier.dart';
+
+
 
 class TrainGoalDetailView extends ConsumerWidget {
   static String routeForTrainGoalDetailView = "routeForTrainGoalDetailView";

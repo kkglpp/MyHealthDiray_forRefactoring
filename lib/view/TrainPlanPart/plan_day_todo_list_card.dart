@@ -1,25 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myhealthdiary_app/common/const/colors.dart';
-import 'package:myhealthdiary_app/common/const/size.dart';
-<<<<<<< HEAD:lib/train.plan.part/view/plan_day_todo_list_card.dart
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/sport.list.part/provider/sport_info_notifier.dart';
-import 'package:myhealthdiary_app/train.plan.part/view/plan_insert_sport_sets_view.dart';
-import 'package:myhealthdiary_app/train.rec.part/view/train_start_view.dart';
+import 'package:myhealthdiary_app/common/const/size.dart';
 
-import '../../model/training_plan_model.dart';
-import '../../common/provider/providerForShared/collection_of_basic_state_provider.dart';
-=======
-import 'package:myhealthdiary_app/common/widget/widget_custom_text_box.dart';
+
+import 'package:myhealthdiary_app/model/training_plan_model.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_insert_sport_sets_view.dart';
-import 'package:myhealthdiary_app/view/TrainRecPart/train_start_view.dart';
+import 'package:myhealthdiary_app/view/trainPlanPart/plan_insert_sport_sets_view.dart';
+import 'package:myhealthdiary_app/view/trainRecPart/train_start_view.dart';
 
-import '../../baseModel/training_plan_model.dart';
-import '../../provider/providerForShared/collection_of_basic_state_provider.dart';
->>>>>>> parent of 6825cc4 (파트별로 폴더 분리.):lib/view/TrainPlanPart/plan_day_todo_list_card.dart
 
 class PlanDayTodoListCard extends ConsumerWidget {
   final PlanListOfPlanSet set;

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
-import 'package:myhealthdiary_app/sport.list.part/provider/sport_list_infolder_notifier.dart';
-
 import '../../managerClass/sport_list_manage/sportlist_infolder_manager.dart';
 import '../../provider/providerForSportList/sport_list_infolder_notifier.dart';
 import 'cell_sport_list.dart';

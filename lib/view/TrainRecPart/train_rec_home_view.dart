@@ -9,7 +9,7 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/layOut/base_layout.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
 import 'package:myhealthdiary_app/view/TrainRecPart/train_show_plan_view.dart';
 

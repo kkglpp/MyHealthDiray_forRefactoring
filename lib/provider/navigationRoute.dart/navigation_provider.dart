@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_detail_view.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_insert_view.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/index_goal_list_view.dart';
-import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_insert_view.dart';
-import 'package:myhealthdiary_app/view/IndexRecPart/index_rec_list_view.dart';
-import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_detail_view.dart';
-import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_insert_view.dart';
-import 'package:myhealthdiary_app/view/TrainGoalPart/train_goal_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_insert_sport_sets_view.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainRecPart/train_rec_home_view.dart';
-import 'package:myhealthdiary_app/view/TrainRecPart/train_show_plan_view.dart';
-import 'package:myhealthdiary_app/view/TrainRecPart/train_start_view.dart';
+import 'package:myhealthdiary_app/view/indexGoalPart/index_goal_detail_view.dart';
+import 'package:myhealthdiary_app/view/indexGoalPart/index_goal_insert_view.dart';
+import 'package:myhealthdiary_app/view/indexGoalPart/index_goal_list_view.dart';
+import 'package:myhealthdiary_app/view/indexRecPart/index_rec_insert_view.dart';
+import 'package:myhealthdiary_app/view/indexRecPart/index_rec_list_view.dart';
+import 'package:myhealthdiary_app/view/sportListPart/sport_list_view.dart';
+import 'package:myhealthdiary_app/view/trainGoalPart/train_goal_detail_view.dart';
+import 'package:myhealthdiary_app/view/trainGoalPart/train_goal_insert_view.dart';
+import 'package:myhealthdiary_app/view/trainGoalPart/train_goal_list_view.dart';
+import 'package:myhealthdiary_app/view/trainPlanPart/plan_insert_sport_sets_view.dart';
+import 'package:myhealthdiary_app/view/trainPlanPart/plan_day_todo_list_view.dart';
+import 'package:myhealthdiary_app/view/trainPlanPart/plan_list_view.dart';
+import 'package:myhealthdiary_app/view/trainRecPart/train_rec_home_view.dart';
+import 'package:myhealthdiary_app/view/trainRecPart/train_show_plan_view.dart';
+import 'package:myhealthdiary_app/view/trainRecPart/train_start_view.dart';
 
 import '../../view/home.dart';
 

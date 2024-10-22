@@ -5,8 +5,8 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sort_folder_state_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_folder_list_state_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_llist_state_notifier.dart';
-import 'package:myhealthdiary_app/view/SportListPart/column_all_sportslist.dart';
-import 'package:myhealthdiary_app/view/SportListPart/column_folder_sportlist.dart';
+import 'package:myhealthdiary_app/view/sportListPart/column_all_sportslist.dart';
+import 'package:myhealthdiary_app/view/sportListPart/column_folder_sportlist.dart';
 
 import '../../model/sport_folder_model.dart';
 import '../../common/component/layOut/base_layout.dart';

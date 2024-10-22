@@ -8,10 +8,10 @@ import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/provider/acuu_record_index_notifier.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/index_record_list_notifier.dart';
 import 'package:myhealthdiary_app/provider/index_record_notifier.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
-import 'package:myhealthdiary_app/view/IndexRecPart/box_index_rec_graph.dart';
+import 'package:myhealthdiary_app/view/indexRecPart/box_index_rec_graph.dart';
 
 import '../../common/const/basic_method.dart';
 import '../../common/component/layOut/base_layout.dart';

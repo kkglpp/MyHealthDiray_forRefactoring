@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myhealthdiary_app/provider/navigationRoute.dart/navigation_provider.dart';
 
 import 'datasource/makedb_impl.dart';
-import 'common/provider/navigationRoute.dart/navigation_provider.dart';
 
 Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized(); 

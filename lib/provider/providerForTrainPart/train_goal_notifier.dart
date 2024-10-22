@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myhealthdiary_app/model/training_goal_model.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import '../../datasource/training_goal_table_data_impl.dart';
 import '../../common/const/basic_method.dart';
 

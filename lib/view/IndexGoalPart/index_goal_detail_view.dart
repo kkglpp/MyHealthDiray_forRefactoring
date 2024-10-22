@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:myhealthdiary_app/common/const/size.dart';
 import 'package:myhealthdiary_app/common/component/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/index_goal_notifier.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
-import 'package:myhealthdiary_app/view/IndexGoalPart/part_for_index_detail_btn.dart';
+import 'package:myhealthdiary_app/view/indexGoalPart/part_for_index_detail_btn.dart';
 
 import '../../common/const/basic_method.dart';
 import '../../common/component/layOut/base_layout.dart';

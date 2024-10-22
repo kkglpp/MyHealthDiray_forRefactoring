@@ -12,7 +12,7 @@ import 'package:myhealthdiary_app/common/component/widget_banner_for_ad.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/managerClass/double_value_alert_manager.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/providerForSportList/sport_info_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_add_new_sport_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_daily_notifier.dart';

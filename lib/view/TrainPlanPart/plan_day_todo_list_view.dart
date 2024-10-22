@@ -12,11 +12,11 @@ import 'package:myhealthdiary_app/common/component/widget_custom_elebtn.dart';
 import 'package:myhealthdiary_app/common/component/widget_custom_text_box.dart';
 import 'package:myhealthdiary_app/common/component/widget_double_btn.dart';
 import 'package:myhealthdiary_app/managerClass/train_plan_manager/train_plan_add_manager.dart';
-import 'package:myhealthdiary_app/provider/providerForShared/collection_of_basic_state_provider.dart';
+import 'package:myhealthdiary_app/provider/constProvider/collection_of_basic_state_provider.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_daily_notifier.dart';
 import 'package:myhealthdiary_app/provider/providerForTrainPart/train_plan_list_notifier.dart';
-import 'package:myhealthdiary_app/view/SportListPart/sport_list_view.dart';
-import 'package:myhealthdiary_app/view/TrainPlanPart/plan_day_todo_list_card.dart';
+import 'package:myhealthdiary_app/view/sportListPart/sport_list_view.dart';
+import 'package:myhealthdiary_app/view/trainPlanPart/plan_day_todo_list_card.dart';
 
 /// 운동 계획을 insert하고 d
 class PlanDayTodoListView extends ConsumerWidget {

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-<<<<<<< HEAD:lib/sport.list.part/view/column_all_sportslist.dart
-import 'package:myhealthdiary_app/sport.list.part/view/cell_sport_list.dart';
+import 'package:myhealthdiary_app/view/sportListPart/cell_sport_list.dart';
 import '../../model/sport_model.dart';
-=======
-import 'package:myhealthdiary_app/view/SportListPart/cell_sport_list.dart';
-import '../../baseModel/sport_model.dart';
->>>>>>> parent of 6825cc4 (파트별로 폴더 분리.):lib/view/SportListPart/column_all_sportslist.dart
 
 class ColumnAllSportsList extends ConsumerWidget {
   final List<SportModel> list;
