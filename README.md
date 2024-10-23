@@ -8,6 +8,8 @@
 - 하지만 계획 변경으로 사진은 갤러리에서 관리하기로 바꾸었습니다. 이에 repository 를 추가해야 됩니다. -- 불필요해 보이는   패턴을 준수하는 것은 유지 보수 및 개선에 굉장히 중요하다.  
 
 
+## 시연 동영상 링크
+   
 
 [![Watch the video](https://img.youtube.com/vi/XFZtYH1DdLQ/0.jpg)](https://youtu.be/XFZtYH1DdLQ)
 
