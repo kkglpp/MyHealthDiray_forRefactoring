@@ -19,20 +19,9 @@
 
 
 
+
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XFZtYH1DdLQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 
 # 프로젝트 개요
